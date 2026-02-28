@@ -7,6 +7,15 @@ import Footer from '../components/Footer';
 import Stats from '../components/Stats';
 import Blog from '../components/Blog';
 
+// Logo Imports
+import autoomLogo from '../assets/logos/autoom.png';
+import bitcoinLogo from '../assets/logos/bitcoin.png';
+import cocoLogo from '../assets/logos/coco.png';
+import cryptoLogo from '../assets/logos/crypto.png';
+import marzLogo from '../assets/logos/marz.png';
+import paybitLogo from '../assets/logos/paybit.png';
+import stratoLogo from '../assets/logos/strato.png';
+
 const Home: React.FC = () => {
     return (
         <div className="min-h-screen bg-background overflow-x-hidden relative font-sans">
@@ -35,73 +44,27 @@ const Home: React.FC = () => {
             </div>
 
             {/* Hero Section */}
-            <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[8vh] pb-[22vh] text-center min-h-screen flex flex-col items-center justify-center">
-                {/* Background Concentric Circles */}
+            <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[12vh] pb-[12vh] text-center min-h-screen flex flex-col items-center justify-center">
+                {/* Background Concentric Circles - Thinner and more subtle */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden">
                     {[1, 2, 3, 4, 5, 6].map((circle) => (
                         <div
                             key={circle}
-                            className="absolute border border-gray-200/30 rounded-full"
+                            className="absolute border border-gray-100/50 rounded-full"
                             style={{
-                                width: `${circle * 350}px`,
-                                height: `${circle * 350}px`,
-                                opacity: 1 - circle * 0.12,
+                                width: `${circle * 320}px`,
+                                height: `${circle * 320}px`,
+                                opacity: 1 - circle * 0.15,
                             }}
                         />
                     ))}
                 </div>
 
-                {/* Floating Icon Cards */}
-                <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden sm:block hidden">
-                    {/* Top Left */}
-                    <motion.div
-                        animate={{ y: [0, -15, 0], rotate: [-5, -2, -5] }}
-                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-[22%] left-[12%] glass-card p-4 rounded-2xl shadow-sm rotate-[-5deg]"
-                    >
-                        <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center">
-                            <svg className="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" /><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="M22 12h-2" /><path d="M4 12H2" /><path d="m19.07 4.93-1.41 1.41" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 19.07-1.41-1.41" /><path d="m6.34 6.34-1.41-1.41" /></svg>
-                        </div>
-                    </motion.div>
-
-                    {/* Top Right */}
-                    <motion.div
-                        animate={{ y: [0, 15, 0], rotate: [5, 8, 5] }}
-                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                        className="absolute top-[18%] right-[15%] glass-card p-4 rounded-2xl shadow-sm rotate-[5deg]"
-                    >
-                        <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center">
-                            <svg className="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" /><path d="m15 5 4 4" /></svg>
-                        </div>
-                    </motion.div>
-
-                    {/* Bottom Left */}
-                    <motion.div
-                        animate={{ y: [0, -10, 0], rotate: [8, 5, 8] }}
-                        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                        className="absolute bottom-[28%] left-[18%] glass-card p-4 rounded-2xl shadow-sm rotate-[8deg]"
-                    >
-                        <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center">
-                            <svg className="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" /><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" /><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" /><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" /><path d="M12 16h3.5a3.5 3.5 0 1 1-3.5 3.5V16z" /></svg>
-                        </div>
-                    </motion.div>
-
-                    {/* Bottom Right */}
-                    <motion.div
-                        animate={{ y: [0, 12, 0], rotate: [-8, -5, -8] }}
-                        transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                        className="absolute bottom-[25%] right-[20%] glass-card p-4 rounded-2xl shadow-sm rotate-[-8deg]"
-                    >
-                        <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center">
-                            <svg className="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>
-                        </div>
-                    </motion.div>
-                </div>
-
+                {/* Main Content Area */}
                 <motion.div
                     initial="hidden"
                     animate="visible"
-                    className="flex flex-col items-center relative z-10"
+                    className="flex flex-col items-center relative z-10 w-full translate-y-20"
                 >
                     {/* Badge/Tag */}
                     <motion.div
@@ -109,20 +72,46 @@ const Home: React.FC = () => {
                             hidden: { opacity: 0, y: 10 },
                             visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                         }}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100/50 border border-gray-200/50 mb-10"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100/30 border border-gray-200/40 mb-12"
                     >
-                        <span className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">
-                            <span className="text-gray-300 mr-2">›</span>
+                        <span className="text-[10px] font-bold tracking-[0.2em] text-gray-400 flex items-center gap-2">
+                            <span className="text-gray-300">›</span>
                             DIGITAL AGENCY
-                            <span className="text-gray-300 ml-2">‹</span>
+                            <span className="text-gray-300">‹</span>
                         </span>
                     </motion.div>
 
-                    {/* Main Heading */}
-                    <h1 className="text-[clamp(2.5rem,8.5vw,6rem)] font-bold tracking-tight leading-[1.02] mb-8 max-w-4xl text-[#060612]">
-                        We design brands<br />
-                        that move <span className="text-primary">people</span>
-                    </h1>
+                    {/* Flanking Icons and Heading Container */}
+                    <div className="relative w-full flex items-center justify-center">
+                        {/* Left Palette Icon */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.5, duration: 1 }}
+                            className="absolute left-[5%] xl:left-[10%] hidden md:block"
+                        >
+                            <div className="icon-square">
+                                <svg className="w-7 h-7 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.6-.5 2-1.2l.6-.4c.5-.4.8-1 1-1.7.3-1.1 1.2-1.8 2.3-1.8 1.1 0 2 .8 2.1 1.9.1.5.4.9.8 1.1l.6.4c.4.7 1.1 1.2 2 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z" /></svg>
+                            </div>
+                        </motion.div>
+
+                        <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-bold tracking-tight leading-[1.1] mb-8 max-w-5xl text-[#060612] z-10 px-4">
+                            We design brands<br />
+                            that move <span className="text-[#ff6321] italic">people</span>
+                        </h1>
+
+                        {/* Right Pen Icon */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.6, duration: 1 }}
+                            className="absolute right-[5%] xl:right-[10%] hidden md:block"
+                        >
+                            <div className="icon-square">
+                                <svg className="w-7 h-7 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m14 6 1.4-1.4a2 2 0 1 1 2.8 2.8L16.8 8.8c-.8.8-1.4.1-2.8-.2l-1.3-.3-3.6 3.6c.4 1.4.1 2-.8 2.8L3 21l3.5-3.5c.8-.8 1.4-.1 2.8.2L12 16c2.4.6 3.6-.6 4.8-.6m-8.1-1.3L12 8" /></svg>
+                            </div>
+                        </motion.div>
+                    </div>
 
                     {/* Subheading */}
                     <motion.p
@@ -130,39 +119,34 @@ const Home: React.FC = () => {
                             hidden: { opacity: 0, y: 20 },
                             visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut", delay: 0.8 } }
                         }}
-                        className="max-w-xl mx-auto text-base md:text-lg text-muted leading-relaxed mb-12 font-medium"
+                        className="max-w-2xl mx-auto text-[15px] md:text-[16px] text-[#69686e]/80 leading-relaxed mb-14 font-medium px-4"
                     >
-                        We combine strategy, design, and technology to help ambitious brands stand out & create meaningful digital experiences.
+                        We combine strategy, design, and technology to help ambitious<br className="hidden md:block" />
+                        brands stand out & create meaningful digital experiences.
                     </motion.p>
 
                     {/* CTA Buttons */}
-                    <motion.div
-                        variants={{
-                            hidden: { opacity: 0, scale: 0.95 },
-                            visible: { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 1 } }
-                        }}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-4 relative"
-                    >
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative">
                         {/* Handwritten Note and Arrow (Visible on Desktop) */}
-                        <div className="absolute -left-52 top-0 hidden lg:block pointer-events-none">
-                            <div className="flex flex-col items-end">
-                                <span className="handwritten text-primary text-2xl -rotate-[8deg] mb-2">
+                        <div className="absolute -left-[240px] top-[10px] hidden lg:block pointer-events-none">
+                            <div className="flex flex-col items-center">
+                                <svg width="100" height="40" viewBox="0 0 100 40" fill="none" className="text-[#ff6321]/40 mb-1 ml-16 rotate-6">
+                                    <path d="M10 35C25 15 70 10 90 25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="4 2" />
+                                    <path d="M85 20L92 27L80 28" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                                <span className="handwritten text-[#ff6321] text-xl -rotate-[5deg] whitespace-nowrap">
                                     Schedule a free call now
                                 </span>
-                                <svg width="60" height="30" viewBox="0 0 60 30" fill="none" className="text-primary/60 -mr-6">
-                                    <path d="M5 25C15 5 45 5 55 25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="4 2" />
-                                    <path d="M50 25H55V20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
                             </div>
                         </div>
 
-                        <button className="bg-primary text-white px-10 py-4 rounded-2xl transition-all shadow-lg shadow-primary/20 font-bold text-base flex items-center justify-center hover:bg-[#e45217] hover:scale-[1.02] active:scale-[0.98]">
+                        <button className="bg-[#ff6321] text-white px-10 py-4 rounded-xl transition-all shadow-lg shadow-primary/10 font-bold text-[16px] flex items-center justify-center hover:bg-[#e45217] hover:scale-[1.02] active:scale-[0.98]">
                             Discuss your ideas
                         </button>
-                        <button className="bg-[#060612] text-white px-10 py-4 rounded-2xl transition-all font-bold text-base hover:bg-black hover:scale-[1.02] active:scale-[0.98]">
+                        <button className="bg-[#060612] text-white px-10 py-4 rounded-xl transition-all font-bold text-[16px] hover:bg-black hover:scale-[1.02] active:scale-[0.98]">
                             View services
                         </button>
-                    </motion.div>
+                    </div>
                 </motion.div>
 
                 {/* Trusted By Section */}
@@ -170,27 +154,26 @@ const Home: React.FC = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1.5, delay: 1.2 }}
-                    className="mt-40 w-full"
+                    className="mt-48 w-full border-t border-gray-100/80 border-dashed pt-12 relative"
                 >
-                    <div className="max-w-4xl mx-auto">
-                        <p className="text-[11px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-12 flex items-center justify-center gap-6 before:h-px before:flex-1 before:bg-gray-200/80 before:border-t before:border-dashed after:h-px after:flex-1 after:bg-gray-200/80 after:border-t after:border-dashed">
+                    <div className="max-w-4xl mx-auto flex flex-col items-center">
+                        <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-6 text-[11px] font-bold tracking-[0.2em] text-[#69686e]/60 whitespace-nowrap uppercase">
                             TRUSTED BY 100+ GLOBAL LEADERS
-                        </p>
-                        <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-10 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-700">
-                            <img src="/src/assets/logos/marz.png" alt="Nexter" className="h-6 object-contain" />
-                            <img src="/src/assets/logos/coco.png" alt="Oslo" className="h-6 object-contain" />
-                            <img src="/src/assets/logos/autoom.png" alt="Monme" className="h-6 object-contain" />
-                            <img src="/src/assets/logos/crypto.png" alt="Next" className="h-6 object-contain" />
+                        </span>
+
+                        <div className="flex flex-wrap justify-between items-center w-full max-w-5xl px-4 opacity-40 grayscale hover:opacity-80 transition-opacity duration-500 gap-8 md:gap-4">
+                            <img src={autoomLogo} alt="Autoom" className="h-10 md:h-14 w-auto object-contain" />
+                            <img src={marzLogo} alt="Marz" className="h-10 md:h-14 w-auto object-contain" />
+                            <img src={stratoLogo} alt="Strato" className="h-10 md:h-14 w-auto object-contain" />
+                            <img src={paybitLogo} alt="Paybit" className="h-10 md:h-14 w-auto object-contain" />
+                            <img src={cocoLogo} alt="Coco" className="h-10 md:h-14 w-auto object-contain" />
+                            <img src={bitcoinLogo} alt="Bitcoin" className="h-10 md:h-14 w-auto object-contain" />
+                            <img src={cryptoLogo} alt="Crypto" className="h-10 md:h-14 w-auto object-contain" />
                         </div>
                     </div>
                 </motion.div>
-                {/* Bottom Right Sticky Badge */}
-                <div className="absolute bottom-10 right-10 hidden xl:flex flex-col gap-3 items-end pointer-events-none z-[100]">
-                    <div className="glass-card px-4 py-2.5 rounded-xl shadow-lg border border-white/40 flex items-center gap-3">
-                        <span className="text-[12px] font-bold text-secondary">Get it for FREE</span>
-                        <svg className="w-4 h-4 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4" /><path d="M14 2v6h6" /><path d="M2 15h10" /><path d="m9 18 3-3-3-3" /></svg>
-                    </div>
-                </div>
+
+
             </main>
 
             {/* Content Sections with large spacing and subtle transition gradients */}

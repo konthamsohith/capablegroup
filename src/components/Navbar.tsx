@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
@@ -17,52 +17,53 @@ const Navbar: React.FC = () => {
         <header className="fixed top-8 left-0 right-0 z-[100] flex justify-center px-4">
             <div className="relative w-full max-w-7xl flex justify-center">
                 <div className="relative">
-                    <nav className="agnos-nav rounded-2xl transition-all duration-500 flex items-center h-[52px] overflow-hidden relative z-[101]">
+                    <nav className="capable-nav rounded-2xl transition-all duration-500 flex items-center h-[64px] overflow-hidden relative z-[101]">
                         {/* Logo Part */}
-                        <div className="flex items-center gap-3 px-5 h-full cursor-pointer hover:bg-gray-50/50 transition-colors">
-                            <img src="/capblelogo.png" alt="Logo" className="w-7 h-7 object-contain" />
-                            <span className="font-bold text-lg tracking-tight text-[#060612]">CapableGroups</span>
+                        <div className="flex items-center gap-3 px-6 h-full cursor-pointer hover:bg-gray-50/50 transition-colors">
+                            <div className="w-8 h-8 relative flex items-center justify-center">
+                                <div className="absolute w-5 h-5 rotate-45 border-2 border-[#ff6321] rounded-sm"></div>
+                                <div className="absolute w-3 h-3 rotate-45 bg-[#ff6321] rounded-sm"></div>
+                            </div>
+                            <span className="font-bold text-xl tracking-tight text-[#060612]">Capable Groups</span>
                         </div>
 
                         <div className="nav-divider"></div>
 
-                        {/* Menu Button */}
-                        <div className="flex items-center px-6 h-full">
-                            <button
-                                onClick={() => setIsOpen(!isOpen)}
-                                className="group flex flex-col gap-1.5 items-center justify-center w-9 h-9 hover:bg-gray-50 rounded-xl transition-all"
-                            >
-                                <AnimatePresence mode="wait">
-                                    {isOpen ? (
-                                        <motion.div
-                                            key="close"
-                                            initial={{ rotate: -90, opacity: 0 }}
-                                            animate={{ rotate: 0, opacity: 1 }}
-                                            exit={{ rotate: 90, opacity: 0 }}
+                        {/* Middle Segment - Desktop Links / Mobile Menu Button */}
+                        <div className="flex items-center h-full">
+                            {/* Desktop Links */}
+                            <div className="hidden lg:flex items-center h-full">
+                                {navLinks.map((link, i) => (
+                                    <React.Fragment key={link.name}>
+                                        <a
+                                            href={link.href}
+                                            className="px-6 h-full flex items-center text-[14px] font-bold text-secondary/70 hover:text-primary transition-colors hover:bg-gray-50/50"
                                         >
-                                            <X size={18} className="text-gray-600" />
-                                        </motion.div>
-                                    ) : (
-                                        <motion.div
-                                            key="menu"
-                                            initial={{ rotate: 90, opacity: 0 }}
-                                            animate={{ rotate: 0, opacity: 1 }}
-                                            exit={{ rotate: -90, opacity: 0 }}
-                                            className="flex flex-col gap-1 items-center"
-                                        >
-                                            <div className="w-5 h-0.5 bg-gray-600"></div>
-                                            <div className="w-5 h-0.5 bg-gray-600"></div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </button>
+                                            {link.name}
+                                        </a>
+                                        {i < navLinks.length - 1 && <div className="nav-divider !h-6 opacity-30"></div>}
+                                    </React.Fragment>
+                                ))}
+                            </div>
+
+                            {/* Mobile/Tablet Menu Button */}
+                            <div className="flex lg:hidden items-center justify-center px-6 h-full border-l border-gray-100/50 lg:border-none">
+                                <button
+                                    onClick={() => setIsOpen(!isOpen)}
+                                    className="group flex flex-col gap-1.5 items-center justify-center w-10 h-10 hover:bg-gray-50 rounded-xl transition-all"
+                                >
+                                    <div className={`w-6 h-0.5 bg-secondary rounded-full transition-all ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+                                    <div className={`w-6 h-0.5 bg-secondary rounded-full transition-all ${isOpen ? 'opacity-0' : ''}`}></div>
+                                    <div className={`w-6 h-0.5 bg-secondary rounded-full transition-all ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+                                </button>
+                            </div>
                         </div>
 
                         <div className="nav-divider"></div>
 
                         {/* CTA Section */}
-                        <div className="flex items-center px-6 h-full">
-                            <button className="bg-[#060612] text-white px-4 py-1.5 rounded-xl hover:bg-black transition-all font-medium text-sm shadow-sm">
+                        <div className="flex items-center px-8 h-full hover:bg-gray-50/50 transition-colors">
+                            <button className="bg-[#ff6321] text-white px-6 py-2.5 rounded-xl hover:bg-primary/90 transition-all font-bold text-sm tracking-tight shadow-lg shadow-primary/10">
                                 Get started
                             </button>
                         </div>
@@ -76,7 +77,7 @@ const Navbar: React.FC = () => {
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                                 transition={{ duration: 0.2 }}
-                                className="absolute top-[calc(100%+8px)] left-0 right-0 bg-white rounded-3xl agnos-nav z-[100] overflow-hidden p-2"
+                                className="absolute top-[calc(100%+8px)] left-0 right-0 bg-white rounded-3xl capable-nav z-[100] overflow-hidden p-2"
                             >
                                 <div className="flex flex-col overflow-hidden">
                                     {navLinks.map((link, i) => (
