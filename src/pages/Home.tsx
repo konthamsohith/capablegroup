@@ -161,14 +161,14 @@ const Home: React.FC = () => {
                             TRUSTED BY 100+ GLOBAL LEADERS
                         </span>
 
-                        <div className="flex flex-wrap justify-between items-center w-full max-w-5xl px-4 opacity-40 grayscale hover:opacity-80 transition-opacity duration-500 gap-8 md:gap-4">
-                            <img src={autoomLogo} alt="Autoom" className="h-10 md:h-14 w-auto object-contain" />
-                            <img src={marzLogo} alt="Marz" className="h-10 md:h-14 w-auto object-contain" />
-                            <img src={stratoLogo} alt="Strato" className="h-10 md:h-14 w-auto object-contain" />
-                            <img src={paybitLogo} alt="Paybit" className="h-10 md:h-14 w-auto object-contain" />
-                            <img src={cocoLogo} alt="Coco" className="h-10 md:h-14 w-auto object-contain" />
-                            <img src={bitcoinLogo} alt="Bitcoin" className="h-10 md:h-14 w-auto object-contain" />
-                            <img src={cryptoLogo} alt="Crypto" className="h-10 md:h-14 w-auto object-contain" />
+                        <div className="flex flex-wrap justify-center md:justify-between items-center w-full max-w-7xl px-4 brightness-0 opacity-70 hover:opacity-100 transition-opacity duration-500 gap-12 md:gap-8">
+                            <img src={autoomLogo} alt="Autoom" className="h-16 md:h-28 w-auto object-contain" />
+                            <img src={marzLogo} alt="Marz" className="h-16 md:h-28 w-auto object-contain" />
+                            <img src={stratoLogo} alt="Strato" className="h-16 md:h-28 w-auto object-contain" />
+                            <img src={paybitLogo} alt="Paybit" className="h-16 md:h-28 w-auto object-contain" />
+                            <img src={cocoLogo} alt="Coco" className="h-16 md:h-28 w-auto object-contain" />
+                            <img src={bitcoinLogo} alt="Bitcoin" className="h-16 md:h-28 w-auto object-contain" />
+                            <img src={cryptoLogo} alt="Crypto" className="h-16 md:h-28 w-auto object-contain" />
                         </div>
                     </div>
                 </motion.div>
