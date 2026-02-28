@@ -59,29 +59,46 @@ const Home: React.FC = () => {
                     </motion.div>
 
                     {/* Main Heading with Mask Reveal */}
-                    <div className="mb-10 overflow-visible flex flex-wrap justify-center gap-x-[0.3em] gap-y-2">
-                        {["Innovating", "Technology", "&", "Global", "Infrastructure"].map((word, i) => (
-                            <div key={i} className="overflow-hidden py-2 inline-block">
-                                <motion.span
-                                    variants={{
-                                        hidden: { y: "110%", rotate: 5 },
-                                        visible: {
-                                            y: 0,
-                                            rotate: 0,
-                                            transition: {
-                                                duration: 1,
-                                                ease: [0.16, 1, 0.3, 1],
-                                                delay: 0.5 + (i * 0.1)
-                                            }
+                    <h1 className="mb-12 flex flex-col items-center gap-1.5 md:gap-3">
+                        <div className="overflow-hidden py-2 inline-block">
+                            <motion.span
+                                variants={{
+                                    hidden: { y: "110%", rotate: 5 },
+                                    visible: {
+                                        y: 0,
+                                        rotate: 0,
+                                        transition: {
+                                            duration: 1.1,
+                                            ease: [0.16, 1, 0.3, 1],
+                                            delay: 0.5
                                         }
-                                    }}
-                                    className={`text-[clamp(1.2rem,4.5vw,4.5rem)] font-bold tracking-[-0.03em] leading-[1.1] block ${i > 0 ? 'text-primary italic' : 'text-[#060612]'}`}
-                                >
-                                    {word}
-                                </motion.span>
-                            </div>
-                        ))}
-                    </div>
+                                    }
+                                }}
+                                className="text-[clamp(1.5rem,7vw,5rem)] font-bold tracking-tight leading-[1.05] block text-[#060612]"
+                            >
+                                Innovating <span className="text-primary italic">Technology</span>
+                            </motion.span>
+                        </div>
+                        <div className="overflow-hidden py-2 inline-block">
+                            <motion.span
+                                variants={{
+                                    hidden: { y: "110%", rotate: -5 },
+                                    visible: {
+                                        y: 0,
+                                        rotate: 0,
+                                        transition: {
+                                            duration: 1.1,
+                                            ease: [0.16, 1, 0.3, 1],
+                                            delay: 0.65
+                                        }
+                                    }
+                                }}
+                                className="text-[clamp(1.5rem,7vw,5rem)] font-bold tracking-tight leading-[1.05] block text-[#060612]"
+                            >
+                                & Global <span className="text-primary italic">Infrastructure</span>
+                            </motion.span>
+                        </div>
+                    </h1>
 
                     {/* Subheading with coordinated fade */}
                     <motion.p
