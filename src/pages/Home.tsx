@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Services from '../components/Services';
 import Process from '../components/Process';
@@ -36,137 +35,162 @@ const Home: React.FC = () => {
             </div>
 
             {/* Hero Section */}
-            <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-56 pb-32 text-center">
+            <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-56 pb-48 text-center min-h-screen flex flex-col items-center justify-center">
+                {/* Background Concentric Circles */}
+                <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden">
+                    {[1, 2, 3, 4, 5, 6].map((circle) => (
+                        <div
+                            key={circle}
+                            className="absolute border border-gray-200/30 rounded-full"
+                            style={{
+                                width: `${circle * 350}px`,
+                                height: `${circle * 350}px`,
+                                opacity: 1 - circle * 0.12,
+                            }}
+                        />
+                    ))}
+                </div>
+
+                {/* Floating Icon Cards */}
+                <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden sm:block hidden">
+                    {/* Top Left */}
+                    <motion.div
+                        animate={{ y: [0, -15, 0], rotate: [-5, -2, -5] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-[22%] left-[12%] glass-card p-4 rounded-2xl shadow-sm rotate-[-5deg]"
+                    >
+                        <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center">
+                            <svg className="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" /><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="M22 12h-2" /><path d="M4 12H2" /><path d="m19.07 4.93-1.41 1.41" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 19.07-1.41-1.41" /><path d="m6.34 6.34-1.41-1.41" /></svg>
+                        </div>
+                    </motion.div>
+
+                    {/* Top Right */}
+                    <motion.div
+                        animate={{ y: [0, 15, 0], rotate: [5, 8, 5] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        className="absolute top-[18%] right-[15%] glass-card p-4 rounded-2xl shadow-sm rotate-[5deg]"
+                    >
+                        <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center">
+                            <svg className="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" /><path d="m15 5 4 4" /></svg>
+                        </div>
+                    </motion.div>
+
+                    {/* Bottom Left */}
+                    <motion.div
+                        animate={{ y: [0, -10, 0], rotate: [8, 5, 8] }}
+                        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                        className="absolute bottom-[28%] left-[18%] glass-card p-4 rounded-2xl shadow-sm rotate-[8deg]"
+                    >
+                        <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center">
+                            <svg className="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" /><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" /><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" /><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" /><path d="M12 16h3.5a3.5 3.5 0 1 1-3.5 3.5V16z" /></svg>
+                        </div>
+                    </motion.div>
+
+                    {/* Bottom Right */}
+                    <motion.div
+                        animate={{ y: [0, 12, 0], rotate: [-8, -5, -8] }}
+                        transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                        className="absolute bottom-[25%] right-[20%] glass-card p-4 rounded-2xl shadow-sm rotate-[-8deg]"
+                    >
+                        <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center">
+                            <svg className="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>
+                        </div>
+                    </motion.div>
+                </div>
+
                 <motion.div
                     initial="hidden"
                     animate="visible"
-                    className="flex flex-col items-center"
+                    className="flex flex-col items-center relative z-10"
                 >
-                    {/* Badge/Tag with subtle pulse */}
+                    {/* Badge/Tag */}
                     <motion.div
                         variants={{
-                            hidden: { opacity: 0, y: 20 },
+                            hidden: { opacity: 0, y: 10 },
                             visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
                         }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-12 overflow-hidden relative"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100/50 border border-gray-200/50 mb-10"
                     >
-                        <motion.div
-                            animate={{ opacity: [0.3, 0.6, 0.3] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="absolute inset-0 bg-primary/5"
-                        />
-                        <span className="section-tag relative z-10 uppercase tracking-widest text-[10px] font-bold">:: CAPABLE GROUPS ::</span>
+                        <span className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">
+                            <span className="text-gray-300 mr-2">›</span>
+                            DIGITAL AGENCY
+                            <span className="text-gray-300 ml-2">‹</span>
+                        </span>
                     </motion.div>
 
-                    {/* Main Heading with Mask Reveal */}
-                    <h1 className="mb-12 flex flex-col items-center gap-1.5 md:gap-3">
-                        <div className="overflow-hidden py-2 inline-block">
-                            <motion.span
-                                variants={{
-                                    hidden: { y: "110%", rotate: 5 },
-                                    visible: {
-                                        y: 0,
-                                        rotate: 0,
-                                        transition: {
-                                            duration: 1.1,
-                                            ease: [0.16, 1, 0.3, 1],
-                                            delay: 0.5
-                                        }
-                                    }
-                                }}
-                                className="text-[clamp(1.5rem,7vw,5rem)] font-bold tracking-tight leading-[1.05] block text-[#060612]"
-                            >
-                                Innovating <span className="text-primary italic">Technology</span>
-                            </motion.span>
-                        </div>
-                        <div className="overflow-hidden py-2 inline-block">
-                            <motion.span
-                                variants={{
-                                    hidden: { y: "110%", rotate: -5 },
-                                    visible: {
-                                        y: 0,
-                                        rotate: 0,
-                                        transition: {
-                                            duration: 1.1,
-                                            ease: [0.16, 1, 0.3, 1],
-                                            delay: 0.65
-                                        }
-                                    }
-                                }}
-                                className="text-[clamp(1.5rem,7vw,5rem)] font-bold tracking-tight leading-[1.05] block text-[#060612]"
-                            >
-                                & Global <span className="text-primary italic">Infrastructure</span>
-                            </motion.span>
-                        </div>
+                    {/* Main Heading */}
+                    <h1 className="text-[clamp(2.5rem,8.5vw,6rem)] font-bold tracking-tight leading-[1.02] mb-8 max-w-4xl text-[#060612]">
+                        We design brands<br />
+                        that move <span className="text-primary">people</span>
                     </h1>
 
-                    {/* Subheading with coordinated fade */}
+                    {/* Subheading */}
                     <motion.p
                         variants={{
-                            hidden: { opacity: 0, y: 30 },
-                            visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut", delay: 1.2 } }
+                            hidden: { opacity: 0, y: 20 },
+                            visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut", delay: 0.8 } }
                         }}
-                        className="max-w-2xl mx-auto text-lg md:text-xl text-muted leading-relaxed mb-16 font-medium"
+                        className="max-w-xl mx-auto text-base md:text-lg text-muted leading-relaxed mb-12 font-medium"
                     >
-                        Blending brilliance of experienced team and best of breed technology,
-                        delivering high-impact solutions across IT, Real Estate & Infrastructure.
+                        We combine strategy, design, and technology to help ambitious brands stand out & create meaningful digital experiences.
                     </motion.p>
 
-                    {/* CTA Buttons with Focus Animation */}
+                    {/* CTA Buttons */}
                     <motion.div
                         variants={{
                             hidden: { opacity: 0, scale: 0.95 },
-                            visible: { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 1.5 } }
+                            visible: { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 1 } }
                         }}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-8"
+                        className="flex flex-col sm:flex-row items-center justify-center gap-4 relative"
                     >
-                        <div className="relative group">
-                            {/* Persistent Pulse for Focus */}
-                            <motion.div
-                                animate={{ scale: [1, 1.05, 1], opacity: [0.5, 0.2, 0.5] }}
-                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -inset-1 bg-primary/30 rounded-2xl blur-lg pointer-events-none"
-                            />
-                            <motion.button
-                                whileHover={{ scale: 1.02, y: -2 }}
-                                whileTap={{ scale: 0.98 }}
-                                className="relative bg-primary text-white px-12 py-5 rounded-2xl transition-all shadow-xl shadow-primary/20 font-bold text-lg flex items-center justify-center gap-3"
-                            >
-                                Get Started
-                                <ArrowRight size={22} className="group-hover:translate-x-1.5 transition-transform" />
-                            </motion.button>
+                        {/* Handwritten Note and Arrow (Visible on Desktop) */}
+                        <div className="absolute -left-52 top-0 hidden lg:block pointer-events-none">
+                            <div className="flex flex-col items-end">
+                                <span className="handwritten text-primary text-2xl -rotate-[8deg] mb-2">
+                                    Schedule a free call now
+                                </span>
+                                <svg width="60" height="30" viewBox="0 0 60 30" fill="none" className="text-primary/60 -mr-6">
+                                    <path d="M5 25C15 5 45 5 55 25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="4 2" />
+                                    <path d="M50 25H55V20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </div>
                         </div>
-                        <motion.button
-                            whileHover={{ scale: 1.02, y: -2, backgroundColor: "rgba(255, 255, 255, 0.9)" }}
-                            whileTap={{ scale: 0.98 }}
-                            className="w-full sm:w-auto glass-card text-secondary px-12 py-5 rounded-2xl transition-all font-bold text-lg border border-white/20"
-                        >
-                            Our Portfolio
-                        </motion.button>
+
+                        <button className="bg-primary text-white px-10 py-4 rounded-2xl transition-all shadow-lg shadow-primary/20 font-bold text-base flex items-center justify-center hover:bg-[#e45217] hover:scale-[1.02] active:scale-[0.98]">
+                            Discuss your ideas
+                        </button>
+                        <button className="bg-[#060612] text-white px-10 py-4 rounded-2xl transition-all font-bold text-base hover:bg-black hover:scale-[1.02] active:scale-[0.98]">
+                            View services
+                        </button>
                     </motion.div>
                 </motion.div>
 
-                {/* Trusted By Section (Marquee style representation) */}
+                {/* Trusted By Section */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1.5, delay: 1.5 }}
-                    className="mt-40"
+                    transition={{ duration: 1.5, delay: 1.2 }}
+                    className="mt-40 w-full"
                 >
-                    <p className="text-[10px] font-bold tracking-[0.3em] text-gray-400 uppercase mb-12 flex items-center justify-center gap-4 before:h-px before:w-12 before:bg-gray-200 after:h-px after:w-12 after:bg-gray-200">
-                        TRUSTED BY GLOBAL LEADERS
-                    </p>
-                    <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-700">
-                        <img src="/src/assets/logos/marz.png" alt="Marz" className="h-7 object-contain" />
-                        <img src="/src/assets/logos/coco.png" alt="Coco" className="h-7 object-contain" />
-                        <img src="/src/assets/logos/autoom.png" alt="Autoom" className="h-7 object-contain" />
-                        <img src="/src/assets/logos/racle.png" alt="Racle" className="h-7 object-contain" />
-                        <img src="/src/assets/logos/crypto.png" alt="Crypto" className="h-7 object-contain" />
-                        <img src="/src/assets/logos/bitcoin.png" alt="Bitcoin" className="h-7 object-contain" />
-                        <img src="/src/assets/logos/paybit.png" alt="PayBit" className="h-7 object-contain" />
-                        <img src="/src/assets/logos/strato.png" alt="Strato" className="h-7 object-contain" />
+                    <div className="max-w-4xl mx-auto">
+                        <p className="text-[11px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-12 flex items-center justify-center gap-6 before:h-px before:flex-1 before:bg-gray-200/80 before:border-t before:border-dashed after:h-px after:flex-1 after:bg-gray-200/80 after:border-t after:border-dashed">
+                            TRUSTED BY 100+ GLOBAL LEADERS
+                        </p>
+                        <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-10 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-700">
+                            <img src="/src/assets/logos/marz.png" alt="Nexter" className="h-6 object-contain" />
+                            <img src="/src/assets/logos/coco.png" alt="Oslo" className="h-6 object-contain" />
+                            <img src="/src/assets/logos/autoom.png" alt="Monme" className="h-6 object-contain" />
+                            <img src="/src/assets/logos/crypto.png" alt="Next" className="h-6 object-contain" />
+                        </div>
                     </div>
                 </motion.div>
+                {/* Bottom Right Sticky Badge */}
+                <div className="absolute bottom-10 right-10 hidden xl:flex flex-col gap-3 items-end pointer-events-none z-[100]">
+                    <div className="glass-card px-4 py-2.5 rounded-xl shadow-lg border border-white/40 flex items-center gap-3">
+                        <span className="text-[12px] font-bold text-secondary">Get it for FREE</span>
+                        <svg className="w-4 h-4 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4"/><path d="M14 2v6h6"/><path d="M2 15h10"/><path d="m9 18 3-3-3-3"/></svg>
+                    </div>
+                </div>
             </main>
 
             {/* Content Sections with large spacing and subtle transition gradients */}
