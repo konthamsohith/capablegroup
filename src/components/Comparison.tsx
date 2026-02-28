@@ -96,7 +96,7 @@ const Comparison: React.FC = () => {
                             <div className="flex flex-col items-start leading-tight">
                                 <div className="flex gap-0.5 mb-1">
                                     {[1, 2, 3, 4, 5].map((s) => (
-                                        <Star key={s} size={16} fill="#4A96CB" color="#4A96CB" />
+                                        <Star key={s} size={16} fill="#0AA4E3" color="#0AA4E3" />
                                     ))}
                                     <span className="ml-2 font-bold text-gray-800">4.9/5</span>
                                 </div>

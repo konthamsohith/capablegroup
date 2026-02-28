@@ -23,11 +23,11 @@ const Counter = ({ value, label }: { value: number, label: string }) => {
     }, [isInView, spring, value]);
 
     return (
-        <div ref={ref} className="text-center">
-            <motion.div className="text-5xl md:text-6xl font-semibold text-secondary mb-2 tracking-tighter">
-                {displayValue}
+        <div ref={ref} className="text-center p-8 rounded-3xl group hover:bg-white transition-all duration-500">
+            <motion.div className="text-5xl md:text-7xl font-bold text-secondary mb-3 tracking-tighter group-hover:text-primary transition-colors">
+                <motion.span>{displayValue}</motion.span>{label.includes("Money") ? "$" : "+"}
             </motion.div>
-            <p className="text-gray-400 font-semibold text-xs uppercase tracking-[0.2em]">
+            <p className="text-muted font-bold text-xs uppercase tracking-[0.3em]">
                 {label}
             </p>
         </div>
@@ -36,20 +36,29 @@ const Counter = ({ value, label }: { value: number, label: string }) => {
 
 const Stats: React.FC = () => {
     const stats = [
-        { value: 85389, label: "Money Donated" },
-        { value: 10693, label: "Happy Clients" },
-        { value: 50177, label: "People Impacted" },
-        { value: 669, label: "Positive Feedbacks" }
+        { value: 85000, label: "Revenue Generated" },
+        { value: 10000, label: "Happy Clients" },
+        { value: 50000, label: "Project Impacted" },
+        { value: 500, label: "Global Leaders" }
     ];
 
     return (
-        <section className="py-24 bg-white">
+        <section className="relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-[#f0f0f0] p-12 md:p-20 rounded-[48px] border border-gray-100">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16">
-                        {stats.map((stat, index) => (
-                            <Counter key={index} {...stat} />
-                        ))}
+                <div className="flex flex-col items-center text-center mb-16">
+                    <span className="section-tag mb-4">CAPABLE NUMBERS</span>
+                </div>
+
+                <div className="relative group">
+                    {/* Background Soft Glow */}
+                    <div className="absolute -inset-4 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-[56px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+
+                    <div className="glass-card relative z-10 p-6 md:p-12 rounded-[48px] border border-white/40 shadow-2xl shadow-primary/5 bg-white/60">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                            {stats.map((stat, index) => (
+                                <Counter key={index} {...stat} />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

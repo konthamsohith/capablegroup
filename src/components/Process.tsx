@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const steps = [
     {
@@ -37,9 +38,6 @@ const steps = [
 const Process: React.FC = () => {
     const [currentStep, setCurrentStep] = useState(0);
 
-    // Calculate positions for dots/markers on a semi-circle
-    // Angles for steps: from left (180deg) to right (0deg)
-    // We want them spread across the top half
     const angles = [160, 125, 90, 55, 20];
 
     const handleStepClick = (index: number) => {
@@ -55,19 +53,19 @@ const Process: React.FC = () => {
     }, [currentStep]);
 
     return (
-        <section className="py-32 bg-[#f8f8f8] relative overflow-hidden">
+        <section id="process" className="relative overflow-hidden">
+            {/* Background Decorative Gradient */}
+            <div className="absolute top-[30%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
+
             <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-                {/* Section Header */}
-                <div className="mb-16">
-                    <span className="text-[10px] font-semibold tracking-[0.3em] text-gray-400 uppercase mb-4 block">
-                        &gt; PROCESS &lt;
-                    </span>
-                    <h2 className="text-6xl font-semibold text-secondary tracking-tight">
-                        A collaborative approach
+                <div className="flex flex-col items-center mb-24">
+                    <span className="section-tag mb-4 uppercase tracking-[0.3em] font-black text-[9px]">OUR METHODOLOGY</span>
+                    <h2 className="text-5xl md:text-7xl font-bold text-secondary tracking-tight mb-8">
+                        A collaborative <span className="text-primary italic">approach</span>
                     </h2>
                 </div>
 
-                <div className="relative min-h-[600px] flex flex-col items-center justify-end pb-32">
+                <div className="relative min-h-[600px] flex flex-col items-center justify-end pb-20">
                     {/* The Arc SVG */}
                     <svg
                         viewBox="0 0 1000 500"
@@ -87,8 +85,6 @@ const Process: React.FC = () => {
                         {steps.map((step, index) => {
                             const angle = angles[index];
                             const rad = (angle * Math.PI) / 180;
-                            // Centered at (500, 450) relative to SVG viewBox 1000x500
-                            // Map to percentage for div positioning
                             const x = 50 + 40 * Math.cos(rad);
                             const y = 90 - 75 * Math.sin(rad);
 
@@ -96,46 +92,42 @@ const Process: React.FC = () => {
                                 <button
                                     key={step.id}
                                     onClick={() => handleStepClick(index)}
-                                    className={`absolute w-12 h-12 rounded-xl flex items-center justify-center font-semibold text-sm shadow-xl transition-all duration-500 pointer-events-auto transform -translate-x-1/2 -translate-y-1/2 cursor-pointer
+                                    className={`absolute w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-sm shadow-xl transition-all duration-700 pointer-events-auto transform -translate-x-1/2 -translate-y-1/2 cursor-pointer
                                         ${currentStep === index
-                                            ? 'bg-primary text-white scale-125 z-20'
-                                            : 'bg-white text-gray-400 scale-100 z-10 opacity-60 hover:opacity-100'}`}
+                                            ? 'bg-primary text-white scale-125 z-20 shadow-primary/30 ring-4 ring-primary/10'
+                                            : 'bg-white text-muted scale-100 z-10 opacity-60 hover:opacity-100 hover:scale-110'}`}
                                     style={{ left: `${x}%`, top: `${y}%` }}
                                 >
                                     {step.id}
-                                    {currentStep === index && (
-                                        <span className="absolute -top-8 text-[10px] uppercase tracking-widest text-primary font-black">
-                                            STEP
-                                        </span>
-                                    )}
                                 </button>
                             );
                         })}
                     </div>
 
                     {/* Step Content */}
-                    <div className="max-w-xl mx-auto mt-24">
+                    <div className="max-w-2xl mx-auto mt-32 glass-card p-12 rounded-[48px]">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentStep}
-                                initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                                initial={{ opacity: 0, scale: 0.98, y: 10 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                                transition={{ duration: 0.4 }}
+                                exit={{ opacity: 0, scale: 0.98, y: -10 }}
+                                transition={{ duration: 0.5, ease: "circOut" }}
                                 className="flex flex-col items-center"
                             >
-                                <h3 className="text-4xl font-semibold text-secondary mb-4">
+                                <span className="mb-4 px-4 py-1.5 bg-primary/10 text-[10px] font-bold tracking-[0.3em] text-primary rounded-full">
+                                    STEP {steps[currentStep].id}
+                                </span>
+                                <h3 className="text-4xl md:text-5xl font-bold text-secondary mb-6 tracking-tight">
                                     {steps[currentStep].title}
                                 </h3>
-                                <p className="text-gray-500 text-lg mb-8 leading-relaxed max-w-md">
+                                <p className="text-muted text-lg md:text-xl mb-10 leading-relaxed max-w-md font-medium">
                                     {steps[currentStep].description}
                                 </p>
 
-                                <div className="w-full h-px bg-gray-200 mb-6 opacity-50" />
-
-                                <div className="flex flex-wrap justify-center gap-6 mb-12">
+                                <div className="flex flex-wrap justify-center gap-4 mb-10">
                                     {steps[currentStep].tags.map((tag) => (
-                                        <span key={tag} className="text-[10px] font-black tracking-[0.2em] text-gray-400 uppercase">
+                                        <span key={tag} className="text-[10px] font-bold tracking-[0.2em] text-muted uppercase px-3 py-1 bg-background rounded-lg">
                                             {tag}
                                         </span>
                                     ))}
@@ -144,29 +136,24 @@ const Process: React.FC = () => {
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="bg-primary text-white px-10 py-4 rounded-2xl font-semibold shadow-xl shadow-primary/20 hover:bg-[#3d7da8] transition-colors"
+                                    className="bg-primary text-white px-10 py-5 rounded-2xl font-bold shadow-xl shadow-primary/20 hover:shadow-primary/30 transition-all flex items-center gap-2"
                                 >
-                                    Start your project
+                                    Start Project <ArrowRight size={20} />
                                 </motion.button>
                             </motion.div>
                         </AnimatePresence>
                     </div>
 
-                    {/* Navigation Dots & Page Indicator */}
-                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-                        <div className="text-[10px] font-black tracking-widest text-gray-400">
-                            {steps[currentStep].id}/05
-                        </div>
-                        <div className="flex gap-2">
-                            {steps.map((_, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => handleStepClick(index)}
-                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${currentStep === index ? 'bg-primary w-4' : 'bg-gray-200'
-                                        }`}
-                                />
-                            ))}
-                        </div>
+                    {/* Navigation Indicator */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4 py-2 px-6 glass-card rounded-full mt-10">
+                        {steps.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => handleStepClick(index)}
+                                className={`h-1.5 transition-all duration-500 rounded-full ${currentStep === index ? 'bg-primary w-8' : 'bg-secondary/10 w-2'
+                                    }`}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

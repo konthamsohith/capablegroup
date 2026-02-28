@@ -1,97 +1,126 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { X, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    const navLinks = [
+        { name: 'Home', href: '#home' },
+        { name: 'About Us', href: '#about' },
+        { name: 'Projects', href: '#services' },
+        { name: 'Blog', href: '#blog' },
+        { name: 'Contact Us', href: '#footer' },
+    ];
+
     return (
-        <nav className="fixed w-full z-50 bg-background/80 backdrop-blur-md border-b border-gray-100/50 overflow-hidden">
-            {/* Animated Background Content */}
-            <div className="absolute inset-0 z-[-1] pointer-events-none overflow-hidden">
-                <motion.div
-                    animate={{
-                        x: [-100, 100],
-                        opacity: [0.2, 0.4, 0.2],
-                    }}
-                    transition={{
-                        duration: 15,
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                        ease: "easeInOut"
-                    }}
-                    className="absolute -left-20 top-0 w-64 h-full bg-[#4A96CB] blur-[60px] rounded-full"
-                />
-                <motion.div
-                    animate={{
-                        x: [100, -100],
-                        opacity: [0.1, 0.3, 0.1],
-                    }}
-                    transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                        ease: "easeInOut"
-                    }}
-                    className="absolute -right-20 top-0 w-80 h-full bg-[#A3D8F4] blur-[80px] rounded-full"
-                />
-            </div>
+        <header className="fixed top-8 left-0 right-0 z-[100] flex justify-center px-4">
+            <div className="relative w-full max-w-7xl flex justify-center">
+                <div className="relative">
+                    <nav className="agnos-nav rounded-2xl transition-all duration-500 flex items-center h-[52px] overflow-hidden relative z-[101]">
+                        {/* Logo Part */}
+                        <div className="flex items-center gap-3 px-5 h-full cursor-pointer hover:bg-gray-50/50 transition-colors">
+                            <img src="/capblelogo.png" alt="Logo" className="w-7 h-7 object-contain" />
+                            <span className="font-bold text-lg tracking-tight text-[#060612]">CapableGroups</span>
+                        </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="flex justify-between items-center h-20">
-                    <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-                        <img src="/capblelogo.png" alt="Logo" className="h-8 w-auto" />
-                        <img src="/logo.png" alt="Capable Groups" className="h-10 w-auto" />
-                    </div>
+                        <div className="nav-divider"></div>
 
-                    <div className="hidden md:flex items-center space-x-12">
-                        <a href="#home" className="text-secondary/70 hover:text-primary transition-colors font-semibold text-[15px]">Home</a>
-                        <a href="#about" className="text-secondary/70 hover:text-primary transition-colors font-semibold text-[15px]">About Us</a>
-                        <a href="#clients" className="text-secondary/70 hover:text-primary transition-colors font-semibold text-[15px]">Clients</a>
-                        <a href="#technologies" className="text-secondary/70 hover:text-primary transition-colors font-semibold text-[15px]">Technologies</a>
-                    </div>
+                        {/* Menu Button */}
+                        <div className="flex items-center px-6 h-full">
+                            <button
+                                onClick={() => setIsOpen(!isOpen)}
+                                className="group flex flex-col gap-1.5 items-center justify-center w-9 h-9 hover:bg-gray-50 rounded-xl transition-all"
+                            >
+                                <AnimatePresence mode="wait">
+                                    {isOpen ? (
+                                        <motion.div
+                                            key="close"
+                                            initial={{ rotate: -90, opacity: 0 }}
+                                            animate={{ rotate: 0, opacity: 1 }}
+                                            exit={{ rotate: 90, opacity: 0 }}
+                                        >
+                                            <X size={18} className="text-gray-600" />
+                                        </motion.div>
+                                    ) : (
+                                        <motion.div
+                                            key="menu"
+                                            initial={{ rotate: 90, opacity: 0 }}
+                                            animate={{ rotate: 0, opacity: 1 }}
+                                            exit={{ rotate: -90, opacity: 0 }}
+                                            className="flex flex-col gap-1 items-center"
+                                        >
+                                            <div className="w-5 h-0.5 bg-gray-600"></div>
+                                            <div className="w-5 h-0.5 bg-gray-600"></div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </button>
+                        </div>
 
-                    <div className="hidden md:flex items-center space-x-6">
-                        <div className="h-6 w-px bg-gray-200"></div>
-                        <button className="bg-secondary text-white px-6 py-2.5 rounded-lg hover:bg-black transition-all transform hover:-translate-y-0.5 hover:shadow-lg font-semibold text-sm">
-                            Get started
-                        </button>
-                    </div>
+                        <div className="nav-divider"></div>
 
-                    <div className="md:hidden flex items-center">
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="text-secondary hover:text-primary transition-colors"
-                        >
-                            {isOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
-                    </div>
+                        {/* CTA Section */}
+                        <div className="flex items-center px-6 h-full">
+                            <button className="bg-[#060612] text-white px-4 py-1.5 rounded-xl hover:bg-black transition-all font-medium text-sm shadow-sm">
+                                Get started
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Dropdown Menu */}
+                    <AnimatePresence>
+                        {isOpen && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                transition={{ duration: 0.2 }}
+                                className="absolute top-[calc(100%+8px)] left-0 right-0 bg-white rounded-3xl agnos-nav z-[100] overflow-hidden p-2"
+                            >
+                                <div className="flex flex-col overflow-hidden">
+                                    {navLinks.map((link, i) => (
+                                        <React.Fragment key={link.name}>
+                                            <a
+                                                href={link.href}
+                                                onClick={() => setIsOpen(false)}
+                                                className={`px-8 py-3.5 text-[18px] font-semibold transition-colors hover:bg-gray-50 ${i === 0 ? 'text-primary' : 'text-secondary'}`}
+                                            >
+                                                {link.name}
+                                            </a>
+                                            {i < navLinks.length - 1 && (
+                                                <div className="mx-8 border-b border-gray-100/10 border-dashed border-t-0 h-px bg-[radial-gradient(circle,_rgba(229,231,235,1)_0%,_rgba(255,255,255,0)_100%)]"></div>
+                                            )}
+                                        </React.Fragment>
+                                    ))}
+                                </div>
+
+                                {/* Dropdown Footer */}
+                                <div className="flex items-center justify-between px-8 py-4 mt-1 border-t border-gray-50 bg-gray-50/30">
+                                    <div className="flex items-center gap-2">
+                                        {[
+                                            { Icon: Facebook, href: '#' },
+                                            { Icon: Instagram, href: '#' },
+                                            { Icon: Linkedin, href: '#' },
+                                            { Icon: Twitter, href: '#' }
+                                        ].map(({ Icon, href }, i) => (
+                                            <a
+                                                key={i}
+                                                href={href}
+                                                className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-secondary hover:bg-primary hover:text-white transition-all shadow-sm"
+                                            >
+                                                <Icon size={14} />
+                                            </a>
+                                        ))}
+                                    </div>
+                                    <span className="text-gray-400 text-xs font-medium">© 2026 CapableGroups</span>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
             </div>
-
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
-                    >
-                        <div className="px-4 pt-2 pb-8 space-y-4">
-                            <a href="#home" className="block px-3 py-2 text-base font-semibold text-secondary hover:text-primary hover:bg-gray-50 rounded-md">Home</a>
-                            <a href="#about" className="block px-3 py-2 text-base font-semibold text-secondary hover:text-primary hover:bg-gray-50 rounded-md">About Us</a>
-                            <a href="#clients" className="block px-3 py-2 text-base font-semibold text-secondary hover:text-primary hover:bg-gray-50 rounded-md">Clients</a>
-                            <a href="#technologies" className="block px-3 py-2 text-base font-semibold text-secondary hover:text-primary hover:bg-gray-50 rounded-md">Technologies</a>
-                            <div className="pt-4 border-t border-gray-100">
-                                <button className="w-full bg-secondary text-white px-6 py-3 rounded-lg hover:bg-black transition-all font-medium">
-                                    Get started
-                                </button>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </nav>
+        </header>
     );
 };
 

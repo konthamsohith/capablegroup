@@ -94,7 +94,7 @@ const Testimonials: React.FC = () => {
 
                                         <div className="flex gap-0.5">
                                             {[...Array(item.rating)].map((_, i) => (
-                                                <Star key={i} size={14} fill="#4A96CB" color="#4A96CB" />
+                                                <Star key={i} size={14} fill="#0AA4E3" color="#0AA4E3" />
                                             ))}
                                         </div>
                                     </div>

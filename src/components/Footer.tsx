@@ -1,106 +1,114 @@
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Facebook, Instagram, Linkedin, Twitter, ArrowRight } from 'lucide-react';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-background pt-24 pb-12 px-4 border-t border-gray-100">
-            <div className="max-w-7xl mx-auto">
+        <footer className="relative pt-32 pb-12 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                {/* Footer Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-24">
-                    {/* Branding & Mission */}
-                    <div className="lg:col-span-3 flex flex-col gap-6">
+
+                    {/* Brand Section */}
+                    <div className="lg:col-span-4 flex flex-col gap-8">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center p-2">
+                            <div className="w-12 h-12 bg-white shadow-xl rounded-2xl flex items-center justify-center p-2.5 border border-gray-100">
                                 <img
                                     src="/capblelogo.png"
                                     alt="Capable Groups Logo"
                                     className="w-full h-full object-contain"
                                 />
                             </div>
-                            <span className="text-2xl font-bold text-secondary">Capable Groups</span>
+                            <span className="text-2xl font-bold text-secondary tracking-tight">Capable Groups</span>
                         </div>
-                        <p className="font-geist font-medium text-[16px] leading-[19px] text-[#69686e]">
-                            To be a trusted partner in providing skilled professionals and delivering cost effective and innovative solutions and support businesses in USA, EMEA and the Indian subcontinent.
+                        <p className="text-muted text-lg leading-relaxed max-w-sm font-medium">
+                            To be a trusted partner in providing skilled professionals and delivering cost-effective, innovative solutions globally.
                         </p>
-                        <div className="flex gap-3">
+                        <div className="flex gap-4">
                             {[
-                                { icon: <Facebook size={18} fill="currentColor" />, label: "Facebook" },
-                                { icon: <Instagram size={18} />, label: "Instagram" },
-                                { icon: <Linkedin size={18} fill="currentColor" />, label: "LinkedIn" },
-                                { icon: <Twitter size={18} fill="currentColor" />, label: "X" }
+                                { icon: <Facebook size={20} />, label: "Facebook" },
+                                { icon: <Twitter size={20} />, label: "Twitter" },
+                                { icon: <Linkedin size={20} />, label: "LinkedIn" },
+                                { icon: <Instagram size={20} />, label: "Instagram" }
                             ].map((social, i) => (
-                                <a
+                                <motion.a
+                                    whileHover={{ y: -5, scale: 1.1 }}
                                     key={i}
                                     href="#"
-                                    className="w-10 h-10 bg-black text-white rounded-lg flex items-center justify-center hover:bg-[#4A96CB] transition-colors"
+                                    className="w-12 h-12 bg-background text-secondary border border-gray-100 rounded-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
                                     aria-label={social.label}
                                 >
                                     {social.icon}
-                                </a>
+                                </motion.a>
                             ))}
                         </div>
                     </div>
 
-                    {/* Quick Links */}
-                    <div className="lg:col-span-2 lg:pl-4">
-                        <h4 className="font-geist font-semibold text-[12px] leading-[12px] text-[#69686e] mb-8">
-                            Quick Links
-                        </h4>
-                        <ul className="flex flex-col gap-4">
-                            <li><a href="#" className="font-geist font-semibold text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors">Home</a></li>
-                            <li><a href="#" className="font-geist font-semibold text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors">About Us</a></li>
-                            <li><a href="#" className="font-geist font-semibold text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors">Clients</a></li>
-                            <li><a href="#" className="font-geist font-semibold text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors">Technologies</a></li>
-                            <li><a href="#" className="font-geist font-semibold text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors">Contact Us</a></li>
+                    {/* Links Sections */}
+                    <div className="lg:col-span-2">
+                        <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-8">Navigation</h4>
+                        <ul className="flex flex-col gap-4 font-medium text-muted">
+                            {["Home", "About Us", "Clients", "Technologies", "Contact"].map((link) => (
+                                <li key={link}>
+                                    <a href="#" className="hover:text-primary transition-colors flex items-center gap-2 group">
+                                        <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                                        {link}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Services */}
-                    <div className="lg:col-span-3">
-                        <h4 className="font-geist font-semibold text-[12px] leading-[12px] text-[#69686e] mb-8">
-                            Services
-                        </h4>
-                        <ul className="flex flex-col gap-4">
-                            <li><a href="#" className="font-geist font-semibold text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors">Mobile App Development</a></li>
-                            <li><a href="#" className="font-geist font-semibold text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors">E-Commerce Development</a></li>
-                            <li><a href="#" className="font-geist font-semibold text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors">Digital Marketing Services</a></li>
-                            <li><a href="#" className="font-geist font-semibold text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors">Website Designing</a></li>
-                            <li><a href="#" className="font-geist font-semibold text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors">US IT Staffing</a></li>
-                            <li><a href="#" className="font-geist font-semibold text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors">Domestic Staffing</a></li>
+                    <div className="lg:col-span-2">
+                        <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-8">Services</h4>
+                        <ul className="flex flex-col gap-4 font-medium text-muted">
+                            {["Mobile Apps", "E-Commerce", "Marketing", "Designing", "US Staffing"].map((link) => (
+                                <li key={link}>
+                                    <a href="#" className="hover:text-primary transition-colors flex items-center gap-2 group">
+                                        <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                                        {link}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Contact Information */}
-                    <div className="lg:col-span-4 lg:pl-8">
-                        <h4 className="font-geist font-semibold text-[12px] leading-[12px] text-[#69686e] mb-8">
-                            Contact Information
-                        </h4>
+                    {/* Contact Section */}
+                    <div className="lg:col-span-4 flex flex-col gap-8">
+                        <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-8">Get in touch</h4>
                         <div className="flex flex-col gap-6">
                             <div>
-                                <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Email</p>
-                                <a href="mailto:Info@capablegroups.com" className="font-geist font-[500] text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors block">Info@capablegroups.com</a>
+                                <p className="text-[10px] text-muted font-bold uppercase tracking-widest mb-1.5">EMAIL US</p>
+                                <a href="mailto:info@capablegroups.com" className="text-xl font-bold text-secondary hover:text-primary transition-colors">info@capablegroups.com</a>
                             </div>
                             <div>
-                                <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Phone</p>
-                                <a href="tel:9493971983" className="font-geist font-[500] text-[16px] leading-[19px] text-[#69686e] hover:text-[#4A96CB] transition-colors block">9493971983</a>
+                                <p className="text-[10px] text-muted font-bold uppercase tracking-widest mb-1.5">CALL US</p>
+                                <a href="tel:9493971983" className="text-xl font-bold text-secondary hover:text-primary transition-colors">949 397 1983</a>
                             </div>
                             <div>
-                                <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Address</p>
-                                <p className="font-geist font-[500] text-[16px] leading-[19px] text-[#69686e]">
-                                    5th Floor, P & S Kickstart, Shanta Sriram Building PSR Towers,<br />
-                                    Beside DLF Building, Gachibowli<br />
-                                    Hyderabad, Telangana 500032
+                                <p className="text-[10px] text-muted font-bold uppercase tracking-widest mb-1.5">VISIT US</p>
+                                <p className="text-lg font-medium text-muted leading-relaxed">
+                                    5th Floor, PSR Towers, Beside DLF,<br />
+                                    Gachibowli, Hyderabad 500032
                                 </p>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="bg-[#f0f0f0] p-6 rounded-2xl flex flex-col md:flex-row items-center justify-center gap-4 text-center">
-                    <p className="text-gray-400 font-bold text-sm">
-                        © 2011 Capable Groups. All rights reserved
+                <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <p className="text-muted font-medium text-sm">
+                        © 2026 Capable Groups. All rights reserved.
                     </p>
+                    <div className="flex gap-8 text-sm font-bold text-secondary uppercase tracking-tighter">
+                        <a href="#" className="hover:text-primary">Privacy Policy</a>
+                        <a href="#" className="hover:text-primary">Terms of Service</a>
+                    </div>
                 </div>
+
             </div>
         </footer>
     );

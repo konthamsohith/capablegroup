@@ -1,31 +1,41 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 
 const ServiceCard = ({ title, description, tags, icon }: { title: string, description: string, tags: string[], icon: string }) => (
     <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         whileHover={{ y: -5 }}
-        className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group"
+        className="glass-card p-10 rounded-[32px] group relative overflow-hidden flex flex-col h-full"
     >
-        <div className="flex justify-between items-start mb-6">
-            <h3 className="text-2xl font-semibold text-secondary">{title}</h3>
-            <div className="w-20 h-20 rounded-xl overflow-hidden group-hover:shadow-md transition-shadow">
+        <div className="flex justify-between items-start mb-8">
+            <div className="w-16 h-16 rounded-2xl overflow-hidden bg-gray-50/50 p-2 group-hover:scale-110 transition-transform duration-500">
                 <img
                     src={icon}
                     alt={title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                 />
+            </div>
+            <div className="p-3 rounded-full bg-secondary/5 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <ArrowUpRight size={20} />
             </div>
         </div>
 
-        <p className="font-medium text-[16px] leading-[1.6] text-gray-500 mb-8">
+        <h3 className="text-3xl font-bold text-secondary mb-4 tracking-tight group-hover:text-primary transition-colors">
+            {title}
+        </h3>
+
+        <p className="text-muted leading-relaxed mb-8 flex-grow">
             {description}
         </p>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-100/50">
             {tags.map((tag) => (
                 <span
                     key={tag}
-                    className="px-4 py-1.5 bg-gray-50 text-[10px] font-semibold tracking-widest text-gray-400 uppercase rounded-full border border-gray-100"
+                    className="px-4 py-1.5 bg-secondary/5 text-[10px] font-bold tracking-[0.2em] text-muted uppercase rounded-full"
                 >
                     {tag}
                 </span>
@@ -39,79 +49,84 @@ const Services: React.FC = () => {
     const services = [
         {
             title: "Mobile App Development",
-            description: "We are the innovators in the part of top mobile app developers. Just share your idea with us and we'll bring it to life.",
+            description: "Innovators in top mobile app development. Share your idea and we'll bring it to life with high performance and polish.",
             tags: ["iOS", "ANDROID", "CROSS-PLATFORM"],
             icon: "https://framerusercontent.com/images/VxaX187KtYUExvg4GWWS825dlo.gif?width=300&height=300"
         },
         {
             title: "E-Commerce Development",
-            description: "E-Commerce websites transform businesses and help them to expand for the growth of the company.",
+            description: "Transform your business with high-conversion e-commerce solutions tailored for growth and scalability.",
             tags: ["SHOPIFY", "WOOCOMMERCE", "CUSTOM"],
             icon: "https://framerusercontent.com/images/Url11o8XThJwsCXbChyt6K6k.gif?width=300&height=300"
         },
         {
             title: "Digital Marketing Services",
-            description: "In today's world, digital marketing has evolved to become an integral part of advertising and marketing strategy.",
+            description: "Integrated advertising and marketing strategies that drive visibility, engagement, and consistent results.",
             tags: ["SEO", "SEM", "SOCIAL MEDIA"],
             icon: "https://framerusercontent.com/images/8gIc0PgTS4D1f8V36s6QO5xVPTM.gif?width=300&height=300"
         },
         {
             title: "Website Designing",
-            description: "At Capable Groups, we are a set of web designers in Bangalore involved in creating innovative, user-friendly designs.",
+            description: "Creating innovative, user-friendly designs that capture your brand essence and engage your audience effectively.",
             tags: ["UI/UX", "RESPONSIVE", "MODERN"],
             icon: "https://framerusercontent.com/images/VxaX187KtYUExvg4GWWS825dlo.gif?width=300&height=300"
         },
         {
             title: "US IT Staffing",
-            description: "US Staffing is a Talent Acquisition Industry which brings together HR Departments of the Clients with skilled candidates.",
+            description: "Talent acquisition industry leaders bringing together HR departments with highly skilled global candidates.",
             tags: ["RECRUITMENT", "TALENT", "OUTSOURCING"],
             icon: "https://framerusercontent.com/images/Url11o8XThJwsCXbChyt6K6k.gif?width=300&height=300"
         },
         {
             title: "Domestic Staffing",
-            description: "We provide wide-ranging industries with excellent domestic staffing solutions in India to help companies scale.",
+            description: "Excellent domestic staffing solutions in India to help companies scale rapidly with the right talent pool.",
             tags: ["INDIA", "HIRE", "CONTRACT"],
             icon: "https://framerusercontent.com/images/8gIc0PgTS4D1f8V36s6QO5xVPTM.gif?width=300&height=300"
         }
     ];
 
     return (
-        <section className="relative py-24 bg-background">
+        <section id="services" className="relative overflow-hidden">
+            {/* Background Decorative Gradient */}
+            <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-[20%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col lg:flex-row gap-16">
-                    {/* Left Side: Sticky Content */}
-                    <div className="lg:w-1/3">
-                        <div className="lg:sticky lg:top-32 h-fit mb-12 lg:mb-0">
-                            <div className="inline-flex items-center space-x-2 mb-6">
-                                <span className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase">
-                                    &gt; WHAT WE DO &lt;
-                                </span>
-                            </div>
+                <div className="flex flex-col items-center text-center mb-24">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="mb-8"
+                    >
+                        <span className="section-tag uppercase tracking-[0.3em] font-black text-[9px]">CAPABLE SERVICES</span>
+                    </motion.div>
 
-                            <h2 className="text-5xl font-semibold text-secondary mb-12 leading-[1.1] tracking-tight">
-                                Services built<br />to drive impact
-                            </h2>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="text-5xl md:text-7xl font-bold text-secondary tracking-tight mb-8"
+                    >
+                        High-Impact <span className="text-primary italic">Solutions</span>
+                    </motion.h2>
 
-                            <div className="relative group inline-block">
-                                <button className="bg-primary text-white px-8 py-4 rounded-xl hover:bg-[#3d7da8] transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl font-semibold text-lg">
-                                    Discuss your ideas
-                                </button>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="max-w-2xl text-muted text-xl font-medium leading-relaxed"
+                    >
+                        We offer a comprehensive spectrum of IT and infrastructure solutions designed to drive your strategic objectives forward.
+                    </motion.p>
+                </div>
 
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Side: Service Cards Container */}
-                    <div className="lg:w-2/3">
-                        <div className="bg-[#f0f0f0] p-6 md:p-10 rounded-[40px] border border-gray-100">
-                            <div className="flex flex-col gap-6">
-                                {services.map((service, index) => (
-                                    <ServiceCard key={index} {...service} />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {services.map((service, index) => (
+                        <ServiceCard key={index} {...service} />
+                    ))}
                 </div>
             </div>
         </section>

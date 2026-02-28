@@ -3,12 +3,14 @@
 @import "@fontsource/geist-mono";
 
 @theme {
-  --color-primary: #4A96CB;
-  /* Capable Groups blue */
-  --color-secondary: #1a1a1a;
-  /* Dark text */
-  --color-background: #f8f8f8;
-  /* Off-white background */
+  --color-primary: #ff6321;
+  /* New brand orange */
+  --color-secondary: #060612;
+  /* New deep dark text */
+  --color-background: #f5f4f3;
+  /* New warm grey background */
+  --color-muted: #69686e;
+  /* New descriptive text color */
 
   --font-sans: "Geist Sans", system-ui, sans-serif;
   --font-geist: "Geist Sans", sans-serif;
@@ -39,6 +41,48 @@
   }
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html,
+body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
 .handwritten {
   font-family: 'Caveat', cursive;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+}
+
+.agnos-nav {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 10px -2px rgba(0, 0, 0, 0.04);
+}
+
+.nav-divider {
+  width: 1px;
+  height: 36px;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.section-tag {
+  @apply text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase flex items-center gap-2;
+}
+
+.section-tag::before,
+.section-tag::after {
+  content: "::";
+  @apply text-primary/50;
 }
