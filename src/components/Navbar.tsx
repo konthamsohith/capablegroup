@@ -20,10 +20,11 @@ const Navbar: React.FC = () => {
                     <nav className="capable-nav rounded-2xl transition-all duration-500 flex items-center h-[64px] overflow-hidden relative z-[101]">
                         {/* Logo Part */}
                         <div className="flex items-center gap-3 px-6 h-full cursor-pointer hover:bg-gray-50/50 transition-colors">
-                            <div className="w-8 h-8 relative flex items-center justify-center">
-                                <div className="absolute w-5 h-5 rotate-45 border-2 border-[#ff6321] rounded-sm"></div>
-                                <div className="absolute w-3 h-3 rotate-45 bg-[#ff6321] rounded-sm"></div>
-                            </div>
+                            <img
+                                src="/capablelogo.png"
+                                alt="Logo"
+                                className="w-8 h-8 object-contain"
+                            />
                             <span className="font-bold text-xl tracking-tight text-[#060612]">Capable Groups</span>
                         </div>
 

@@ -144,7 +144,7 @@ const Home: React.FC = () => {
                 >
                     <div className="max-w-4xl mx-auto flex flex-col items-center">
                         <span
-                            className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-6 whitespace-nowrap uppercase tracking-[0.2em]"
+                            className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap uppercase tracking-[0.2em]"
                             style={{
                                 fontFamily: 'Geist, "Geist Placeholder", sans-serif',
                                 fontWeight: 600,
@@ -153,7 +153,7 @@ const Home: React.FC = () => {
                                 lineHeight: '12px'
                             }}
                         >
-                            TRUSTED BY 100+ GLOBAL LEADERS
+                            TRUSTED BY <span style={{ color: 'rgb(6, 6, 18)' }}>100+</span> GLOBAL LEADERS
                         </span>
 
                         <div className="w-full max-w-5xl overflow-hidden relative mt-4">
