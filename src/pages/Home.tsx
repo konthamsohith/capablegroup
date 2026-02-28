@@ -35,7 +35,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Hero Section */}
-            <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-[30vh] text-center min-h-screen flex flex-col items-center justify-center">
+            <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[8vh] pb-[22vh] text-center min-h-screen flex flex-col items-center justify-center">
                 {/* Background Concentric Circles */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden">
                     {[1, 2, 3, 4, 5, 6].map((circle) => (
