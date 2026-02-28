@@ -45,20 +45,6 @@ const Home: React.FC = () => {
 
             {/* Hero Section */}
             <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[12vh] pb-[12vh] text-center min-h-screen flex flex-col items-center justify-center">
-                {/* Background Concentric Circles - Thinner and more subtle */}
-                <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden">
-                    {[1, 2, 3, 4, 5, 6].map((circle) => (
-                        <div
-                            key={circle}
-                            className="absolute border border-gray-100/50 rounded-full"
-                            style={{
-                                width: `${circle * 320}px`,
-                                height: `${circle * 320}px`,
-                                opacity: 1 - circle * 0.15,
-                            }}
-                        />
-                    ))}
-                </div>
 
                 {/* Main Content Area */}
                 <motion.div
@@ -157,18 +143,53 @@ const Home: React.FC = () => {
                     className="mt-48 w-full border-t border-gray-100/80 border-dashed pt-12 relative"
                 >
                     <div className="max-w-4xl mx-auto flex flex-col items-center">
-                        <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-6 text-[11px] font-bold tracking-[0.2em] text-[#69686e]/60 whitespace-nowrap uppercase">
+                        <span
+                            className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-6 whitespace-nowrap uppercase tracking-[0.2em]"
+                            style={{
+                                fontFamily: 'Geist, "Geist Placeholder", sans-serif',
+                                fontWeight: 600,
+                                color: 'rgb(105, 104, 110)',
+                                fontSize: '12px',
+                                lineHeight: '12px'
+                            }}
+                        >
                             TRUSTED BY 100+ GLOBAL LEADERS
                         </span>
 
-                        <div className="flex flex-wrap justify-center md:justify-between items-center w-full max-w-7xl px-4 brightness-0 opacity-70 hover:opacity-100 transition-opacity duration-500 gap-12 md:gap-8">
-                            <img src={autoomLogo} alt="Autoom" className="h-16 md:h-28 w-auto object-contain" />
-                            <img src={marzLogo} alt="Marz" className="h-16 md:h-28 w-auto object-contain" />
-                            <img src={stratoLogo} alt="Strato" className="h-16 md:h-28 w-auto object-contain" />
-                            <img src={paybitLogo} alt="Paybit" className="h-16 md:h-28 w-auto object-contain" />
-                            <img src={cocoLogo} alt="Coco" className="h-16 md:h-28 w-auto object-contain" />
-                            <img src={bitcoinLogo} alt="Bitcoin" className="h-16 md:h-28 w-auto object-contain" />
-                            <img src={cryptoLogo} alt="Crypto" className="h-16 md:h-28 w-auto object-contain" />
+                        <div className="w-full max-w-5xl overflow-hidden relative mt-4">
+                            <motion.div
+                                animate={{
+                                    x: ["0%", "-50%"],
+                                }}
+                                transition={{
+                                    x: {
+                                        repeat: Infinity,
+                                        repeatType: "loop",
+                                        duration: 30,
+                                        ease: "linear",
+                                    },
+                                }}
+                                className="flex items-center gap-12 w-max brightness-0 opacity-70 hover:opacity-100 transition-opacity duration-500"
+                            >
+                                {/* First set of 7 logos */}
+                                <img src={autoomLogo} alt="Autoom" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={marzLogo} alt="Marz" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={stratoLogo} alt="Strato" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={paybitLogo} alt="Paybit" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={cocoLogo} alt="Coco" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={bitcoinLogo} alt="Bitcoin" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={cryptoLogo} alt="Crypto" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+
+                                {/* Duplicate set for seamless loop */}
+                                <img src={autoomLogo} alt="Autoom" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={marzLogo} alt="Marz" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={stratoLogo} alt="Strato" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={paybitLogo} alt="Paybit" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={cocoLogo} alt="Coco" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={bitcoinLogo} alt="Bitcoin" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                <img src={cryptoLogo} alt="Crypto" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                            </motion.div>
+
                         </div>
                     </div>
                 </motion.div>
