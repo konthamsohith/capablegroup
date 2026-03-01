@@ -36,10 +36,10 @@ const Counter = ({ value, label }: { value: number, label: string }) => {
 
 const Stats: React.FC = () => {
     const stats = [
-        { value: 85000, label: "Revenue Generated" },
-        { value: 10000, label: "Happy Clients" },
-        { value: 50000, label: "Project Impacted" },
-        { value: 500, label: "Global Leaders" }
+        { value: 5000, label: "Global Talent Pool" },
+        { value: 1200, label: "Projects Delivered" },
+        { value: 85, label: "Revenue Impact (m)" },
+        { value: 500, label: "Global Client Base" }
     ];
 
     return (

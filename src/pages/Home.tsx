@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Services from '../components/Services';
 import Process from '../components/Process';
 import CTA from '../components/CTA';
+import Industries from '../components/Industries';
 import Footer from '../components/Footer';
 import Stats from '../components/Stats';
 import Blog from '../components/Blog';
@@ -69,32 +70,140 @@ const Home: React.FC = () => {
 
                     {/* Flanking Icons and Heading Container */}
                     <div className="relative w-full flex items-center justify-center">
-                        {/* Left Palette Icon */}
+                        {/* Left AI Icon */}
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.5, duration: 1 }}
-                            className="absolute left-[5%] xl:left-[10%] hidden md:block"
+                            animate={{
+                                opacity: 1,
+                                x: 0,
+                                y: [0, -10, 0]
+                            }}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{
+                                opacity: { delay: 0.5, duration: 1 },
+                                x: { delay: 0.5, duration: 1 },
+                                y: {
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }
+                            }}
+                            className="absolute left-[2%] xl:left-[6%] top-[-15%] hidden md:block group"
                         >
-                            <div className="icon-square">
-                                <svg className="w-7 h-7 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.6-.5 2-1.2l.6-.4c.5-.4.8-1 1-1.7.3-1.1 1.2-1.8 2.3-1.8 1.1 0 2 .8 2.1 1.9.1.5.4.9.8 1.1l.6.4c.4.7 1.1 1.2 2 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z" /></svg>
+                            <div className="w-24 h-24 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-primary/20 group-hover:bg-primary/5 transition-all duration-500 relative bg-white/50 backdrop-blur-sm">
+                                <svg className="w-10 h-10 text-gray-300 group-hover:text-primary transition-colors duration-500" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M50 80c-18 0-33-14-33-31s15-31 33-31s33 14 33 31" opacity="0.4" />
+                                    <path d="M35 60l8-25 8 25M38 52h10" strokeWidth="3" />
+                                    <path d="M62 35v25M58 35h8M58 60h8" strokeWidth="3" />
+                                    <circle cx="75" cy="35" r="3" fill="currentColor" stroke="none" />
+                                </svg>
+                                <div className="absolute -inset-2 rounded-full border border-dashed border-primary/0 group-hover:border-primary/20 animate-[spin_20s_linear_infinite]" />
                             </div>
                         </motion.div>
 
-                        <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-bold tracking-tight leading-[1.1] mb-8 max-w-5xl text-[#060612] z-10 px-4">
+                        <h1
+                            className="tracking-tight mb-8 max-w-5xl z-10 px-4"
+                            style={{
+                                fontFamily: '"Geist Sans", system-ui, sans-serif',
+                                fontWeight: 500,
+                                color: 'rgb(6, 6, 18)',
+                                fontSize: '72px',
+                                lineHeight: '72px'
+                            }}
+                        >
                             We design brands<br />
-                            that move <span className="text-[#ff6321] italic">people</span>
+                            that move <span
+                                style={{
+                                    fontFamily: '"Geist Sans", system-ui, sans-serif',
+                                    fontWeight: 500,
+                                    color: 'rgb(255, 99, 33)',
+                                    fontSize: '72px',
+                                    lineHeight: '72px',
+                                    fontStyle: 'normal'
+                                }}
+                            >people</span>
                         </h1>
 
-                        {/* Right Pen Icon */}
+                        {/* Right Top Domestic Staffing Icon */}
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.6, duration: 1 }}
-                            className="absolute right-[5%] xl:right-[10%] hidden md:block"
+                            animate={{
+                                opacity: 1,
+                                x: 0,
+                                y: [0, -12, 0]
+                            }}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{
+                                opacity: { delay: 0.6, duration: 1 },
+                                x: { delay: 0.6, duration: 1 },
+                                y: {
+                                    duration: 3.5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 0.2
+                                }
+                            }}
+                            className="absolute right-[2%] xl:right-[6%] top-[-15%] hidden md:block group"
                         >
-                            <div className="icon-square">
-                                <svg className="w-7 h-7 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m14 6 1.4-1.4a2 2 0 1 1 2.8 2.8L16.8 8.8c-.8.8-1.4.1-2.8-.2l-1.3-.3-3.6 3.6c.4 1.4.1 2-.8 2.8L3 21l3.5-3.5c.8-.8 1.4-.1 2.8.2L12 16c2.4.6 3.6-.6 4.8-.6m-8.1-1.3L12 8" /></svg>
+                            <div className="w-24 h-24 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-primary/20 group-hover:bg-primary/5 transition-all duration-500 relative bg-white/50 backdrop-blur-sm">
+                                <svg className="w-10 h-10 text-gray-300 group-hover:text-primary transition-colors duration-500" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M50 40c8 0 12-6 12-12s-4-12-12-12-12 6-12 12 4 12 12 12ZM30 85c0-12 10-20 20-20s20 8 20 20M25 45c5 0 8-4 8-8s-3-8-8-8-8 4-8 8 3 8 8 8ZM15 80c0-10 6-15 10-15M75 45c5 0 8-4 8-8s-3-8-8-8-8 4-8 8 3 8 8 8ZM85 80c0-10-6-15-10-15" />
+                                </svg>
+                                <div className="absolute -inset-2 rounded-full border border-dashed border-primary/0 group-hover:border-primary/20 animate-[spin_20s_linear_infinite]" />
+                            </div>
+                        </motion.div>
+
+                        {/* Left Bottom Terminal Icon */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{
+                                opacity: 1,
+                                x: 0,
+                                y: [0, -8, 0]
+                            }}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{
+                                opacity: { delay: 0.7, duration: 1 },
+                                x: { delay: 0.7, duration: 1 },
+                                y: {
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 0.4
+                                }
+                            }}
+                            className="absolute left-[6%] xl:left-[10%] bottom-[-30%] hidden md:block group"
+                        >
+                            <div className="w-20 h-20 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-primary/20 group-hover:bg-primary/5 transition-all duration-500 relative bg-white/40 backdrop-blur-sm">
+                                <svg className="w-7 h-7 text-gray-300 group-hover:text-primary transition-colors duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" /></svg>
+                                <div className="absolute -inset-2 rounded-full border border-dashed border-primary/0 group-hover:border-primary/20 animate-[spin_20s_linear_infinite]" />
+                            </div>
+                        </motion.div>
+
+                        {/* Right Bottom Layers Icon */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{
+                                opacity: 1,
+                                x: 0,
+                                y: [0, -15, 0]
+                            }}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{
+                                opacity: { delay: 0.8, duration: 1 },
+                                x: { delay: 0.8, duration: 1 },
+                                y: {
+                                    duration: 4.5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 0.6
+                                }
+                            }}
+                            className="absolute right-[6%] xl:right-[10%] bottom-[-30%] hidden md:block group"
+                        >
+                            <div className="w-20 h-20 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-primary/20 group-hover:bg-primary/5 transition-all duration-500 relative bg-white/40 backdrop-blur-sm">
+                                <svg className="w-7 h-7 text-gray-300 group-hover:text-primary transition-colors duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>
+                                <div className="absolute -inset-2 rounded-full border border-dashed border-primary/0 group-hover:border-primary/20 animate-[spin_20s_linear_infinite]" />
                             </div>
                         </motion.div>
                     </div>
@@ -105,7 +214,15 @@ const Home: React.FC = () => {
                             hidden: { opacity: 0, y: 20 },
                             visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut", delay: 0.8 } }
                         }}
-                        className="max-w-2xl mx-auto text-[15px] md:text-[16px] text-[#69686e]/80 leading-relaxed mb-14 font-medium px-4"
+                        className="max-w-2xl mx-auto mb-14 px-4"
+                        style={{
+                            fontFamily: 'Geist, "Geist Placeholder", sans-serif',
+                            fontWeight: 500,
+                            color: 'rgb(105, 104, 110)',
+                            fontSize: '15px',
+                            lineHeight: '18px',
+                            fontStyle: 'normal'
+                        }}
                     >
                         We combine strategy, design, and technology to help ambitious<br className="hidden md:block" />
                         brands stand out & create meaningful digital experiences.
@@ -193,8 +310,6 @@ const Home: React.FC = () => {
                         </div>
                     </div>
                 </motion.div>
-
-
             </main>
 
             {/* Content Sections with large spacing and subtle transition gradients */}
@@ -220,7 +335,7 @@ const Home: React.FC = () => {
                 </div>
 
                 <div className="relative z-10 flex flex-col gap-0">
-                    <div className="bg-gradient-to-b from-transparent to-orange-50/20 py-32">
+                    <div className="bg-gradient-to-b from-transparent to-orange-50/20 pt-16 pb-32">
                         <Stats />
                     </div>
                     <div className="bg-gradient-to-b from-orange-50/20 via-white to-orange-50/30 py-32">
@@ -232,6 +347,7 @@ const Home: React.FC = () => {
                     <div className="bg-gradient-to-b from-white to-orange-50/10 py-32">
                         <Blog />
                     </div>
+                    <Industries />
                     <div className="bg-gradient-to-b from-orange-50/10 to-transparent py-32 px-4">
                         <CTA />
                     </div>
@@ -239,7 +355,7 @@ const Home: React.FC = () => {
             </div>
 
             <Footer />
-        </div >
+        </div>
     );
 };
 
