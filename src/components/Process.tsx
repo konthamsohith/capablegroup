@@ -59,7 +59,7 @@ const Process: React.FC = () => {
 
             <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
                 <div className="flex flex-col items-center mb-24">
-                    <span className="section-tag mb-4 uppercase tracking-[0.3em] font-black text-[9px]">OUR METHODOLOGY</span>
+                    <span className="section-tag mb-4">OUR METHODOLOGY</span>
                     <h2 className="text-5xl md:text-7xl font-bold text-secondary tracking-tight mb-8">
                         A collaborative <span className="text-primary italic">approach</span>
                     </h2>

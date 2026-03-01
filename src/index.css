@@ -48,6 +48,28 @@
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
+/* Lenis Smooth Scroll Setup */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 html,
 body {
   scrollbar-width: none !important;
@@ -80,11 +102,15 @@ body {
 }
 
 .section-tag {
-  @apply text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase flex items-center gap-2;
+  @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100/30 border border-gray-200/40 text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase;
 }
 
-.section-tag::before,
+.section-tag::before {
+  content: "›";
+  @apply text-gray-300 mr-0.5;
+}
+
 .section-tag::after {
-  content: "::";
-  @apply text-primary/50;
+  content: "‹";
+  @apply text-gray-300 ml-0.5;
 }

@@ -1,41 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { Sparkles, PenTool, Code2, Smartphone, ShoppingBag, Megaphone } from 'lucide-react';
 
-const ServiceCard = ({ title, description, tags, icon }: { title: string, description: string, tags: string[], icon: string }) => (
+const ServiceCard = ({ title, description, tags, icon: Icon }: { title: string, description: string, tags: string[], icon: any }) => (
     <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        whileHover={{ y: -5 }}
-        className="glass-card p-10 rounded-[32px] group relative overflow-hidden flex flex-col h-full"
+        viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+        transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="relative bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 group mb-10 last:mb-0"
     >
-        <div className="flex justify-between items-start mb-8">
-            <div className="w-16 h-16 rounded-2xl overflow-hidden bg-gray-50/50 p-2 group-hover:scale-110 transition-transform duration-500">
-                <img
-                    src={icon}
-                    alt={title}
-                    className="w-full h-full object-contain"
-                />
-            </div>
-            <div className="p-3 rounded-full bg-secondary/5 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                <ArrowUpRight size={20} />
+        <div className="flex justify-between items-start mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold text-secondary tracking-tight">
+                {title}
+            </h3>
+            <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-secondary group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
+                <Icon size={24} strokeWidth={1.5} />
             </div>
         </div>
 
-        <h3 className="text-3xl font-bold text-secondary mb-4 tracking-tight group-hover:text-primary transition-colors">
-            {title}
-        </h3>
+        <div className="border-t border-dashed border-gray-200 my-6"></div>
 
-        <p className="text-muted leading-relaxed mb-8 flex-grow">
+        <p className="text-muted text-lg leading-relaxed mb-8">
             {description}
         </p>
 
-        <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-100/50">
+        <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
                 <span
                     key={tag}
-                    className="px-4 py-1.5 bg-secondary/5 text-[10px] font-bold tracking-[0.2em] text-muted uppercase rounded-full"
+                    className="px-4 py-1.5 bg-gray-50 text-[10px] font-bold tracking-[0.1em] text-muted uppercase rounded-full"
                 >
                     {tag}
                 </span>
@@ -45,88 +39,89 @@ const ServiceCard = ({ title, description, tags, icon }: { title: string, descri
 );
 
 const Services: React.FC = () => {
-
     const services = [
         {
-            title: "Mobile App Development",
-            description: "Innovators in top mobile app development. Share your idea and we'll bring it to life with high performance and polish.",
-            tags: ["iOS", "ANDROID", "CROSS-PLATFORM"],
-            icon: "https://framerusercontent.com/images/VxaX187KtYUExvg4GWWS825dlo.gif?width=300&height=300"
+            title: "Branding & Identity",
+            description: "From concept to prototype, we create user-centered interfaces that balance beauty with performance, ensuring every interaction feels effortless.",
+            tags: ["IDENTITY", "POSITIONING", "VOICE"],
+            icon: Sparkles
         },
         {
-            title: "E-Commerce Development",
-            description: "Transform your business with high-conversion e-commerce solutions tailored for growth and scalability.",
-            tags: ["SHOPIFY", "WOOCOMMERCE", "CUSTOM"],
-            icon: "https://framerusercontent.com/images/Url11o8XThJwsCXbChyt6K6k.gif?width=300&height=300"
+            title: "UI/UX Design",
+            description: "Crafting intuitive, user-centered interfaces that blend clarity, beauty, and effortless interaction.",
+            tags: ["WEB", "PRODUCT", "APP"],
+            icon: PenTool
         },
         {
-            title: "Digital Marketing Services",
-            description: "Integrated advertising and marketing strategies that drive visibility, engagement, and consistent results.",
-            tags: ["SEO", "SEM", "SOCIAL MEDIA"],
-            icon: "https://framerusercontent.com/images/8gIc0PgTS4D1f8V36s6QO5xVPTM.gif?width=300&height=300"
+            title: "Web Development",
+            description: "We build fast, scalable, and fully responsive websites that perform beautifully — whether it's a simple portfolio or a full digital platform.",
+            tags: ["FRAMER", "FRONT-END", "CMS"],
+            icon: Code2
         },
         {
-            title: "Website Designing",
-            description: "Creating innovative, user-friendly designs that capture your brand essence and engage your audience effectively.",
-            tags: ["UI/UX", "RESPONSIVE", "MODERN"],
-            icon: "https://framerusercontent.com/images/VxaX187KtYUExvg4GWWS825dlo.gif?width=300&height=300"
+            title: "Mobile Apps",
+            description: "Developing high-performance native and cross-platform mobile applications that provide seamless user experiences.",
+            tags: ["IOS", "ANDROID", "REACT NATIVE"],
+            icon: Smartphone
         },
         {
-            title: "US IT Staffing",
-            description: "Talent acquisition industry leaders bringing together HR departments with highly skilled global candidates.",
-            tags: ["RECRUITMENT", "TALENT", "OUTSOURCING"],
-            icon: "https://framerusercontent.com/images/Url11o8XThJwsCXbChyt6K6k.gif?width=300&height=300"
+            title: "E-Commerce",
+            description: "Scalable online stores designed to convert visitors into customers with optimized checkout flows and product discovery.",
+            tags: ["SHOPIFY", "STRIPE", "CONVERSION"],
+            icon: ShoppingBag
         },
         {
-            title: "Domestic Staffing",
-            description: "Excellent domestic staffing solutions in India to help companies scale rapidly with the right talent pool.",
-            tags: ["INDIA", "HIRE", "CONTRACT"],
-            icon: "https://framerusercontent.com/images/8gIc0PgTS4D1f8V36s6QO5xVPTM.gif?width=300&height=300"
+            title: "Digital Marketing",
+            description: "Data-driven strategies to increase your visibility and reach your target audience through SEO, SEM, and social media.",
+            tags: ["SEO", "STRATEGY", "GROWTH"],
+            icon: Megaphone
         }
     ];
 
     return (
-        <section id="services" className="relative overflow-hidden">
-            {/* Background Decorative Gradient */}
-            <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-[20%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-
+        <section id="services" className="py-24 bg-[#f8f9fa]/50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col items-center text-center mb-24">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="mb-8"
-                    >
-                        <span className="section-tag uppercase tracking-[0.3em] font-black text-[9px]">CAPABLE SERVICES</span>
-                    </motion.div>
+                <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-24">
+                    {/* Left Column Container */}
+                    <div className="relative">
+                        {/* Sticky Header Content */}
+                        <div className="lg:sticky lg:top-32 py-10">
+                            <div className="flex flex-col items-start text-left">
+                                <span className="section-tag mb-8 uppercase tracking-[0.2em] font-black text-[10px]">WHAT WE DO</span>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="text-5xl md:text-7xl font-bold text-secondary tracking-tight mb-8"
-                    >
-                        High-Impact <span className="text-primary italic">Solutions</span>
-                    </motion.h2>
+                                <h2 className="text-5xl md:text-7xl font-bold text-secondary tracking-tight mb-12">
+                                    Services built <br />
+                                    to drive <span className="text-primary italic">impact</span>
+                                </h2>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="max-w-2xl text-muted text-xl font-medium leading-relaxed"
-                    >
-                        We offer a comprehensive spectrum of IT and infrastructure solutions designed to drive your strategic objectives forward.
-                    </motion.p>
-                </div>
+                                <div className="relative inline-block">
+                                    <button className="bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                                        Discuss your ideas
+                                    </button>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {services.map((service, index) => (
-                        <ServiceCard key={index} {...service} />
-                    ))}
+                                    {/* Handwritten Note & Arrow */}
+                                    <div className="absolute left-[110%] top-1/2 -translate-y-1/2 hidden xl:block whitespace-nowrap">
+                                        <div className="flex items-center gap-3">
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="text-primary/40 -scale-x-100 rotate-45">
+                                                <path d="M5 5C15 5 35 15 35 35" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="4 2" />
+                                                <path d="M25 35L35 35L35 25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            </svg>
+                                            <span className="handwritten text-primary text-xl -rotate-3">
+                                                Let's get started
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column - Scrolling Grid */}
+                    <div className="flex flex-col relative z-10">
+                        {services.map((service, index) => (
+                            <ServiceCard key={index} {...service} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
