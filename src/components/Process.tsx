@@ -105,7 +105,7 @@ const Process: React.FC = () => {
                     </div>
 
                     {/* Step Content */}
-                    <div className="max-w-2xl mx-auto mt-32 glass-card p-12 rounded-[48px]">
+                    <div className="max-w-xl mx-auto mt-24 glass-card p-10 rounded-[40px]">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentStep}
@@ -113,21 +113,21 @@ const Process: React.FC = () => {
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.98, y: -10 }}
                                 transition={{ duration: 0.5, ease: "circOut" }}
-                                className="flex flex-col items-center"
+                                className="flex flex-col items-center text-center"
                             >
-                                <span className="mb-4 px-4 py-1.5 bg-primary/10 text-[10px] font-bold tracking-[0.3em] text-primary rounded-full">
+                                <span className="mb-4 px-3 py-1 bg-primary/10 text-[9px] font-bold tracking-[0.3em] text-primary rounded-full">
                                     STEP {steps[currentStep].id}
                                 </span>
-                                <h3 className="text-4xl md:text-5xl font-bold text-secondary mb-6 tracking-tight">
+                                <h3 className="text-3xl md:text-4xl font-bold text-secondary mb-4 tracking-tight">
                                     {steps[currentStep].title}
                                 </h3>
-                                <p className="text-muted text-lg md:text-xl mb-10 leading-relaxed max-w-md font-medium">
+                                <p className="text-muted text-base md:text-lg mb-8 leading-relaxed max-w-sm font-medium">
                                     {steps[currentStep].description}
                                 </p>
 
-                                <div className="flex flex-wrap justify-center gap-4 mb-10">
+                                <div className="flex flex-wrap justify-center gap-3 mb-8">
                                     {steps[currentStep].tags.map((tag) => (
-                                        <span key={tag} className="text-[10px] font-bold tracking-[0.2em] text-muted uppercase px-3 py-1 bg-background rounded-lg">
+                                        <span key={tag} className="text-[9px] font-bold tracking-[0.15em] text-muted uppercase px-2.5 py-1 bg-background rounded-lg">
                                             {tag}
                                         </span>
                                     ))}
@@ -136,9 +136,9 @@ const Process: React.FC = () => {
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="bg-primary text-white px-10 py-5 rounded-2xl font-bold shadow-xl shadow-primary/20 hover:shadow-primary/30 transition-all flex items-center gap-2"
+                                    className="bg-primary text-white px-8 py-4 rounded-xl font-bold text-base shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all flex items-center gap-2"
                                 >
-                                    Start Project <ArrowRight size={20} />
+                                    Start Project <ArrowRight size={18} />
                                 </motion.button>
                             </motion.div>
                         </AnimatePresence>

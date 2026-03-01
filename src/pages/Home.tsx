@@ -18,7 +18,7 @@ import stratoLogo from '../assets/logos/strato.png';
 
 const Home: React.FC = () => {
     return (
-        <div className="min-h-screen bg-background overflow-x-hidden relative font-sans">
+        <div className="min-h-screen bg-background overflow-x-clip relative font-sans">
             {/* Background Subtle Gradient Blobs with Enhanced Dynamics */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
                 <motion.div
