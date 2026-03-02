@@ -52,8 +52,6 @@ const Process: React.FC = () => {
         setCurrentStep(stepIndex);
     });
 
-    const angles = [160, 125, 90, 55, 20];
-
     const handleStepClick = (index: number) => {
         // Find the rough scroll percentage this click corresponds to, 
         // to optionally scroll the window, but we will just let it be 
