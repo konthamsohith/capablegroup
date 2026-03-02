@@ -58,7 +58,7 @@ const Process: React.FC = () => {
             <div className="absolute top-[30%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-                <div className="flex flex-col items-center mb-24">
+                <div className="flex flex-col items-center mb-12">
                     <span className="section-tag mb-4">OUR METHODOLOGY</span>
                     <h2 className="text-5xl md:text-7xl font-bold text-secondary tracking-tight mb-8">
                         A collaborative <span className="text-primary italic">approach</span>
@@ -105,7 +105,7 @@ const Process: React.FC = () => {
                     </div>
 
                     {/* Step Content */}
-                    <div className="max-w-xl mx-auto mt-24 glass-card p-10 rounded-[40px]">
+                    <div className="max-w-xl mx-auto mt-12 glass-card p-10 rounded-[40px]">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentStep}

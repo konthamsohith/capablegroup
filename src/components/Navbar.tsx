@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLenis } from 'lenis/react';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const lenis = useLenis();
 
     const navLinks = [
         { name: 'Home', href: '#home' },
@@ -13,13 +15,32 @@ const Navbar: React.FC = () => {
         { name: 'Contact Us', href: '#footer' },
     ];
 
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const target = href.replace('#', '');
+        const element = document.getElementById(target);
+        if (element && lenis) {
+            lenis.scrollTo(element, {
+                offset: -100, // Adjust for navbar height
+                duration: 2, // Slightly slower for more cinematic feel
+            });
+        }
+        setIsOpen(false);
+    };
+
     return (
         <header className="fixed top-8 left-0 right-0 z-[100] flex justify-center px-4">
             <div className="relative w-full max-w-7xl flex justify-center">
                 <div className="relative">
                     <nav className="capable-nav rounded-2xl transition-all duration-500 flex items-center h-[64px] overflow-hidden relative z-[101]">
                         {/* Logo Part */}
-                        <div className="flex items-center gap-3 px-6 h-full cursor-pointer hover:bg-gray-50/50 transition-colors">
+                        <div
+                            onClick={(e) => {
+                                e.preventDefault();
+                                lenis?.scrollTo(0);
+                            }}
+                            className="flex items-center gap-3 px-6 h-full cursor-pointer hover:bg-gray-50/50 transition-colors"
+                        >
                             <img
                                 src="/capablelogo.png"
                                 alt="Logo"
@@ -38,6 +59,7 @@ const Navbar: React.FC = () => {
                                     <React.Fragment key={link.name}>
                                         <a
                                             href={link.href}
+                                            onClick={(e) => handleNavClick(e, link.href)}
                                             className="px-6 h-full flex items-center text-[14px] font-bold text-secondary/70 hover:text-primary transition-colors hover:bg-gray-50/50"
                                         >
                                             {link.name}
@@ -64,7 +86,10 @@ const Navbar: React.FC = () => {
 
                         {/* CTA Section */}
                         <div className="flex items-center px-8 h-full hover:bg-gray-50/50 transition-colors">
-                            <button className="bg-[#ff6321] text-white px-6 py-2.5 rounded-xl hover:bg-primary/90 transition-all font-bold text-sm tracking-tight shadow-lg shadow-primary/10">
+                            <button
+                                onClick={() => lenis?.scrollTo('#footer', { offset: -100 })}
+                                className="bg-[#ff6321] text-white px-6 py-2.5 rounded-xl hover:bg-primary/90 transition-all font-bold text-sm tracking-tight shadow-lg shadow-primary/10"
+                            >
                                 Get started
                             </button>
                         </div>
@@ -85,7 +110,7 @@ const Navbar: React.FC = () => {
                                         <React.Fragment key={link.name}>
                                             <a
                                                 href={link.href}
-                                                onClick={() => setIsOpen(false)}
+                                                onClick={(e) => handleNavClick(e, link.href)}
                                                 className={`px-8 py-3.5 text-[18px] font-semibold transition-colors hover:bg-gray-50 ${i === 0 ? 'text-primary' : 'text-secondary'}`}
                                             >
                                                 {link.name}

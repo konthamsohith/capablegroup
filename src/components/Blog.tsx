@@ -62,7 +62,7 @@ const Blog: React.FC = () => {
             <div className="absolute bottom-[20%] right-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col items-center text-center mb-20">
+                <div className="flex flex-col items-center text-center mb-12">
                     <span className="section-tag mb-4">LATEST INSIGHTS</span>
                     <h2 className="text-5xl md:text-7xl font-bold text-secondary tracking-tight mb-8">
                         Insights from our <span className="text-primary italic">experts</span>
@@ -70,9 +70,7 @@ const Blog: React.FC = () => {
                     <p className="max-w-2xl text-muted text-xl font-medium mb-12 leading-relaxed">
                         Stay updated with the latest trends and thoughts from our industry-leading specialists across infrastructure and technology.
                     </p>
-                    <button className="glass-card px-10 py-4 rounded-full text-[11px] font-black tracking-[0.2em] hover:bg-white/80 hover:text-primary transition-all shadow-xl shadow-black/5 uppercase">
-                        VIEW ALL POSTS
-                    </button>
+
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

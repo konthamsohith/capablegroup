@@ -4,7 +4,7 @@ import { Facebook, Instagram, Linkedin, Twitter, ArrowRight } from 'lucide-react
 
 const Footer: React.FC = () => {
     return (
-        <footer className="relative pt-32 pb-12 bg-white">
+        <footer id="footer" className="relative pt-32 pb-12 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Footer Grid */}
@@ -13,13 +13,11 @@ const Footer: React.FC = () => {
                     {/* Brand Section */}
                     <div className="lg:col-span-4 flex flex-col gap-8">
                         <div className="flex items-center gap-3">
-                            <div className="w-12 h-12 bg-white shadow-xl rounded-2xl flex items-center justify-center p-2.5 border border-gray-100">
-                                <img
-                                    src="/capblelogo.png"
-                                    alt="Capable Groups Logo"
-                                    className="w-full h-full object-contain"
-                                />
-                            </div>
+                            <img
+                                src="/capablelogo.png"
+                                alt="Capable Groups Logo"
+                                className="w-10 h-10 object-contain"
+                            />
                             <span className="text-2xl font-bold text-secondary tracking-tight">Capable Groups</span>
                         </div>
                         <p className="text-muted text-lg leading-relaxed max-w-sm font-medium">
@@ -80,15 +78,15 @@ const Footer: React.FC = () => {
                         <div className="flex flex-col gap-6">
                             <div>
                                 <p className="text-[10px] text-muted font-bold uppercase tracking-widest mb-1.5">EMAIL US</p>
-                                <a href="mailto:info@capablegroups.com" className="text-xl font-bold text-secondary hover:text-primary transition-colors">info@capablegroups.com</a>
+                                <a href="mailto:info@capablegroups.com" className="font-medium text-muted hover:text-primary transition-colors">info@capablegroups.com</a>
                             </div>
                             <div>
                                 <p className="text-[10px] text-muted font-bold uppercase tracking-widest mb-1.5">CALL US</p>
-                                <a href="tel:9493971983" className="text-xl font-bold text-secondary hover:text-primary transition-colors">949 397 1983</a>
+                                <a href="tel:9493971983" className="font-medium text-muted hover:text-primary transition-colors">949 397 1983</a>
                             </div>
                             <div>
                                 <p className="text-[10px] text-muted font-bold uppercase tracking-widest mb-1.5">VISIT US</p>
-                                <p className="text-lg font-medium text-muted leading-relaxed">
+                                <p className="font-medium text-muted leading-relaxed">
                                     5th Floor, PSR Towers, Beside DLF,<br />
                                     Gachibowli, Hyderabad 500032
                                 </p>
@@ -103,9 +101,9 @@ const Footer: React.FC = () => {
                     <p className="text-muted font-medium text-sm">
                         © 2026 Capable Groups. All rights reserved.
                     </p>
-                    <div className="flex gap-8 text-sm font-bold text-secondary uppercase tracking-tighter">
-                        <a href="#" className="hover:text-primary">Privacy Policy</a>
-                        <a href="#" className="hover:text-primary">Terms of Service</a>
+                    <div className="flex gap-8 font-medium text-muted">
+                        <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
+                        <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
                     </div>
                 </div>
 

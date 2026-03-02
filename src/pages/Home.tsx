@@ -44,7 +44,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Hero Section */}
-            <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[12vh] pb-[12vh] text-center min-h-screen flex flex-col items-center justify-center">
+            <main id="home" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[12vh] pb-[12vh] text-center min-h-screen flex flex-col items-center justify-center">
 
                 {/* Main Content Area */}
                 <motion.div
@@ -330,20 +330,20 @@ const Home: React.FC = () => {
                 </div>
 
                 <div className="relative z-10 flex flex-col gap-0">
-                    <div className="bg-gradient-to-b from-transparent to-orange-50/20 pt-12 pb-32">
+                    <div id="about" className="bg-gradient-to-b from-transparent to-orange-50/20 pt-12 pb-32">
                         <Stats />
                     </div>
                     <div className="bg-gradient-to-b from-orange-50/20 via-white to-orange-50/30 py-32">
                         <Services />
                     </div>
-                    <div className="bg-gradient-to-b from-orange-50/30 to-white py-32">
+                    <div className="bg-gradient-to-b from-orange-50/30 to-white pt-0 pb-32">
                         <Process />
                     </div>
-                    <div className="bg-gradient-to-b from-white to-orange-50/10 py-32">
+                    <div className="bg-gradient-to-b from-white to-orange-50/10 pt-12 pb-32">
                         <Blog />
                     </div>
 
-                    <div className="bg-gradient-to-b from-orange-50/10 to-transparent py-32 px-4">
+                    <div className="bg-gradient-to-b from-orange-50/10 to-transparent pt-0 pb-32 px-4">
                         <CTA />
                     </div>
                 </div>
