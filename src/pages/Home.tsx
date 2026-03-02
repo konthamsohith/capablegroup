@@ -15,6 +15,9 @@ import cryptoLogo from '../assets/logos/crypto.png';
 import marzLogo from '../assets/logos/marz.png';
 import paybitLogo from '../assets/logos/paybit.png';
 import stratoLogo from '../assets/logos/strato.png';
+import atyuttamaLogo from '../assets/logos/atyuttama.png';
+import socialflyLogo from '../assets/logos/socialfly.png';
+import socialscaleLogo from '../assets/logos/socialscale.png';
 
 const Home: React.FC = () => {
     return (
@@ -123,7 +126,7 @@ const Home: React.FC = () => {
                                         color: 'rgb(255, 99, 33)',
                                         fontSize: '72px',
                                         lineHeight: '72px',
-                                        fontStyle: 'normal'
+                                        fontStyle: 'italic'
                                     }}
                                 >people</span>
                             </h1>
@@ -247,10 +250,14 @@ const Home: React.FC = () => {
                                 </div>
                             </div>
 
-                            <button className="bg-[#ff6321] text-white px-10 py-4 rounded-xl transition-all shadow-lg shadow-primary/10 font-bold text-[16px] flex items-center justify-center hover:bg-[#e45217] hover:scale-[1.02] active:scale-[0.98]">
+                            <button
+                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-[#ff6321] text-white px-10 py-4 rounded-xl transition-all shadow-lg shadow-primary/10 font-bold text-[16px] flex items-center justify-center hover:bg-[#e45217] hover:scale-[1.02] active:scale-[0.98]">
                                 Discuss your ideas
                             </button>
-                            <button className="bg-[#060612] text-white px-10 py-4 rounded-xl transition-all font-bold text-[16px] hover:bg-black hover:scale-[1.02] active:scale-[0.98]">
+                            <button
+                                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-[#060612] text-white px-10 py-4 rounded-xl transition-all font-bold text-[16px] flex items-center justify-center hover:bg-black hover:scale-[1.02] active:scale-[0.98]">
                                 View services
                             </button>
                         </div>
@@ -292,11 +299,14 @@ const Home: React.FC = () => {
                                     }}
                                     className="flex items-center gap-12 w-max brightness-0 opacity-70 hover:opacity-100 transition-opacity duration-500"
                                 >
-                                    {/* First set of 7 logos */}
+                                    {/* First set of logos */}
                                     <img src={autoomLogo} alt="Autoom" className="h-16 md:h-20 w-auto object-contain shrink-0" />
                                     <img src={marzLogo} alt="Marz" className="h-16 md:h-20 w-auto object-contain shrink-0" />
                                     <img src={stratoLogo} alt="Strato" className="h-16 md:h-20 w-auto object-contain shrink-0" />
                                     <img src={paybitLogo} alt="Paybit" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                    <img src={atyuttamaLogo} alt="Atyuttama" className="h-10 md:h-12 w-auto object-contain shrink-0" />
+                                    <img src={socialflyLogo} alt="SocialFly" className="h-4 md:h-6 w-auto object-contain shrink-0" />
+                                    <img src={socialscaleLogo} alt="SocialScale" className="h-8 md:h-12 w-auto object-contain shrink-0" />
                                     <img src={cocoLogo} alt="Coco" className="h-16 md:h-20 w-auto object-contain shrink-0" />
                                     <img src={bitcoinLogo} alt="Bitcoin" className="h-16 md:h-20 w-auto object-contain shrink-0" />
                                     <img src={cryptoLogo} alt="Crypto" className="h-16 md:h-20 w-auto object-contain shrink-0" />
@@ -306,6 +316,9 @@ const Home: React.FC = () => {
                                     <img src={marzLogo} alt="Marz" className="h-16 md:h-20 w-auto object-contain shrink-0" />
                                     <img src={stratoLogo} alt="Strato" className="h-16 md:h-20 w-auto object-contain shrink-0" />
                                     <img src={paybitLogo} alt="Paybit" className="h-16 md:h-20 w-auto object-contain shrink-0" />
+                                    <img src={atyuttamaLogo} alt="Atyuttama" className="h-10 md:h-12 w-auto object-contain shrink-0" />
+                                    <img src={socialflyLogo} alt="SocialFly" className="h-4 md:h-6 w-auto object-contain shrink-0" />
+                                    <img src={socialscaleLogo} alt="SocialScale" className="h-8 md:h-12 w-auto object-contain shrink-0" />
                                     <img src={cocoLogo} alt="Coco" className="h-16 md:h-20 w-auto object-contain shrink-0" />
                                     <img src={bitcoinLogo} alt="Bitcoin" className="h-16 md:h-20 w-auto object-contain shrink-0" />
                                     <img src={cryptoLogo} alt="Crypto" className="h-16 md:h-20 w-auto object-contain shrink-0" />

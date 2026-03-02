@@ -26,7 +26,7 @@ const CTA: React.FC = () => {
                             <span className="text-[10px] font-bold tracking-[0.25em] text-orange-900/60 uppercase mb-6 block font-sans">
                                 LET'S BUILD SOMETHING GREAT
                             </span>
-                            <h2 className="text-5xl md:text-[80px] font-bold text-[#0A0A0A] tracking-tight mb-12 leading-[1] max-w-xl">
+                            <h2 className="text-5xl md:text-[80px] font-geist font-medium text-[#0A0A0A] tracking-tighter mb-12 leading-[1] max-w-xl">
                                 Ready to start <br className="hidden md:block" />
                                 your next project?
                             </h2>
@@ -56,8 +56,8 @@ const CTA: React.FC = () => {
                                     <div className="flex items-center">
                                         <div className="w-12 h-12 rounded-full border-[2px] border-white shadow-md overflow-hidden bg-gray-200">
                                             <img
-                                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150"
-                                                alt="Lead Designer"
+                                                src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?q=80&w=150&auto=format&fit=crop"
+                                                alt="Lead Expert"
                                                 className="w-full h-full object-cover"
                                             />
                                         </div>
@@ -79,21 +79,26 @@ const CTA: React.FC = () => {
                                     Book a free call
                                 </button>
 
-                                {/* Floating Label Cursor (Amanda) */}
+                                {/* Fixed Label (Amanda) */}
                                 <motion.div
                                     animate={{
-                                        x: [0, 5, 0],
-                                        y: [0, -5, 0]
+                                        x: [0, 4, 0],
+                                        y: [0, -4, 0]
                                     }}
-                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute -right-12 top-1/3 z-20 pointer-events-none"
+                                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                                    className="absolute -right-2 top-[45%] z-20 pointer-events-none hidden xl:block"
                                 >
-                                    <div className="flex flex-row items-center">
-                                        <svg className="w-5 h-5 text-black drop-shadow-sm -mr-1 rotate-[15deg]" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M21 3L3 10.53v.98l6.84 3.48 3.48 6.84h.98L21 3z" />
+                                    <div className="relative">
+                                        <svg
+                                            className="w-6 h-6 text-[#080808] drop-shadow-sm -rotate-[15deg]"
+                                            viewBox="0 0 24 24"
+                                            fill="currentColor"
+                                            style={{ transform: 'translate(-8px, -8px)' }}
+                                        >
+                                            <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
                                         </svg>
-                                        <div className="bg-black text-[9px] text-white font-black px-4 py-1.5 rounded-full tracking-widest shadow-xl flex items-center h-fit">
-                                            AMANDA
+                                        <div className="absolute left-2 top-2 bg-[#080808] text-[11px] text-white font-bold px-4 py-2 rounded-[14px] shadow-2xl whitespace-nowrap">
+                                            CHRIS
                                         </div>
                                     </div>
                                 </motion.div>

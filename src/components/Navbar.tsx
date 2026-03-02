@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLenis } from 'lenis/react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const lenis = useLenis();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const navLinks = [
         { name: 'Home', href: '#home' },
         { name: 'About Us', href: '#about' },
-        { name: 'Projects', href: '#services' },
+        { name: 'Services', href: '#services' },
         { name: 'Blog', href: '#blog' },
-        { name: 'Contact Us', href: '#footer' },
     ];
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -37,7 +39,12 @@ const Navbar: React.FC = () => {
                         <div
                             onClick={(e) => {
                                 e.preventDefault();
-                                lenis?.scrollTo(0);
+                                if (location.pathname !== '/') {
+                                    navigate('/');
+                                    window.scrollTo(0, 0);
+                                } else {
+                                    lenis?.scrollTo(0);
+                                }
                             }}
                             className="flex items-center gap-3 px-6 h-full cursor-pointer hover:bg-gray-50/50 transition-colors"
                         >
@@ -87,7 +94,7 @@ const Navbar: React.FC = () => {
                         {/* CTA Section */}
                         <div className="flex items-center px-8 h-full hover:bg-gray-50/50 transition-colors">
                             <button
-                                onClick={() => lenis?.scrollTo('#footer', { offset: -100 })}
+                                onClick={() => lenis?.scrollTo('#contact', { offset: -100 })}
                                 className="bg-[#ff6321] text-white px-6 py-2.5 rounded-xl hover:bg-primary/90 transition-all font-bold text-sm tracking-tight shadow-lg shadow-primary/10"
                             >
                                 Get started

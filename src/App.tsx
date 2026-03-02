@@ -1,13 +1,22 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import SmoothScrolling from './components/SmoothScrolling';
 
 function App() {
   return (
-    <SmoothScrolling>
-      <Navbar />
-      <Home />
-    </SmoothScrolling>
+    <Router>
+      <SmoothScrolling>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+        </Routes>
+      </SmoothScrolling>
+    </Router>
   );
 }
 

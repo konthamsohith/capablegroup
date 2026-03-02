@@ -64,7 +64,7 @@ const Blog: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
                 <div className="flex flex-col items-center text-center mb-12">
                     <span className="section-tag mb-4">LATEST INSIGHTS</span>
-                    <h2 className="text-5xl md:text-7xl font-bold text-secondary tracking-tight mb-8">
+                    <h2 className="text-5xl md:text-7xl font-geist font-medium text-secondary tracking-tighter mb-8">
                         Insights from our <span className="text-primary italic">experts</span>
                     </h2>
                     <p className="max-w-2xl text-muted text-xl font-medium mb-12 leading-relaxed">

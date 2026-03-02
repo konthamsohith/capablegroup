@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Linkedin, Twitter, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
     return (
@@ -77,18 +78,19 @@ const Footer: React.FC = () => {
                         <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4">Get in touch</h4>
                         <div className="flex flex-col gap-4">
                             <div>
-                                <p className="text-[10px] text-muted font-bold uppercase tracking-widest mb-1.5">EMAIL US</p>
+                                <p className="text-[10px] text-secondary font-bold uppercase tracking-widest mb-1.5">EMAIL US</p>
                                 <a href="mailto:info@capablegroups.com" className="font-medium text-muted hover:text-primary transition-colors">info@capablegroups.com</a>
                             </div>
                             <div>
-                                <p className="text-[10px] text-muted font-bold uppercase tracking-widest mb-1.5">CALL US</p>
+                                <p className="text-[10px] text-secondary font-bold uppercase tracking-widest mb-1.5">CALL US</p>
                                 <a href="tel:9493971983" className="font-medium text-muted hover:text-primary transition-colors">949 397 1983</a>
                             </div>
                             <div>
-                                <p className="text-[10px] text-muted font-bold uppercase tracking-widest mb-1.5">VISIT US</p>
+                                <p className="text-[10px] text-secondary font-bold uppercase tracking-widest mb-1.5">VISIT US</p>
                                 <p className="font-medium text-muted leading-relaxed">
-                                    5th Floor, PSR Towers, Beside DLF,<br />
-                                    Gachibowli, Hyderabad 500032
+                                    5th Floor, P & S Kickstart, Shanta Sriram Building,<br />
+                                    PSR Towers, Beside DLF Building,<br />
+                                    Gachibowli Hyderabad, Telangana 500032
                                 </p>
                             </div>
                         </div>
@@ -96,14 +98,13 @@ const Footer: React.FC = () => {
 
                 </div>
 
-                {/* Bottom Bar */}
                 <div className="pt-6 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-muted font-medium text-sm">
                         © 2026 Capable Groups. All rights reserved.
                     </p>
                     <div className="flex gap-8 font-medium text-muted">
-                        <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+                        <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                        <Link to="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link>
                     </div>
                 </div>
 
