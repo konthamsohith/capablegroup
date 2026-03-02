@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 
 const steps = [
     {
@@ -53,107 +52,141 @@ const Process: React.FC = () => {
     }, [currentStep]);
 
     return (
-        <section id="process" className="relative overflow-hidden">
+        <section id="process" className="relative pt-32 pb-24 overflow-hidden bg-[#fbfbfb]">
             {/* Background Decorative Gradient */}
-            <div className="absolute top-[30%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
+            <div className="absolute top-[30%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-                <div className="flex flex-col items-center mb-12">
+                <div className="flex flex-col items-center mb-16">
                     <span className="section-tag mb-4">OUR METHODOLOGY</span>
                     <h2 className="text-5xl md:text-7xl font-bold text-secondary tracking-tight mb-8">
                         A collaborative <span className="text-primary italic">approach</span>
                     </h2>
                 </div>
 
-                <div className="relative min-h-[600px] flex flex-col items-center justify-end pb-20">
+                <div className="relative min-h-[600px] flex flex-col items-center justify-end">
                     {/* The Arc SVG */}
                     <svg
                         viewBox="0 0 1000 500"
-                        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-auto opacity-10 pointer-events-none"
+                        className="absolute -top-20 left-1/2 -translate-x-1/2 w-full max-w-5xl h-auto opacity-40 pointer-events-none"
                     >
+                        {/* Outer Glow Path */}
                         <path
                             d="M 100,450 A 400,400 0 1 1 900,450"
-                            stroke="black"
+                            stroke="white"
+                            strokeWidth="12"
+                            fill="transparent"
+                            className="blur-[8px]"
+                        />
+                        {/* Main Solid Path */}
+                        <path
+                            d="M 100,450 A 400,400 0 1 1 900,450"
+                            stroke="#E5E7EB"
                             strokeWidth="2"
                             fill="transparent"
-                            strokeDasharray="4 8"
                         />
                     </svg>
 
                     {/* Step Markers on Arc */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl aspect-[2/1] pointer-events-none">
+                    <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-full max-w-5xl aspect-[2/1] pointer-events-none">
                         {steps.map((step, index) => {
                             const angle = angles[index];
                             const rad = (angle * Math.PI) / 180;
                             const x = 50 + 40 * Math.cos(rad);
                             const y = 90 - 75 * Math.sin(rad);
+                            const isActive = currentStep === index;
+
+                            // Calculate rotation to face the center of the arc
+                            const rotation = 90 - angle;
 
                             return (
-                                <button
+                                <div
                                     key={step.id}
-                                    onClick={() => handleStepClick(index)}
-                                    className={`absolute w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-sm shadow-xl transition-all duration-700 pointer-events-auto transform -translate-x-1/2 -translate-y-1/2 cursor-pointer
-                                        ${currentStep === index
-                                            ? 'bg-primary text-white scale-125 z-20 shadow-primary/30 ring-4 ring-primary/10'
-                                            : 'bg-white text-muted scale-100 z-10 opacity-60 hover:opacity-100 hover:scale-110'}`}
+                                    className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
                                     style={{ left: `${x}%`, top: `${y}%` }}
                                 >
-                                    {step.id}
-                                </button>
+                                    {isActive && (
+                                        <motion.span
+                                            initial={{ opacity: 0, y: 5 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            className="text-[10px] font-bold tracking-[0.2em] text-muted uppercase mb-2"
+                                        >
+                                            STEP
+                                        </motion.span>
+                                    )}
+                                    <button
+                                        onClick={() => handleStepClick(index)}
+                                        className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center font-bold text-sm transition-all duration-500 pointer-events-auto cursor-pointer border
+                                            ${isActive
+                                                ? 'bg-primary border-primary text-white scale-125 z-20 shadow-[0_10px_30px_rgba(255,99,33,0.4)]'
+                                                : 'bg-white border-gray-100 text-muted scale-100 z-10 hover:border-gray-300 hover:scale-110 shadow-sm'}`}
+                                        style={{ transform: `rotate(${rotation}deg)` }}
+                                    >
+                                        {step.id}
+                                    </button>
+                                </div>
                             );
                         })}
                     </div>
 
                     {/* Step Content */}
-                    <div className="max-w-xl mx-auto mt-12 glass-card p-10 rounded-[40px]">
+                    <div className="max-w-2xl mx-auto mt-20 p-6 md:p-10 rounded-[40px] relative z-20">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentStep}
-                                initial={{ opacity: 0, scale: 0.98, y: 10 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.98, y: -10 }}
-                                transition={{ duration: 0.5, ease: "circOut" }}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.5, ease: "easeOut" }}
                                 className="flex flex-col items-center text-center"
                             >
-                                <span className="mb-4 px-3 py-1 bg-primary/10 text-[9px] font-bold tracking-[0.3em] text-primary rounded-full">
-                                    STEP {steps[currentStep].id}
-                                </span>
-                                <h3 className="text-3xl md:text-4xl font-bold text-secondary mb-4 tracking-tight">
+                                <h3 className="text-4xl md:text-5xl font-bold text-secondary mb-4 tracking-tight">
                                     {steps[currentStep].title}
                                 </h3>
-                                <p className="text-muted text-base md:text-lg mb-8 leading-relaxed max-w-sm font-medium">
+                                <p className="text-muted text-lg md:text-xl mb-10 leading-relaxed max-w-lg font-medium">
                                     {steps[currentStep].description}
                                 </p>
 
-                                <div className="flex flex-wrap justify-center gap-3 mb-8">
-                                    {steps[currentStep].tags.map((tag) => (
-                                        <span key={tag} className="text-[9px] font-bold tracking-[0.15em] text-muted uppercase px-2.5 py-1 bg-background rounded-lg">
-                                            {tag}
-                                        </span>
-                                    ))}
+                                <div className="w-full relative py-6 mb-10">
+                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 border-t border-dashed border-gray-200" />
+                                    <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-[11px] font-bold tracking-[0.2em] text-muted uppercase">
+                                        {steps[currentStep].tags.map((tag, idx) => (
+                                            <React.Fragment key={tag}>
+                                                <span>{tag}</span>
+                                                {idx < steps[currentStep].tags.length - 1 && (
+                                                    <span className="text-gray-300">•</span>
+                                                )}
+                                            </React.Fragment>
+                                        ))}
+                                    </div>
+                                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 border-t border-dashed border-gray-200" />
                                 </div>
 
                                 <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="bg-primary text-white px-8 py-4 rounded-xl font-bold text-base shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all flex items-center gap-2"
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    className="bg-primary text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-[0_10px_25px_rgba(255,99,33,0.3)] hover:shadow-[0_15px_35px_rgba(255,99,33,0.4)] transition-all"
                                 >
-                                    Start Project <ArrowRight size={18} />
+                                    Start your project
                                 </motion.button>
                             </motion.div>
                         </AnimatePresence>
                     </div>
 
-                    {/* Navigation Indicator */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4 py-2 px-6 glass-card rounded-full mt-10">
-                        {steps.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => handleStepClick(index)}
-                                className={`h-1.5 transition-all duration-500 rounded-full ${currentStep === index ? 'bg-primary w-8' : 'bg-secondary/10 w-2'
-                                    }`}
-                            />
-                        ))}
+                    {/* Pagination */}
+                    <div className="mt-12 flex flex-col items-center gap-4">
+                        <span className="text-[11px] font-bold tracking-[0.3em] text-muted">
+                            0{currentStep + 1}/0{steps.length}
+                        </span>
+                        <div className="flex items-center gap-3">
+                            {steps.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleStepClick(index)}
+                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${currentStep === index ? 'bg-primary scale-125' : 'bg-gray-200 hover:bg-gray-300'}`}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

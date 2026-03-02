@@ -336,7 +336,7 @@ const Home: React.FC = () => {
                     <div className="bg-gradient-to-b from-orange-50/20 via-white to-orange-50/30 py-32">
                         <Services />
                     </div>
-                    <div className="bg-gradient-to-b from-orange-50/30 to-white pt-0 pb-32">
+                    <div className="bg-gradient-to-b from-orange-50/30 to-white pt-32 pb-32">
                         <Process />
                     </div>
                     <div className="bg-gradient-to-b from-white to-orange-50/10 pt-12 pb-32">

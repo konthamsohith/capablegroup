@@ -4,19 +4,19 @@ import { Facebook, Instagram, Linkedin, Twitter, ArrowRight } from 'lucide-react
 
 const Footer: React.FC = () => {
     return (
-        <footer id="footer" className="relative pt-32 pb-12 bg-white">
+        <footer id="footer" className="relative pt-16 pb-8 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Footer Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-24">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-12">
 
                     {/* Brand Section */}
-                    <div className="lg:col-span-4 flex flex-col gap-8">
+                    <div className="lg:col-span-4 flex flex-col gap-4">
                         <div className="flex items-center gap-3">
                             <img
                                 src="/capablelogo.png"
                                 alt="Capable Groups Logo"
-                                className="w-10 h-10 object-contain"
+                                className="w-8 h-8 object-contain"
                             />
                             <span className="text-2xl font-bold text-secondary tracking-tight">Capable Groups</span>
                         </div>
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
                                     whileHover={{ y: -5, scale: 1.1 }}
                                     key={i}
                                     href="#"
-                                    className="w-12 h-12 bg-background text-secondary border border-gray-100 rounded-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
+                                    className="w-10 h-10 bg-background text-secondary border border-gray-100 rounded-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
                                     aria-label={social.label}
                                 >
                                     {social.icon}
@@ -45,8 +45,8 @@ const Footer: React.FC = () => {
 
                     {/* Links Sections */}
                     <div className="lg:col-span-2">
-                        <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-8">Navigation</h4>
-                        <ul className="flex flex-col gap-4 font-medium text-muted">
+                        <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4">Navigation</h4>
+                        <ul className="flex flex-col gap-2 font-medium text-muted">
                             {["Home", "About Us", "Clients", "Technologies", "Contact"].map((link) => (
                                 <li key={link}>
                                     <a href="#" className="hover:text-primary transition-colors flex items-center gap-2 group">
@@ -59,8 +59,8 @@ const Footer: React.FC = () => {
                     </div>
 
                     <div className="lg:col-span-2">
-                        <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-8">Services</h4>
-                        <ul className="flex flex-col gap-4 font-medium text-muted">
+                        <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4">Services</h4>
+                        <ul className="flex flex-col gap-2 font-medium text-muted">
                             {["Mobile Apps", "E-Commerce", "Marketing", "Designing", "US Staffing"].map((link) => (
                                 <li key={link}>
                                     <a href="#" className="hover:text-primary transition-colors flex items-center gap-2 group">
@@ -73,9 +73,9 @@ const Footer: React.FC = () => {
                     </div>
 
                     {/* Contact Section */}
-                    <div className="lg:col-span-4 flex flex-col gap-8">
-                        <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-8">Get in touch</h4>
-                        <div className="flex flex-col gap-6">
+                    <div className="lg:col-span-4">
+                        <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4">Get in touch</h4>
+                        <div className="flex flex-col gap-4">
                             <div>
                                 <p className="text-[10px] text-muted font-bold uppercase tracking-widest mb-1.5">EMAIL US</p>
                                 <a href="mailto:info@capablegroups.com" className="font-medium text-muted hover:text-primary transition-colors">info@capablegroups.com</a>
@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="pt-6 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-muted font-medium text-sm">
                         © 2026 Capable Groups. All rights reserved.
                     </p>
