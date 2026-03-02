@@ -6,6 +6,7 @@ import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import Stats from '../components/Stats';
 import Blog from '../components/Blog';
+import SEO from '../components/SEO';
 
 // Logo Imports
 import autoomLogo from '../assets/logos/autoom.png';
@@ -21,7 +22,13 @@ import socialscaleLogo from '../assets/logos/socialscale.png';
 
 const Home: React.FC = () => {
     return (
-        <div className="min-h-screen bg-background overflow-x-clip relative font-sans">
+        <div className="bg-[#f5f4f3] min-h-screen font-geist text-[#060612] selection:bg-[#ff6321] selection:text-white relative">
+            <SEO
+                title="Capable Groups | Elite Teams & Digital Solutions"
+                description="A multidisciplinary agency creating thoughtful, scalable digital solutions. We engineer growth through unified strategy, design, and high-performance development."
+                keywords="digital agency, capable groups, UI/UX design, software development, IT staffing, marketing"
+                canonicalUrl="https://capablegroups.com"
+            />
             <div className="relative">
                 {/* Background Subtle Gradient Blobs Restricted to Hero, Stats, and Services */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">

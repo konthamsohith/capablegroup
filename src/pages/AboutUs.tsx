@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 const AboutUs: React.FC = () => {
     useEffect(() => {
@@ -10,6 +11,11 @@ const AboutUs: React.FC = () => {
 
     return (
         <div className="pt-32 pb-24 bg-[#fbfbfb] min-h-screen font-geist">
+            <SEO
+                title="About Us | Capable Groups"
+                description="Learn more about Capable Groups: a multidisciplinary agency built on clarity, craft, and commitment to elevate brands with meaning."
+                canonicalUrl="https://capablegroups.com/about-us"
+            />
             {/* Background Decorative Rings */}
             <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[150vw] h-[150vw] max-w-[1500px] max-h-[1500px] rounded-full border border-gray-100 pointer-events-none -translate-y-1/2 opacity-50 z-0"></div>
             <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[200vw] h-[200vw] max-w-[2000px] max-h-[2000px] rounded-full border border-gray-100 pointer-events-none -translate-y-1/2 opacity-50 z-0"></div>
@@ -18,8 +24,8 @@ const AboutUs: React.FC = () => {
 
                 {/* Who We Are Section */}
                 <div className="flex flex-col items-center text-center mb-16">
-                    <span className="text-[10px] font-bold tracking-[0.2em] text-muted uppercase mb-4 flex items-center gap-2">
-                        <span className="text-gray-300">&gt;</span> ABOUT US <span className="text-gray-300">&lt;</span>
+                    <span className="section-tag mb-8">
+                        ABOUT US
                     </span>
                     <h1 className="text-5xl md:text-7xl font-medium text-secondary tracking-tighter mb-16">
                         Who we are
@@ -55,8 +61,8 @@ const AboutUs: React.FC = () => {
 
                 {/* Our Mission Section */}
                 <div className="mt-32 mb-16">
-                    <span className="text-[10px] font-bold tracking-[0.2em] text-muted uppercase mb-4 flex items-center gap-2">
-                        <span className="text-gray-300">&gt;</span> OUR MISSION <span className="text-gray-300">&lt;</span>
+                    <span className="section-tag mb-8">
+                        OUR MISSION
                     </span>
                     <h2 className="text-4xl md:text-6xl font-medium text-secondary tracking-tighter mb-12 max-w-xl">
                         Designed to elevate brands with meaning
@@ -94,8 +100,8 @@ const AboutUs: React.FC = () => {
 
                 {/* Impact In Numbers Section */}
                 <div className="mt-32">
-                    <span className="text-[10px] font-bold tracking-[0.2em] text-muted uppercase mb-4 flex items-center gap-2">
-                        <span className="text-gray-300">&gt;</span> STATS <span className="text-gray-300">&lt;</span>
+                    <span className="section-tag mb-8">
+                        STATS
                     </span>
                     <h2 className="text-4xl md:text-5xl font-medium text-secondary tracking-tighter mb-12">
                         Impact in numbers

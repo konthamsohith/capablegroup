@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import SEO from '../components/SEO';
 
 const PrivacyPolicy: React.FC = () => {
     useEffect(() => {
@@ -7,6 +8,11 @@ const PrivacyPolicy: React.FC = () => {
 
     return (
         <div className="pt-32 pb-20 bg-background min-h-screen">
+            <SEO
+                title="Privacy Policy | Capable Groups"
+                description="Privacy Policy for Capable Groups. Learn how we collect, use, and protect your personal data."
+                canonicalUrl="https://capablegroups.com/privacy-policy"
+            />
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-4xl md:text-5xl font-geist font-bold text-secondary mb-8 tracking-tighter">
                     Privacy Policy

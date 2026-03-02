@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import SEO from '../components/SEO';
 
 const TermsOfService: React.FC = () => {
     useEffect(() => {
@@ -7,6 +8,11 @@ const TermsOfService: React.FC = () => {
 
     return (
         <div className="pt-32 pb-20 bg-background min-h-screen">
+            <SEO
+                title="Terms of Service | Capable Groups"
+                description="Terms of Service for Capable Groups. Read about our user guidelines, intellectual property rights, and terms of use."
+                canonicalUrl="https://capablegroups.com/terms-of-service"
+            />
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-4xl md:text-5xl font-geist font-bold text-secondary mb-8 tracking-tighter">
                     Terms of Service

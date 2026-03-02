@@ -86,10 +86,8 @@ const Services: React.FC = () => {
                     <div className="lg:w-[45%]">
                         <div className="lg:sticky lg:top-40 h-fit">
                             <div className="flex flex-col items-start">
-                                <span className="text-[11px] font-bold tracking-[0.15em] text-[#69686e]/60 uppercase mb-8 flex items-center gap-2">
-                                    <span className="opacity-30">›</span>
+                                <span className="section-tag mb-8">
                                     WHAT WE DO
-                                    <span className="opacity-30">‹</span>
                                 </span>
 
                                 <h2 className="text-5xl md:text-[72px] font-geist font-medium text-secondary tracking-tighter mb-12 leading-[1.05] max-w-lg">

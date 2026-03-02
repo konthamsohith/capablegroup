@@ -14,7 +14,8 @@ const Navbar: React.FC = () => {
         { name: 'Home', href: '/', isPage: true },
         { name: 'About Us', href: '/about-us', isPage: true },
         { name: 'Services', href: '#services', isPage: false },
-        { name: 'Blog', href: '#blog', isPage: false },
+        { name: 'Process', href: '#process', isPage: false },
+        { name: 'Blog', href: '/blogs', isPage: true },
     ];
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: { name: string, href: string, isPage?: boolean }) => {
