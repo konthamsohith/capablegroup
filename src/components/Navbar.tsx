@@ -11,21 +11,35 @@ const Navbar: React.FC = () => {
     const location = useLocation();
 
     const navLinks = [
-        { name: 'Home', href: '#home' },
-        { name: 'About Us', href: '#about' },
-        { name: 'Services', href: '#services' },
-        { name: 'Blog', href: '#blog' },
+        { name: 'Home', href: '/', isPage: true },
+        { name: 'About Us', href: '/about-us', isPage: true },
+        { name: 'Services', href: '#services', isPage: false },
+        { name: 'Blog', href: '#blog', isPage: false },
     ];
 
-    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: { name: string, href: string, isPage?: boolean }) => {
         e.preventDefault();
-        const target = href.replace('#', '');
-        const element = document.getElementById(target);
-        if (element && lenis) {
-            lenis.scrollTo(element, {
-                offset: -100, // Adjust for navbar height
-                duration: 2, // Slightly slower for more cinematic feel
-            });
+
+        if (link.isPage) {
+            navigate(link.href);
+            window.scrollTo(0, 0);
+        } else {
+            // If we are not on the home page and trying to click an anchor, navigate home first
+            if (location.pathname !== '/') {
+                navigate('/');
+                // Small delay to allow home to render before scrolling
+                setTimeout(() => {
+                    const element = document.getElementById(link.href.replace('#', ''));
+                    if (element && lenis) {
+                        lenis.scrollTo(element, { offset: -100, duration: 2 });
+                    }
+                }, 100);
+            } else {
+                const element = document.getElementById(link.href.replace('#', ''));
+                if (element && lenis) {
+                    lenis.scrollTo(element, { offset: -100, duration: 2 });
+                }
+            }
         }
         setIsOpen(false);
     };
@@ -66,7 +80,7 @@ const Navbar: React.FC = () => {
                                     <React.Fragment key={link.name}>
                                         <a
                                             href={link.href}
-                                            onClick={(e) => handleNavClick(e, link.href)}
+                                            onClick={(e) => handleNavClick(e, link)}
                                             className="px-6 h-full flex items-center text-[14px] font-bold text-secondary/70 hover:text-primary transition-colors hover:bg-gray-50/50"
                                         >
                                             {link.name}
@@ -117,7 +131,7 @@ const Navbar: React.FC = () => {
                                         <React.Fragment key={link.name}>
                                             <a
                                                 href={link.href}
-                                                onClick={(e) => handleNavClick(e, link.href)}
+                                                onClick={(e) => handleNavClick(e, link)}
                                                 className={`px-8 py-3.5 text-[18px] font-semibold transition-colors hover:bg-gray-50 ${i === 0 ? 'text-primary' : 'text-secondary'}`}
                                             >
                                                 {link.name}
