@@ -61,7 +61,7 @@ const Blog: React.FC = () => {
             {/* Background Decorative Gradient */}
             <div className="absolute bottom-[20%] right-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
                 <div className="flex flex-col items-center text-center mb-12">
                     <span className="section-tag mb-4">LATEST INSIGHTS</span>
                     <h2 className="text-5xl md:text-7xl font-bold text-secondary tracking-tight mb-8">
