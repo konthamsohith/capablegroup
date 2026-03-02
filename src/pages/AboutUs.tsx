@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 
 const AboutUs: React.FC = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
         <div className="pt-32 pb-24 bg-[#fbfbfb] min-h-screen font-geist">
             <SEO

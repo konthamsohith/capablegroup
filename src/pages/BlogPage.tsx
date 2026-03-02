@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import CTA from '../components/CTA';
 import SEO from '../components/SEO';
 
 const BlogPage: React.FC = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     const posts = [
         {
             category: "DESIGN",

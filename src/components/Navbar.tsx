@@ -23,7 +23,6 @@ const Navbar: React.FC = () => {
 
         if (link.isPage) {
             navigate(link.href);
-            window.scrollTo(0, 0);
         } else {
             // If we are not on the home page and trying to click an anchor, navigate home first
             if (location.pathname !== '/') {
@@ -56,7 +55,6 @@ const Navbar: React.FC = () => {
                                 e.preventDefault();
                                 if (location.pathname !== '/') {
                                     navigate('/');
-                                    window.scrollTo(0, 0);
                                 } else {
                                     lenis?.scrollTo(0);
                                 }
