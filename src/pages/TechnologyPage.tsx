@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 
-const fadeUp = {
+const fadeUp: Variants = {
     hidden: { opacity: 0, y: 24 },
-    visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const, delay: i * 0.08 } }),
+    visible: (i: number = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut', delay: i * 0.08 } }),
 };
 
 const practices = [
