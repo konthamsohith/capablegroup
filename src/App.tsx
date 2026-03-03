@@ -4,6 +4,10 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import BlogPage from './pages/BlogPage';
+import TechnologyPage from './pages/TechnologyPage';
+import ProjectsPage from './pages/ProjectsPage';
+import ContactPage from './pages/ContactPage';
+import AiFirstBlogPage from './pages/AiFirstBlogPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import SmoothScrolling from './components/SmoothScrolling';
@@ -14,9 +18,7 @@ function ScrollToTop() {
   const lenis = useLenis();
 
   useEffect(() => {
-    // Standard browser scroll reset
     window.scrollTo(0, 0);
-    // Lenis explicit internal state reset
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
     }
@@ -34,7 +36,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/technology" element={<TechnologyPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/blogs/ai-first-consultancy-2026" element={<AiFirstBlogPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
         </Routes>

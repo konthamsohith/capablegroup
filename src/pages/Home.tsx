@@ -7,6 +7,8 @@ import Footer from '../components/Footer';
 import Stats from '../components/Stats';
 import Blog from '../components/Blog';
 import SEO from '../components/SEO';
+import Timeline from '../components/Timeline';
+import CoreServices from '../components/CoreServices';
 
 // Logo Imports
 import autoomLogo from '../assets/logos/autoom.png';
@@ -116,7 +118,7 @@ const Home: React.FC = () => {
                             </motion.div>
 
                             <h1
-                                className="tracking-tight mb-8 max-w-5xl z-10 px-4"
+                                className="tracking-tight mb-8 max-w-[90%] md:max-w-5xl z-10 px-4"
                                 style={{
                                     fontFamily: '"Geist Sans", system-ui, sans-serif',
                                     fontWeight: 500,
@@ -125,8 +127,8 @@ const Home: React.FC = () => {
                                     lineHeight: '72px'
                                 }}
                             >
-                                We design brands<br />
-                                that move <span
+                                Digital infrastructure<br />
+                                for <span
                                     style={{
                                         fontFamily: '"Geist Sans", system-ui, sans-serif',
                                         fontWeight: 500,
@@ -135,7 +137,7 @@ const Home: React.FC = () => {
                                         lineHeight: '72px',
                                         fontStyle: 'italic'
                                     }}
-                                >people</span>
+                                >serious execution</span>
                             </h1>
 
                             {/* Right Top Domestic Staffing Icon */}
@@ -223,24 +225,25 @@ const Home: React.FC = () => {
                         </div>
 
                         {/* Subheading */}
-                        <motion.p
+                        <motion.div
                             variants={{
                                 hidden: { opacity: 0, y: 20 },
                                 visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut", delay: 0.8 } }
                             }}
-                            className="max-w-2xl mx-auto mb-14 px-4"
+                            className="max-w-3xl mx-auto mb-14 px-4 flex flex-col gap-4"
                             style={{
                                 fontFamily: 'Geist, "Geist Placeholder", sans-serif',
                                 fontWeight: 500,
                                 color: 'rgb(105, 104, 110)',
-                                fontSize: '15px',
-                                lineHeight: '18px',
+                                fontSize: '16px',
+                                lineHeight: '1.6',
                                 fontStyle: 'normal'
                             }}
                         >
-                            We combine strategy, design, and technology to help ambitious<br className="hidden md:block" />
-                            brands stand out & create meaningful digital experiences.
-                        </motion.p>
+                            <p>
+                                The pace of technology has shifted. What previously took a team of engineers six months to build can now be delivered in six weeks — if you are working with a partner who understands AI-assisted development.
+                            </p>
+                        </motion.div>
 
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative">
@@ -258,14 +261,14 @@ const Home: React.FC = () => {
                             </div>
 
                             <button
-                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="bg-[#ff6321] text-white px-10 py-4 rounded-xl transition-all shadow-lg shadow-primary/10 font-bold text-[16px] flex items-center justify-center hover:bg-[#e45217] hover:scale-[1.02] active:scale-[0.98]">
-                                Discuss your ideas
+                                onClick={() => window.location.href = '/projects'}
+                                className="bg-[#060612] text-white px-10 py-4 rounded-xl transition-all font-bold text-[16px] flex items-center justify-center hover:bg-black hover:scale-[1.02] active:scale-[0.98]">
+                                See our work →
                             </button>
                             <button
-                                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="bg-[#060612] text-white px-10 py-4 rounded-xl transition-all font-bold text-[16px] flex items-center justify-center hover:bg-black hover:scale-[1.02] active:scale-[0.98]">
-                                View services
+                                onClick={() => window.location.href = '/contact'}
+                                className="bg-[#ff6321] text-white px-10 py-4 rounded-xl transition-all shadow-lg shadow-primary/10 font-bold text-[16px] flex items-center justify-center hover:bg-[#e45217] hover:scale-[1.02] active:scale-[0.98]">
+                                Discuss an engagement →
                             </button>
                         </div>
                     </motion.div>
@@ -340,6 +343,20 @@ const Home: React.FC = () => {
                     <div id="about" className="bg-gradient-to-b from-transparent to-orange-50/20 pt-12 pb-32">
                         <Stats />
                     </div>
+                </div>
+            </div>
+
+            {/* Timeline Section */}
+            <div className="relative z-10">
+                <div className="bg-gradient-to-b from-orange-50/20 via-white to-orange-50/10">
+                    <Timeline />
+                </div>
+            </div>
+
+            {/* Core Service Pillars */}
+            <div className="relative z-10">
+                <div className="bg-gradient-to-b from-orange-50/10 via-white to-orange-50/20">
+                    <CoreServices />
                 </div>
             </div>
 

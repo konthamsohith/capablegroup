@@ -12,9 +12,9 @@ const Navbar: React.FC = () => {
 
     const navLinks = [
         { name: 'Home', href: '/', isPage: true },
-        { name: 'About Us', href: '/about-us', isPage: true },
-        { name: 'Services', href: '#services', isPage: false },
-        { name: 'Process', href: '#process', isPage: false },
+        { name: 'About', href: '/about-us', isPage: true },
+        { name: 'Technology', href: '/technology', isPage: true },
+        { name: 'Projects', href: '/projects', isPage: true },
         { name: 'Blog', href: '/blogs', isPage: true },
     ];
 
@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
                         {/* CTA Section */}
                         <div className="flex items-center px-8 h-full hover:bg-gray-50/50 transition-colors">
                             <button
-                                onClick={() => lenis?.scrollTo('#contact', { offset: -100 })}
+                                onClick={() => navigate('/contact')}
                                 className="bg-[#ff6321] text-white px-6 py-2.5 rounded-xl hover:bg-primary/90 transition-all font-bold text-sm tracking-tight shadow-lg shadow-primary/10"
                             >
                                 Get started

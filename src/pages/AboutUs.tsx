@@ -3,177 +3,215 @@ import { motion } from 'framer-motion';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
+import Timeline from '../components/Timeline';
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 24 },
+    visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut', delay: i * 0.08 } }),
+};
+
+const values = [
+    { label: 'Accountability', desc: 'We take ownership of outcomes, not just outputs.' },
+    { label: 'Rigour', desc: 'We apply professional standards to every engagement.' },
+    { label: 'Longevity', desc: 'We build systems designed to serve clients for years.' },
+    { label: 'Capability', desc: 'We invest continuously in the expertise we bring.' },
+];
+
+const teamStats = [
+    { value: '80+', label: 'Professionals' },
+    { value: '10+', label: 'Years Avg. Senior Experience' },
+    { value: '6', label: 'Practice Areas' },
+    { value: '3', label: 'Active AI Products' },
+];
 
 const AboutUs: React.FC = () => {
     return (
-        <div className="pt-32 pb-24 bg-[#fbfbfb] min-h-screen font-geist">
+        <div className="bg-[#f5f4f3] min-h-screen font-geist text-[#060612]">
             <SEO
                 title="About Us | Capable Groups"
-                description="Learn more about Capable Groups: a multidisciplinary agency built on clarity, craft, and commitment to elevate brands with meaning."
+                description="Capable Groups is an enterprise technology consultancy founded in Hyderabad in 2010. 80+ professionals, 250+ projects delivered across India, USA, Middle East, and the UK."
                 canonicalUrl="https://capablegroups.com/about-us"
             />
-            {/* Background Decorative Rings */}
-            <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[150vw] h-[150vw] max-w-[1500px] max-h-[1500px] rounded-full border border-gray-100 pointer-events-none -translate-y-1/2 opacity-50 z-0"></div>
-            <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[200vw] h-[200vw] max-w-[2000px] max-h-[2000px] rounded-full border border-gray-100 pointer-events-none -translate-y-1/2 opacity-50 z-0"></div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Hero */}
+            <section className="pt-40 pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div variants={fadeUp} initial="hidden" animate="visible">
+                    <span className="section-tag mb-6 inline-block">ABOUT US</span>
+                </motion.div>
+                <motion.h1
+                    variants={fadeUp} initial="hidden" animate="visible" custom={1}
+                    className="text-5xl md:text-[72px] font-bold tracking-tighter leading-[1.0] mb-8 max-w-4xl"
+                >
+                    Who we <span className="italic text-[#ff6321]">are</span>
+                </motion.h1>
+                <motion.div
+                    variants={fadeUp} initial="hidden" animate="visible" custom={2}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl"
+                >
+                    <p className="text-[#69686e] text-[15px] leading-relaxed">
+                        Capable Groups is an enterprise technology consultancy founded in Hyderabad in 2010. Over 16 years, we have grown from a five-person team to a global organisation of 80+ professionals, delivering 250+ projects for clients in India, the United States, the Middle East, and the United Kingdom.
+                    </p>
+                    <p className="text-[#69686e] text-[15px] leading-relaxed">
+                        We are now an AI-first organisation — applying the speed and intelligence of modern AI development to the delivery standards our clients have relied on for over a decade.
+                    </p>
+                </motion.div>
+            </section>
 
-                {/* Who We Are Section */}
-                <div className="flex flex-col items-center text-center mb-16">
-                    <span className="section-tag mb-8">
-                        ABOUT US
-                    </span>
-                    <h1 className="text-5xl md:text-7xl font-medium text-secondary tracking-tighter mb-16">
-                        Who we are
-                    </h1>
+            {/* Origin Story */}
+            <section className="py-24 bg-white">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mb-14">
+                        <span className="section-tag mb-4 inline-block">THE FOUNDING</span>
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter max-w-xl">
+                            The founding of <span className="italic text-[#ff6321]">Capable Groups</span>
+                        </h2>
+                    </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-4">
-                        <div className="bg-white rounded-[32px] p-10 md:p-14 text-left flex flex-col justify-between shadow-sm border border-gray-50 h-full min-h-[400px]">
-                            <h2 className="text-3xl md:text-4xl font-medium text-secondary leading-tight mb-8">
-                                A studio built on clarity, craft and commitment
-                            </h2>
-                            <div>
-                                <p className="text-[#666666] text-sm md:text-base leading-relaxed mb-8 max-w-sm">
-                                    We're a multidisciplinary agency creating thoughtful, scalable digital solutions, starting every project clear understanding of your goals, audience, and challenges.
-                                </p>
-                                <motion.button
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    className="bg-[#ff6321] text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-[0_10px_20px_rgba(255,99,33,0.25)] hover:shadow-[0_15px_30px_rgba(255,99,33,0.35)] transition-all"
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                        <div className="lg:col-span-7 space-y-5">
+                            {[
+                                'In 2010, our founder established Capable Groups in Hyderabad with a conviction that has remained central to the organisation ever since: that every business, regardless of size or sector, deserves access to technology that genuinely performs.',
+                                'Not templates. Not generic solutions. Considered, well-engineered work built by professionals who take ownership of outcomes.',
+                                'The name "Capable" was not arrived at by chance. It reflected a commitment to the client — that whatever the scope of the engagement, Capable Groups would arrive with the expertise, the discipline, and the character required to deliver.',
+                                'In the early years, the team focused on website design, digital marketing, and mobile application development. Each engagement was an opportunity to deepen the organisation\'s capability and refine its delivery model.',
+                                'By 2014, the team had grown to 25 professionals and the portfolio had expanded to over 40 projects. By 2018, Capable Groups was serving clients across three continents and had launched a dedicated US IT Staffing practice to meet growing North American demand.',
+                                'In 2022, the organisation made a deliberate decision to invest in AI-assisted development. This was not a reactive response to market trends. It was a considered strategic move — the result of watching how the technology was evolving and concluding, clearly, that it would redefine what was possible in delivery timelines, system architecture, and outcomes.',
+                                'By 2024, that investment had produced three active AI-powered digital products: SocialFlyAI, SocialScale Agency, and Atyuttama.',
+                                'In 2026, Capable Groups undertakes the most significant transformation in its history — rebuilding its digital presence as an AI-first consultancy and formalising an approach to technology partnership that has been 16 years in the making.',
+                            ].map((para, i) => (
+                                <motion.p
+                                    key={i}
+                                    variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} custom={i * 0.04}
+                                    className="text-[#69686e] text-[14.5px] leading-relaxed"
                                 >
-                                    Start a project
-                                </motion.button>
-                            </div>
+                                    {para}
+                                </motion.p>
+                            ))}
+                            <motion.p
+                                variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+                                className="text-[#060612] text-[16px] font-bold italic mt-4"
+                            >
+                                "We are Capable. That has always been the point."
+                            </motion.p>
                         </div>
-                        <div className="rounded-[32px] overflow-hidden h-full min-h-[400px]">
-                            <img
-                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop"
-                                alt="Capable Groups Team"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Our Mission Section */}
-                <div className="mt-32 mb-16">
-                    <span className="section-tag mb-8">
-                        OUR MISSION
-                    </span>
-                    <h2 className="text-4xl md:text-6xl font-medium text-secondary tracking-tighter mb-12 max-w-xl">
-                        Designed to elevate brands with meaning
-                    </h2>
-
-                    <div className="relative rounded-[32px] overflow-hidden h-[500px] md:h-[600px] w-full mt-8">
-                        <img
-                            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop"
-                            alt="Mission Hero"
-                            className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/20" /> {/* Subtle overlay */}
-
-                        {/* Floating Core Values Card */}
-                        <div className="absolute top-1/2 right-8 md:right-16 -translate-y-1/2 bg-white rounded-[24px] p-8 w-[90%] md:w-[350px] shadow-2xl">
-                            <h3 className="text-xl font-bold text-secondary mb-6">Core Values</h3>
-                            <div className="border-t border-dashed border-gray-200 mb-6" />
-                            <ul className="flex flex-col gap-4 text-sm font-medium text-[#666666]">
-                                {['Strategy-Led', 'Detail-Driven', 'Transparent Process', 'Long-Term Partnership', 'High-Quality Execution'].map((value, i) => (
-                                    <li key={i} className="flex items-center gap-3">
-                                        <div className="w-4 h-4 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        <div className="lg:col-span-5">
+                            <motion.div
+                                variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+                                className="bg-[#f5f4f3] rounded-[28px] p-8 border border-gray-100 sticky top-32"
+                            >
+                                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#ff6321] mb-6 block">KEY MILESTONES</span>
+                                <div className="space-y-4">
+                                    {[
+                                        { year: '2010', event: 'Founded in Hyderabad, 5 professionals' },
+                                        { year: '2014', event: '25+ team, 40+ projects, US Staffing launch' },
+                                        { year: '2018', event: '150+ projects, 3 continents, SaaS practice' },
+                                        { year: '2022', event: 'AI investment begins, 200+ projects' },
+                                        { year: '2024', event: '3 AI products live, 80+ team, 250+ projects' },
+                                        { year: '2026', event: 'AI-first repositioning, new website' },
+                                    ].map((m, i) => (
+                                        <div key={i} className="flex items-start gap-4">
+                                            <span className="text-[11px] font-bold text-[#ff6321] w-10 flex-shrink-0 mt-0.5">{m.year}</span>
+                                            <span className="text-[13px] text-[#060612] leading-snug">{m.event}</span>
                                         </div>
-                                        {value}
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="border-t border-dashed border-gray-200 mt-6 mb-4" />
-                            <p className="text-[10px] font-bold text-muted uppercase tracking-wider">
-                                © 2026 Capable Groups
+                                    ))}
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Timeline */}
+            <div className="bg-[#f5f4f3]">
+                <Timeline />
+            </div>
+
+            {/* Our People */}
+            <section className="py-24 bg-white">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mb-14">
+                        <span className="section-tag mb-4 inline-block">OUR PEOPLE</span>
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">
+                            Our <span className="italic text-[#ff6321]">team</span>
+                        </h2>
+                    </motion.div>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-14">
+                        <motion.div
+                            variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}
+                            className="lg:col-span-7 space-y-4"
+                        >
+                            <p className="text-[#69686e] text-[15px] leading-relaxed">
+                                Capable Groups employs 80+ professionals across technology, design, product management, and consulting disciplines.
                             </p>
-                        </div>
+                            <p className="text-[#69686e] text-[15px] leading-relaxed">
+                                Our senior leadership team averages over 10 years of industry experience. Our delivery teams combine technical depth with working knowledge of the industries our clients operate in — enabling more considered solutions and more productive long-term relationships.
+                            </p>
+                            <p className="text-[#69686e] text-[15px] leading-relaxed">
+                                We are headquartered in Gachibowli, Hyderabad, with client-facing relationships in the United States, the Middle East, and the United Kingdom.
+                            </p>
+                        </motion.div>
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {teamStats.map((s, i) => (
+                            <motion.div
+                                key={i}
+                                variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.08}
+                                className="bg-[#f5f4f3] rounded-2xl p-6 border border-gray-100"
+                            >
+                                <div className="text-4xl font-bold text-[#060612] tracking-tighter mb-1">{s.value}</div>
+                                <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#69686e]">{s.label}</div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
+            </section>
 
-                {/* Impact In Numbers Section */}
-                <div className="mt-32">
-                    <span className="section-tag mb-8">
-                        STATS
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-medium text-secondary tracking-tighter mb-12">
-                        Impact in numbers
-                    </h2>
+            {/* Mission, Vision, Values */}
+            <section className="py-24 bg-[#f5f4f3]">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mb-14">
+                        <span className="section-tag mb-4 inline-block">MISSION & VALUES</span>
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">What <span className="italic text-[#ff6321]">drives</span> us</h2>
+                    </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {/* Stat Card 1 */}
-                        <div className="bg-white rounded-[32px] p-8 shadow-sm border border-gray-50 flex flex-col justify-between min-h-[250px]">
-                            <div>
-                                <h3 className="text-lg font-bold text-secondary mb-3">Global Talent Pool</h3>
-                                <p className="text-sm text-[#666666] leading-relaxed max-w-[250px]">
-                                    A continuously expanding network of highly skilled, vetted professionals worldwide.
-                                </p>
-                            </div>
-                            <div>
-                                <div className="border-t border-dashed border-gray-200 mb-4" />
-                                <div className="flex items-end justify-between">
-                                    <span className="text-5xl font-medium text-secondary tracking-tighter">5,000+</span>
-                                    <div className="flex gap-1 mb-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-gray-200" />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-gray-200" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}
+                            className="bg-white rounded-[24px] p-8 border border-gray-100">
+                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#ff6321] mb-4 block">OUR VISION</span>
+                            <p className="text-[#060612] text-[15px] leading-relaxed font-medium">
+                                To be the most trusted AI-powered technology partner for enterprises and organisations building their digital infrastructure for the next decade.
+                            </p>
+                        </motion.div>
+
+                        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.06}
+                            className="bg-white rounded-[24px] p-8 border border-gray-100">
+                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#ff6321] mb-4 block">OUR MISSION</span>
+                            <p className="text-[#069686e] text-[14.5px] leading-relaxed text-[#69686e]">
+                                To deliver future-grade technology solutions that combine 16+ years of proven execution discipline with the speed and intelligence of AI-first development — enabling clients to move faster without compromising on quality, security, or long-term scalability.
+                            </p>
+                        </motion.div>
+
+                        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.12}
+                            className="bg-white rounded-[24px] p-8 border border-gray-100 md:col-span-2 lg:col-span-1">
+                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#ff6321] mb-4 block">OUR VALUES</span>
+                            <div className="space-y-4">
+                                {values.map((v, i) => (
+                                    <div key={i} className="flex items-start gap-3">
+                                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#ff6321] flex-shrink-0" />
+                                        <div>
+                                            <span className="text-[13px] font-bold text-[#060612]">{v.label}</span>
+                                            <span className="text-[#69686e] text-[13px]"> — {v.desc}</span>
+                                        </div>
                                     </div>
-                                </div>
+                                ))}
                             </div>
-                        </div>
-
-                        {/* Stat Card 2 */}
-                        <div className="bg-white rounded-[32px] p-8 shadow-sm border border-gray-50 flex flex-col justify-between min-h-[250px]">
-                            <div>
-                                <h3 className="text-lg font-bold text-secondary mb-3">Projects Delivered</h3>
-                                <p className="text-sm text-[#666666] leading-relaxed max-w-[250px]">
-                                    A proven track record of successful deliveries across numerous industries and domains.
-                                </p>
-                            </div>
-                            <div>
-                                <div className="border-t border-dashed border-gray-200 mb-4" />
-                                <div className="flex items-end justify-between">
-                                    <span className="text-5xl font-medium text-secondary tracking-tighter">1,200+</span>
-                                    <div className="flex gap-1 mb-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-gray-200" />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-gray-200" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Stat Card 3 */}
-                        <div className="bg-white rounded-[32px] p-8 shadow-sm border border-gray-50 flex flex-col justify-between min-h-[250px]">
-                            <div>
-                                <h3 className="text-lg font-bold text-secondary mb-3">Global Client Base</h3>
-                                <p className="text-sm text-[#666666] leading-relaxed max-w-[250px]">
-                                    Trusted by hundreds of leading businesses around the globe to scale securely.
-                                </p>
-                            </div>
-                            <div>
-                                <div className="border-t border-dashed border-gray-200 mb-4" />
-                                <div className="flex items-end justify-between">
-                                    <span className="text-5xl font-medium text-secondary tracking-tighter">500+</span>
-                                    <div className="flex gap-1 mb-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-gray-200" />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-gray-200" />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div className="relative z-20 pt-16 md:pt-24">
-                <CTA />
-                <Footer />
-            </div>
+            <CTA />
+            <Footer />
         </div>
     );
 };
