@@ -7,7 +7,7 @@ import Timeline from '../components/Timeline';
 
 const fadeUp = {
     hidden: { opacity: 0, y: 24 },
-    visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut', delay: i * 0.08 } }),
+    visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const, delay: i * 0.08 } }),
 };
 
 const values = [
