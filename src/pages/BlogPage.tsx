@@ -29,6 +29,7 @@ const cardVariant = {
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 import { posts, CATEGORIES } from '../data/blogData';
+import type { Post } from '../data/blogData';
 
 import PostCard from '../components/PostCard';
 
@@ -41,7 +42,7 @@ const featuredCardVariant = {
     }),
 };
 
-const FeaturedCard: React.FC<{ post: (typeof posts)[0] }> = ({ post }) => (
+const FeaturedCard: React.FC<{ post: Post }> = ({ post }) => (
     <motion.div
         variants={featuredCardVariant}
         initial="hidden"
@@ -98,8 +99,8 @@ const BlogPage: React.FC = () => {
     const featured = posts.find((p) => p.featured) || posts[0];
     const filtered =
         activeCategory === 'All'
-            ? posts.filter((p) => !p.featured)
-            : posts.filter((p) => p.category === activeCategory && !p.featured);
+            ? posts.filter((p: Post) => !p.featured)
+            : posts.filter((p: Post) => p.category === activeCategory && !p.featured);
 
     return (
         <div className="bg-[#f5f4f3] min-h-screen font-geist text-[#000000] flex flex-col">
@@ -148,7 +149,7 @@ const BlogPage: React.FC = () => {
             <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-12 pb-6">
                 <div className="flex items-center justify-between border-b border-gray-200 pb-4">
                     <div className="flex items-center gap-1">
-                        {CATEGORIES.map((cat) => (
+                        {CATEGORIES.map((cat: string) => (
                             <button
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
@@ -179,7 +180,7 @@ const BlogPage: React.FC = () => {
                         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
                     >
                         {filtered.length > 0 ? (
-                            filtered.map((post) => (
+                            filtered.map((post: Post) => (
                                 <PostCard key={post.id} post={post} />
                             ))
                         ) : (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { posts } from '../data/blogData';
+import type { Post } from '../data/blogData';
 import PostCard from './PostCard';
 
 const ArrowRight = () => (
@@ -34,7 +35,7 @@ const Blog: React.FC = () => (
 
             {/* ── Same Cards as Blog ── */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {posts.slice(0, 3).map((post) => (
+                {posts.slice(0, 3).map((post: Post) => (
                     <PostCard key={post.id} post={post} />
                 ))}
             </div>
