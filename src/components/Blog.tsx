@@ -1,86 +1,62 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { posts } from '../data/blogData';
+import PostCard from './PostCard';
 
-const BlogCard = ({ category, title, description }: { category: string, title: string, description: string }) => (
-    <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        whileHover={{ y: -10 }}
-        className="glass-card p-10 rounded-[40px] flex flex-col h-full group transition-all duration-500"
-    >
-        <div className="flex justify-between items-start mb-8">
-            <span className="px-4 py-1.5 bg-primary/10 text-[10px] font-bold tracking-[0.2em] text-primary uppercase rounded-full">
-                {category}
-            </span>
-            <div className="p-3 bg-background/50 rounded-full group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                <ArrowUpRight size={20} />
-            </div>
-        </div>
-        <h3 className="text-3xl font-bold text-secondary mb-6 leading-tight group-hover:text-primary transition-colors tracking-tight">
-            {title}
-        </h3>
-        <p className="text-muted text-lg leading-relaxed mb-8 flex-grow">
-            {description}
-        </p>
-        <a href="#" className="text-secondary font-bold text-sm tracking-tight inline-flex items-center gap-2 group/btn">
-            LEARN MORE
-            <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="text-primary text-xl"
-            >
-                ›
-            </motion.span>
-        </a>
-    </motion.div>
+const ArrowRight = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+        strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+        <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+    </svg>
 );
 
-const Blog: React.FC = () => {
-    const posts = [
-        {
-            category: "Digital Marketing",
-            title: "Evolution of Digital Advertising",
-            description: "Modern strategies that have evolved to become an integral part of high-impact advertising for every business."
-        },
-        {
-            category: "Website Designing",
-            title: "Creating Innovative User Experiences",
-            description: "Involved in creating innovative, user-friendly and modern digital experiences that capture the brand essence."
-        },
-        {
-            category: "US IT Staffing",
-            title: "Talent Acquisition in the Tech Industry",
-            description: "Bringing together HR departments of the clients with high-quality skilled candidates for seamless integration."
-        }
-    ];
+const Blog: React.FC = () => (
+    <section id="blog" className="relative pt-24 pb-24 bg-[#f5f4f3] overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    return (
-        <section id="blog" className="relative overflow-hidden">
-            {/* Background Decorative Gradient */}
-            <div className="absolute bottom-[20%] right-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-                <div className="flex flex-col items-center text-center mb-12">
-                    <span className="section-tag mb-4">LATEST INSIGHTS</span>
-                    <h2 className="text-5xl md:text-7xl font-geist font-medium text-secondary tracking-tighter mb-8">
-                        Insights from our <span className="text-primary italic">experts</span>
+            {/* ── Header: Combined Mockup Layout ── */}
+            <div className="text-center mb-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <span className="section-tag mb-8 inline-block">LATEST INSIGHTS</span>
+                    <h2 className="text-[36px] sm:text-[48px] md:text-[64px] lg:text-[72px] font-medium tracking-tighter leading-[1.1] text-[#000000] mb-8">
+                        Insights from our <span className="italic text-[#ff6321]">experts</span>
                     </h2>
-                    <p className="max-w-2xl text-muted text-xl font-medium mb-12 leading-relaxed">
+                    <p className="text-[#69686e] text-[16px] md:text-[18px] leading-relaxed max-w-2xl mx-auto font-medium">
                         Stay updated with the latest trends and thoughts from our industry-leading specialists across infrastructure and technology.
                     </p>
-
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {posts.map((post, index) => (
-                        <BlogCard key={index} {...post} />
-                    ))}
-                </div>
+                </motion.div>
             </div>
-        </section>
-    );
-};
+
+            {/* ── Same Cards as Blog ── */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {posts.slice(0, 3).map((post) => (
+                    <PostCard key={post.id} post={post} />
+                ))}
+            </div>
+
+            {/* View All CTA */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="mt-12 text-center"
+            >
+                <motion.a
+                    href="/blogs"
+                    className="inline-flex items-center gap-3 px-10 py-4 bg-[#000000] text-white text-[14px] font-bold rounded-2xl hover:bg-[#ff6321] transition-all transform hover:-translate-y-1 shadow-2xl"
+                >
+                    BROWSE ALL PERSPECTIVES <ArrowRight />
+                </motion.a>
+            </motion.div>
+
+        </div>
+    </section>
+);
 
 export default Blog;

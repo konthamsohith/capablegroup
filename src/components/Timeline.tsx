@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import React from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface Milestone {
     year: string;
@@ -27,7 +27,7 @@ const milestones: Milestone[] = [
         accent: '#ff6321',
         accentLight: 'rgba(255,99,33,0.08)',
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
                 <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
             </svg>
         ),
@@ -46,7 +46,7 @@ const milestones: Milestone[] = [
         accent: '#e05a18',
         accentLight: 'rgba(224,90,24,0.07)',
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
                 <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" />
             </svg>
         ),
@@ -65,7 +65,7 @@ const milestones: Milestone[] = [
         accent: '#c94f12',
         accentLight: 'rgba(201,79,18,0.07)',
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
                 <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
             </svg>
         ),
@@ -84,7 +84,7 @@ const milestones: Milestone[] = [
         accent: '#b84410',
         accentLight: 'rgba(184,68,16,0.07)',
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
                 <circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
             </svg>
         ),
@@ -103,7 +103,7 @@ const milestones: Milestone[] = [
         accent: '#ff6321',
         accentLight: 'rgba(255,99,33,0.08)',
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
         ),
@@ -122,7 +122,7 @@ const milestones: Milestone[] = [
         accent: '#e05a18',
         accentLight: 'rgba(224,90,24,0.07)',
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
             </svg>
         ),
@@ -141,7 +141,7 @@ const milestones: Milestone[] = [
         accent: '#c94f12',
         accentLight: 'rgba(201,79,18,0.07)',
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
                 <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" opacity="0.3" /><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" strokeWidth="2" />
             </svg>
         ),
@@ -151,59 +151,112 @@ const milestones: Milestone[] = [
         era: 'AI PRODUCTS GO LIVE',
         headline: 'Three Products. One Vision.',
         body: [
-            'SocialFlyAI — AI social media platform (socialflyai.com)',
-            'SocialScale Agency — digital agency presence (socialscale.agency)',
-            'Atyuttama — brand digital identity (atyuttama.com)',
-            '250+ projects. 80+ team members. Worldwide.',
+            'SocialFlyAI — AI social media platform',
+            'SocialScale Agency — digital agency presence',
+            'Atyuttama — brand digital identity',
+            '250+ projects. 80+ team members.',
         ],
         metric: { value: '250+', label: 'Projects Delivered' },
         accent: '#b84410',
         accentLight: 'rgba(184,68,16,0.07)',
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
                 <polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" />
             </svg>
         ),
     },
     {
         year: '2026',
-        era: 'THE AI-FIRST ORGANISATION',
-        headline: 'Trusted for 16 Years. Built for What\'s Next.',
+        era: 'THE DESTINATION',
+        headline: 'The AI-First Organisation',
         body: [
-            'Formally repositioned as an AI-first technology consultancy.',
-            'New website. Revised service architecture.',
+            'Formally repositioned as an AI-first consultancy.',
+            'New delivery architecture. AI-speed development.',
             'Formalised AI delivery methodology.',
-            '16+ years of institutional knowledge at AI speed.',
+            '16+ years of institutional knowledge, accelerated.',
         ],
         metric: { value: 'AI-First', label: 'Since 2026' },
         accent: '#ff6321',
         accentLight: 'rgba(255,99,33,0.12)',
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /><polygon points="12 6 14.09 10.26 18.5 10.91 15.25 14.07 16.09 18.49 12 16.25 7.91 18.49 8.75 14.07 5.5 10.91 9.91 10.26 12 6" fill="currentColor" />
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8" >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg >
         ),
     },
 ];
 
 /* ── Individual Card ────────────────────────────────────── */
 const TimelineCard: React.FC<{ milestone: Milestone; index: number }> = ({ milestone, index }) => {
-    const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true, amount: 0.3 });
+    const ref = React.useRef<HTMLDivElement>(null);
     const isRight = index % 2 === 0;
+    const isLast = index === milestones.length - 1;
+    const bulgeRight = isRight;
+
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ['start 0.92', 'start 0.35'],
+    });
+
+    // Card slides in from its side and fades in as it scrolls up into view
+    const leftX = useTransform(scrollYProgress, [0, 1], [-60, 0]);
+    const rightX = useTransform(scrollYProgress, [0, 1], [60, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 0.4, 1], [0, 0.6, 1]);
+    const nodeScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 0.8, 1]);
+    const nodeOpacity = useTransform(scrollYProgress, [0, 0.4, 1], [0, 0.7, 1]);
+    const mobileX = useTransform(scrollYProgress, [0, 1], [40, 0]);
 
     return (
-        <div ref={ref} className="relative flex items-start gap-0 group">
-            {/* ── Desktop Layout ── */}
-            <div className="hidden md:grid w-full" style={{ gridTemplateColumns: '1fr 60px 1fr' }}>
+        <div ref={ref} className="relative flex items-start w-full group pb-12 md:pb-24">
 
+            {/* ── Serpentine Map Path (Desktop) ── */}
+            {!isLast && (
+                <div className="hidden md:block absolute left-1/2 top-[56px] w-[240px] lg:w-[320px] -translate-x-1/2 pointer-events-none z-0" style={{ height: '100%' }}>
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" className="overflow-visible">
+                        <motion.path
+                            d={bulgeRight ? "M 50 0 C 140 25, 140 75, 50 100" : "M 50 0 C -40 25, -40 75, 50 100"}
+                            fill="none"
+                            stroke="#ff6321"
+                            strokeWidth="3.5"
+                            strokeDasharray="8 10"
+                            strokeLinecap="round"
+                            vectorEffect="non-scaling-stroke"
+                            className="drop-shadow-sm"
+                            animate={{ strokeDashoffset: [0, -36] }}
+                            transition={{ duration: 1.2, repeat: Infinity, ease: 'linear' }}
+                        />
+                    </svg>
+                </div>
+            )}
+
+            {/* ── Serpentine Map Path (Mobile) ── */}
+            {!isLast && (
+                <div className="md:hidden absolute left-[19px] top-[24px] w-[30px] pointer-events-none z-0" style={{ height: '100%' }}>
+                    <svg width="100%" height="100%" viewBox="0 0 10 100" preserveAspectRatio="none" className="overflow-visible">
+                        <motion.path
+                            d={bulgeRight ? "M 5 0 C 40 30, -30 70, 5 100" : "M 5 0 C -30 30, 40 70, 5 100"}
+                            fill="none"
+                            stroke="#ff6321"
+                            strokeWidth="2.5"
+                            strokeDasharray="6 8"
+                            strokeLinecap="round"
+                            vectorEffect="non-scaling-stroke"
+                            className="drop-shadow-sm"
+                            animate={{ strokeDashoffset: [0, -28] }}
+                            transition={{ duration: 1.0, repeat: Infinity, ease: 'linear' }}
+                        />
+                    </svg>
+                </div>
+            )}
+
+            {/* ── Desktop Layout ── */}
+            <div className="hidden md:grid w-full z-10" style={{ gridTemplateColumns: '1fr 60px 1fr' }}>
                 {/* Left Side */}
-                <div className={`pr-8 ${isRight ? 'flex flex-col items-end text-right' : 'flex flex-col items-start text-left opacity-0 pointer-events-none'}`}>
+                <div className={`pr-10 lg:pr-16 ${isRight ? 'flex flex-col items-end text-right' : 'flex flex-col items-start text-left opacity-0 pointer-events-none'}`}>
                     {isRight && (
                         <motion.div
-                            initial={{ opacity: 0, x: -32 }}
-                            animate={isInView ? { opacity: 1, x: 0 } : {}}
-                            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+                            style={{ x: leftX, opacity }}
                             className="w-full max-w-[420px]"
                         >
                             <CardContent milestone={milestone} align="right" />
@@ -211,39 +264,31 @@ const TimelineCard: React.FC<{ milestone: Milestone; index: number }> = ({ miles
                     )}
                 </div>
 
-                {/* Center Track + Node */}
+                {/* Center Map Node */}
                 <div className="flex flex-col items-center">
                     <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={isInView ? { scale: 1, opacity: 1 } : {}}
-                        transition={{ duration: 0.4, ease: 'backOut', delay: 0 }}
+                        style={{ scale: nodeScale, opacity: nodeOpacity }}
                         className="relative flex-shrink-0 z-10"
-                        style={{ marginTop: '28px' }}
                     >
-                        {/* Outer pulse ring */}
-                        <motion.div
-                            animate={{ scale: [1, 1.6, 1], opacity: [0.4, 0, 0.4] }}
-                            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                            className="absolute inset-0 rounded-full"
-                            style={{ backgroundColor: milestone.accent }}
-                        />
-                        {/* Node */}
-                        <div
-                            className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center shadow-lg relative z-10"
-                            style={{ backgroundColor: milestone.accent, color: 'white' }}
-                        >
-                            {milestone.icon}
+                        <div style={{ marginTop: '28px' }} className="relative">
+                            {/* Map point outer dash ring */}
+                            <div className="absolute -inset-2 rounded-full border border-dashed border-[#ff6321] opacity-40 animate-[spin_10s_linear_infinite]" />
+                            {/* Node */}
+                            <div
+                                className="w-12 h-12 rounded-full border-4 flex items-center justify-center relative z-10 shadow-lg bg-white"
+                                style={{ borderColor: milestone.accent, color: milestone.accent }}
+                            >
+                                {milestone.icon}
+                            </div>
                         </div>
                     </motion.div>
                 </div>
 
                 {/* Right Side */}
-                <div className={`pl-8 ${!isRight ? 'flex flex-col items-start text-left' : 'flex flex-col items-end text-right opacity-0 pointer-events-none'}`}>
+                <div className={`pl-10 lg:pl-16 ${!isRight ? 'flex flex-col items-start text-left' : 'flex flex-col items-end text-right opacity-0 pointer-events-none'}`}>
                     {!isRight && (
                         <motion.div
-                            initial={{ opacity: 0, x: 32 }}
-                            animate={isInView ? { opacity: 1, x: 0 } : {}}
-                            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+                            style={{ x: rightX, opacity }}
                             className="w-full max-w-[420px]"
                         >
                             <CardContent milestone={milestone} align="left" />
@@ -253,34 +298,24 @@ const TimelineCard: React.FC<{ milestone: Milestone; index: number }> = ({ miles
             </div>
 
             {/* ── Mobile Layout ── */}
-            <div className="flex md:hidden w-full gap-4">
+            <div className="flex md:hidden w-full gap-5 z-10">
                 <div className="flex flex-col items-center">
                     <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={isInView ? { scale: 1, opacity: 1 } : {}}
-                        transition={{ duration: 0.4, ease: 'backOut' }}
+                        style={{ scale: nodeScale, opacity: nodeOpacity }}
                         className="relative flex-shrink-0 z-10 mt-1"
                     >
-                        <motion.div
-                            animate={{ scale: [1, 1.6, 1], opacity: [0.4, 0, 0.4] }}
-                            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                            className="absolute inset-0 rounded-full"
-                            style={{ backgroundColor: milestone.accent }}
-                        />
+                        <div className="absolute -inset-1.5 rounded-full border border-dashed border-[#ff6321] opacity-40 animate-[spin_10s_linear_infinite]" />
                         <div
-                            className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center shadow-lg relative z-10"
-                            style={{ backgroundColor: milestone.accent, color: 'white' }}
+                            className="w-10 h-10 rounded-full border-[3px] flex items-center justify-center relative z-10 shadow-md bg-white"
+                            style={{ borderColor: milestone.accent, color: milestone.accent }}
                         >
-                            {milestone.icon}
+                            <div className="scale-75 origin-center text-current">{milestone.icon}</div>
                         </div>
                     </motion.div>
-                    {/* connector line placeholder */}
                 </div>
                 <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-                    className="flex-1 pb-8"
+                    style={{ x: mobileX, opacity }}
+                    className="flex-1"
                 >
                     <CardContent milestone={milestone} align="left" />
                 </motion.div>
@@ -289,33 +324,36 @@ const TimelineCard: React.FC<{ milestone: Milestone; index: number }> = ({ miles
     );
 };
 
+
 /* ── Card Content ────────────────────────────────────────── */
 const CardContent: React.FC<{ milestone: Milestone; align: 'left' | 'right' }> = ({ milestone, align }) => {
     return (
         <div
-            className="rounded-2xl p-6 border border-gray-100 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 group-hover:border-opacity-60"
-            style={{ borderColor: `${milestone.accent}22` }}
+            className="rounded-2xl p-5 md:p-6 bg-[#fdfdfc] shadow-[0px_4px_24px_rgba(0,0,0,0.02)] border border-[#e5e5e5] hover:shadow-[0px_8px_32px_rgba(0,0,0,0.06)] transition-all duration-300 relative z-10"
         >
+            {/* Vintage edge decorative lines (map style) */}
+            <div className="absolute top-2 left-2 right-2 bottom-2 border border-dashed border-[#00000008] pointer-events-none rounded-xl" />
+
             {/* Era Tag */}
-            <div className={`flex items-center gap-2 mb-3 ${align === 'right' ? 'justify-end' : 'justify-start'}`}>
+            <div className={`flex items-center gap-2 mb-4 relative z-10 ${align === 'right' ? 'justify-end' : 'justify-start'}`}>
                 <span
-                    className="text-[10px] font-bold tracking-[0.2em] uppercase px-2.5 py-1 rounded-full"
-                    style={{ backgroundColor: milestone.accentLight, color: milestone.accent }}
+                    className="text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-md border"
+                    style={{ backgroundColor: milestone.accentLight, color: milestone.accent, borderColor: `${milestone.accent}20` }}
                 >
                     {milestone.era}
                 </span>
             </div>
 
             {/* Year + Headline */}
-            <div className={`mb-4 ${align === 'right' ? 'text-right' : 'text-left'}`}>
+            <div className={`mb-5 relative z-10 ${align === 'right' ? 'text-right' : 'text-left'}`}>
                 <span
-                    className="text-[56px] font-bold leading-none block mb-1 tracking-tighter"
-                    style={{ color: `${milestone.accent}18`, fontFamily: 'Geist, sans-serif' }}
+                    className="text-[48px] font-bold leading-none block mb-2 tracking-tighter"
+                    style={{ color: `${milestone.accent}12`, fontFamily: 'Geist, sans-serif' }}
                 >
                     {milestone.year}
                 </span>
                 <h3
-                    className="text-[17px] font-bold text-[#060612] leading-snug -mt-6 relative z-10"
+                    className="text-[17px] font-bold text-[#000000] leading-snug -mt-5 relative z-10"
                     style={{ fontFamily: 'Geist, sans-serif' }}
                 >
                     {milestone.headline}
@@ -323,10 +361,10 @@ const CardContent: React.FC<{ milestone: Milestone; align: 'left' | 'right' }> =
             </div>
 
             {/* Body */}
-            <ul className={`space-y-1.5 mb-5 ${align === 'right' ? 'text-right' : 'text-left'}`}>
+            <ul className={`space-y-1.5 mb-5 relative z-10 ${align === 'right' ? 'text-right' : 'text-left'}`}>
                 {milestone.body.map((line, i) => (
-                    <li key={i} className="text-[13px] text-[#69686e] leading-relaxed flex items-start gap-2" style={{ flexDirection: align === 'right' ? 'row-reverse' : 'row' }}>
-                        <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: milestone.accent }} />
+                    <li key={i} className="text-[13px] text-[#69686e] leading-relaxed flex items-start gap-2.5" style={{ flexDirection: align === 'right' ? 'row-reverse' : 'row' }}>
+                        <span className="mt-2 w-1 h-1 rounded flex-shrink-0" style={{ backgroundColor: milestone.accent }} />
                         <span>{line}</span>
                     </li>
                 ))}
@@ -334,15 +372,14 @@ const CardContent: React.FC<{ milestone: Milestone; align: 'left' | 'right' }> =
 
             {/* Metric Badge */}
             {milestone.metric && (
-                <div className={`flex ${align === 'right' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`flex relative z-10 ${align === 'right' ? 'justify-end' : 'justify-start'}`}>
                     <div
-                        className="inline-flex items-baseline gap-1.5 px-3 py-2 rounded-xl border"
-                        style={{ backgroundColor: milestone.accentLight, borderColor: `${milestone.accent}30` }}
+                        className="inline-flex flex-col gap-0.5 px-4 py-2 bg-white rounded-lg border border-[#e5e5e5]"
                     >
-                        <span className="text-[22px] font-bold tracking-tight" style={{ color: milestone.accent, fontFamily: 'Geist, sans-serif' }}>
+                        <span className="text-[20px] font-bold tracking-tight leading-none" style={{ color: milestone.accent, fontFamily: 'Geist, sans-serif' }}>
                             {milestone.metric.value}
                         </span>
-                        <span className="text-[11px] font-medium text-[#69686e] uppercase tracking-wide">
+                        <span className="text-[10px] font-bold text-[#69686e] uppercase tracking-[0.1em]">
                             {milestone.metric.label}
                         </span>
                     </div>
@@ -352,79 +389,81 @@ const CardContent: React.FC<{ milestone: Milestone; align: 'left' | 'right' }> =
     );
 };
 
-/* ── Scroll Progress Track ───────────────────────────────── */
-const ProgressTrack: React.FC<{ containerRef: React.RefObject<HTMLDivElement> }> = ({ containerRef }) => {
-    const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start 0.8', 'end 0.2'] });
-    const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+/* ── Map Decorative Elements ─────────────────────────────── */
+const MapDecorations: React.FC = () => (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+        {/* Soft lighting */}
+        <div className="absolute top-[15%] left-[-10%] w-[50vh] h-[50vh] bg-[#ff6321]/3 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[50vh] h-[50vh] bg-[#ff6321]/3 rounded-full blur-[100px]" />
 
-    return (
-        <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-gray-100 z-0">
-            <motion.div
-                className="w-full bg-gradient-to-b from-[#ff6321] via-[#e05a18] to-[#ff6321] origin-top rounded-full"
-                style={{ scaleY, height: '100%' }}
-            />
+        {/* Map Elements */}
+        {/* Top Right Compass Rose suggestion */}
+        <div className="absolute top-[8%] right-[5%] md:right-[15%] opacity-[0.03] transform rotate-12">
+            <svg width="240" height="240" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#000" strokeWidth="0.5" strokeDasharray="2 2" />
+                <circle cx="50" cy="50" r="30" fill="none" stroke="#000" strokeWidth="0.5" />
+                <path d="M50 5 L50 95 M5 50 L95 50 M18 18 L82 82 M18 82 L82 18" stroke="#000" strokeWidth="0.25" />
+                <polygon points="50,15 54,46 50,50 46,46" fill="#000" stroke="none" />
+                <polygon points="50,85 46,54 50,50 54,54" fill="#000" stroke="none" />
+                <polygon points="85,50 54,54 50,50 54,46" fill="#000" stroke="none" />
+                <polygon points="15,50 46,46 50,50 46,54" fill="#000" stroke="none" />
+            </svg>
         </div>
-    );
-};
 
-/* ── Mobile Progress Track ───────────────────────────────── */
-const MobileTrack: React.FC = () => (
-    <div className="block md:hidden absolute left-5 top-0 bottom-0 w-[2px] bg-gray-100 z-0">
-        <div className="w-full h-full bg-gradient-to-b from-[#ff6321] to-transparent opacity-30" />
+        {/* Topographic Lines mid-left */}
+        <div className="absolute top-[40%] left-[-5%] opacity-[0.02] transform -rotate-6">
+            <svg width="300" height="400" viewBox="0 0 100 100">
+                <path d="M 0 50 Q 50 10, 100 40 T 200 60" fill="none" stroke="#000" strokeWidth="0.3" id="p1" />
+                <path d="M 0 60 Q 50 20, 100 50 T 200 70" fill="none" stroke="#000" strokeWidth="0.3" id="p2" />
+                <path d="M 0 70 Q 50 30, 100 60 T 200 80" fill="none" stroke="#000" strokeWidth="0.3" id="p3" strokeDasharray="1 2" />
+            </svg>
+        </div>
+
+        {/* Bottom map X marking */}
+        <div className="absolute bottom-[2%] left-[10%] opacity-[0.04]">
+            <svg width="120" height="120" viewBox="0 0 100 100">
+                <path d="M 20 20 L 80 80 M 80 20 L 20 80" fill="none" stroke="#000" strokeWidth="1" strokeLinecap="round" />
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#000" strokeWidth="0.5" strokeDasharray="4 4" />
+            </svg>
+        </div>
     </div>
 );
 
 /* ── Main Export ─────────────────────────────────────────── */
 const Timeline: React.FC = () => {
-    const containerRef = useRef<HTMLDivElement>(null);
-
     return (
-        <section id="timeline" className="relative py-24 overflow-hidden">
-            {/* Ambient background */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-[#ff6321]/4 rounded-full blur-[120px]" />
-                <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-[#060612]/4 rounded-full blur-[120px]" />
-            </div>
+        <section id="timeline" className="relative py-16 md:py-24 overflow-hidden bg-[#f9f8f6]">
+            <MapDecorations />
 
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.7, ease: 'easeOut' }}
-                    className="text-center mb-20"
+                    className="text-center mb-16 md:mb-24"
                 >
-                    <span className="section-tag mb-4 inline-block">OUR JOURNEY</span>
+                    <span className="section-tag mb-4 inline-block tracking-[0.2em]">OUR JOURNEY</span>
                     <h2
-                        className="text-4xl md:text-5xl font-bold text-[#060612] tracking-tighter mb-4"
+                        className="text-4xl md:text-5xl font-bold text-[#000000] tracking-tighter leading-tight"
                         style={{ fontFamily: 'Geist, sans-serif' }}
                     >
                         Sixteen Years of{' '}
-                        <span className="italic" style={{ color: '#ff6321' }}>Measured Growth</span>
+                        <span className="italic text-[#ff6321]">Measured Growth</span>
                     </h2>
-                    <p className="text-[#69686e] text-base max-w-xl mx-auto leading-relaxed">
-                        From a 5-person team in Hyderabad to an AI-first consultancy serving clients worldwide.
-                        Every milestone, earned.
+                    <p className="text-[#69686e] text-[16px] max-w-xl mx-auto leading-relaxed">
+                        From a 5-person team in Hyderabad to an AI-first consultancy serving clients worldwide. Every milestone, earned.
                     </p>
                 </motion.div>
 
                 {/* Timeline Container */}
-                <div ref={containerRef} className="relative">
-                    <ProgressTrack containerRef={containerRef as React.RefObject<HTMLDivElement>} />
-                    <MobileTrack />
-
-                    {/* Spacing node: top cap */}
-                    <div className="hidden md:block h-6" />
-
-                    <div className="relative space-y-12 md:space-y-16">
+                <div className="relative">
+                    <div className="relative">
                         {milestones.map((milestone, index) => (
                             <TimelineCard key={milestone.year} milestone={milestone} index={index} />
                         ))}
                     </div>
-
-                    {/* Bottom cap */}
-                    <div className="hidden md:block h-6" />
                 </div>
 
                 {/* Closing Statement */}
@@ -433,11 +472,11 @@ const Timeline: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.6, ease: 'easeOut' }}
-                    className="mt-20 text-center"
+                    className="mt-8 text-center"
                 >
-                    <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#060612] text-white text-sm font-medium">
-                        <span className="w-2 h-2 rounded-full bg-[#ff6321] animate-pulse" />
-                        <span>16+ years of trust. The next chapter starts now.</span>
+                    <div className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-[#e5e5e5] bg-white shadow-sm">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#ff6321] animate-[pulse_2s_ease-in-out_infinite]" />
+                        <span className="text-[#000000] text-sm font-bold tracking-wide uppercase">The next chapter starts now.</span>
                     </div>
                 </motion.div>
             </div>
@@ -446,3 +485,4 @@ const Timeline: React.FC = () => {
 };
 
 export default Timeline;
+

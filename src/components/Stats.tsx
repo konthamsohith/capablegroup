@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 
-const Counter = ({ value, label }: { value: number, label: string }) => {
+const Counter = ({ value, label, suffix = "+" }: { value: number, label: string, suffix?: string }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.5 });
 
@@ -23,11 +23,11 @@ const Counter = ({ value, label }: { value: number, label: string }) => {
     }, [isInView, spring, value]);
 
     return (
-        <div ref={ref} className="text-center p-8 rounded-3xl group hover:bg-white transition-all duration-500">
-            <motion.div className="text-5xl md:text-7xl font-bold text-secondary mb-3 tracking-tighter group-hover:text-primary transition-colors">
-                <motion.span>{displayValue}</motion.span>{label.includes("Money") ? "$" : "+"}
+        <div ref={ref} className="text-center p-4 sm:p-8 rounded-3xl group hover:bg-white transition-all duration-500">
+            <motion.div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-secondary mb-3 tracking-tighter group-hover:text-primary transition-colors">
+                <motion.span>{displayValue}</motion.span>{suffix}
             </motion.div>
-            <p className="text-muted font-bold text-xs uppercase tracking-[0.3em]">
+            <p className="text-muted font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em]">
                 {label}
             </p>
         </div>
@@ -36,10 +36,10 @@ const Counter = ({ value, label }: { value: number, label: string }) => {
 
 const Stats: React.FC = () => {
     const stats = [
-        { value: 5000, label: "Global Talent Pool" },
-        { value: 1200, label: "Projects Delivered" },
-        { value: 85, label: "Revenue Impact (m)" },
-        { value: 500, label: "Global Client Base" }
+        { value: 250, label: "Projects Delivered", suffix: "+" },
+        { value: 10, label: "Industry Verticals", suffix: "+" },
+        { value: 4, label: "Continents Served", suffix: "" },
+        { value: 80, label: "Client Retention", suffix: "%" }
     ];
 
     return (
@@ -51,9 +51,9 @@ const Stats: React.FC = () => {
 
                 <div className="relative group">
                     {/* Background Soft Glow */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-[56px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                    <div className="absolute -inset-4 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-[32px] sm:rounded-[56px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 
-                    <div className="glass-card relative z-10 p-6 md:p-12 rounded-[48px] border border-white/40 shadow-2xl shadow-primary/5 bg-white/60">
+                    <div className="glass-card relative z-10 p-4 sm:p-12 rounded-[32px] sm:rounded-[48px] border border-white/40 shadow-2xl shadow-primary/5 bg-white/60">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                             {stats.map((stat, index) => (
                                 <Counter key={index} {...stat} />

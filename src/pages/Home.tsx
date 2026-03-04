@@ -24,7 +24,7 @@ import socialscaleLogo from '../assets/logos/socialscale.png';
 
 const Home: React.FC = () => {
     return (
-        <div className="bg-[#f5f4f3] min-h-screen font-geist text-[#060612] selection:bg-[#ff6321] selection:text-white relative">
+        <div className="bg-[#f5f4f3] min-h-screen font-geist text-[#000000] selection:bg-[#ff6321] selection:text-white relative">
             <SEO
                 title="Capable Groups | Elite Teams & Digital Solutions"
                 description="A multidisciplinary agency creating thoughtful, scalable digital solutions. We engineer growth through unified strategy, design, and high-performance development."
@@ -118,24 +118,16 @@ const Home: React.FC = () => {
                             </motion.div>
 
                             <h1
-                                className="tracking-tight mb-8 max-w-[90%] md:max-w-5xl z-10 px-4"
+                                className="tracking-tighter mb-8 max-w-[95%] md:max-w-5xl z-10 px-4 text-[42px] leading-[1.1] sm:text-[56px] md:text-[72px] lg:text-[84px] font-medium text-[rgb(6,6,18)]"
                                 style={{
                                     fontFamily: '"Geist Sans", system-ui, sans-serif',
-                                    fontWeight: 500,
-                                    color: 'rgb(6, 6, 18)',
-                                    fontSize: '72px',
-                                    lineHeight: '72px'
                                 }}
                             >
                                 Digital infrastructure<br />
                                 for <span
+                                    className="italic text-[rgb(255,99,33)]"
                                     style={{
                                         fontFamily: '"Geist Sans", system-ui, sans-serif',
-                                        fontWeight: 500,
-                                        color: 'rgb(255, 99, 33)',
-                                        fontSize: '72px',
-                                        lineHeight: '72px',
-                                        fontStyle: 'italic'
                                     }}
                                 >serious execution</span>
                             </h1>
@@ -262,7 +254,7 @@ const Home: React.FC = () => {
 
                             <button
                                 onClick={() => window.location.href = '/projects'}
-                                className="bg-[#060612] text-white px-10 py-4 rounded-xl transition-all font-bold text-[16px] flex items-center justify-center hover:bg-black hover:scale-[1.02] active:scale-[0.98]">
+                                className="bg-[#000000] text-white px-10 py-4 rounded-xl transition-all font-bold text-[16px] flex items-center justify-center hover:bg-black hover:scale-[1.02] active:scale-[0.98]">
                                 See our work →
                             </button>
                             <button
@@ -365,10 +357,10 @@ const Home: React.FC = () => {
                 <div className="bg-gradient-to-b from-orange-50/20 via-white to-orange-50/30 pt-32 pb-0">
                     <Services />
                 </div>
-                <div className="bg-gradient-to-b from-orange-50/30 to-white pt-0 pb-32">
+                <div className="bg-gradient-to-b from-orange-50/30 to-[#f5f4f3] pt-0 pb-12">
                     <Process />
                 </div>
-                <div className="bg-gradient-to-b from-white to-orange-50/10 pt-12 pb-20">
+                <div className="bg-[#f5f4f3] pt-0 pb-0">
                     <Blog />
                 </div>
 

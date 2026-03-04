@@ -36,7 +36,7 @@ const ContactPage: React.FC = () => {
     };
 
     return (
-        <div className="bg-[#f5f4f3] min-h-screen font-geist text-[#060612]">
+        <div className="bg-[#f5f4f3] min-h-screen font-geist text-[#000000]">
             <SEO
                 title="Contact | Capable Groups"
                 description="Get in touch with Capable Groups. We respond to all technology enquiries within one business day."
@@ -53,7 +53,7 @@ const ContactPage: React.FC = () => {
                         </motion.div>
                         <motion.h1
                             variants={fadeUp} initial="hidden" animate="visible" custom={1}
-                            className="text-5xl md:text-[64px] font-bold tracking-tighter leading-[1.0] mb-8"
+                            className="text-[40px] sm:text-[56px] md:text-[64px] font-bold tracking-tighter leading-[1.0] mb-8"
                         >
                             Let's start a<br />
                             <span className="italic text-[#ff6321]">conversation.</span>
@@ -108,7 +108,7 @@ const ContactPage: React.FC = () => {
                                     </div>
                                     <div>
                                         <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#69686e] block mb-1">{item.label}</span>
-                                        <a href={item.href} className="text-[14px] font-medium text-[#060612] hover:text-[#ff6321] transition-colors">
+                                        <a href={item.href} className="text-[14px] font-medium text-[#000000] hover:text-[#ff6321] transition-colors">
                                             {item.value}
                                         </a>
                                     </div>
@@ -126,7 +126,7 @@ const ContactPage: React.FC = () => {
                                         <polyline points="20 6 9 17 4 12" />
                                     </svg>
                                 </div>
-                                <h3 className="text-2xl font-bold text-[#060612] mb-3 tracking-tight">Enquiry Submitted</h3>
+                                <h3 className="text-2xl font-bold text-[#000000] mb-3 tracking-tight">Enquiry Submitted</h3>
                                 <p className="text-[#69686e] text-[14px] leading-relaxed max-w-xs">
                                     Thank you. We acknowledge all enquiries within one business day and will be in touch shortly.
                                 </p>
@@ -148,7 +148,7 @@ const ContactPage: React.FC = () => {
                                                 required={f.required}
                                                 value={form[f.id as keyof typeof form]}
                                                 onChange={handleChange}
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f5f4f3] text-[14px] font-medium text-[#060612] placeholder-[#69686e]/40 focus:outline-none focus:border-[#ff6321]/50 transition-colors"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f5f4f3] text-[14px] font-medium text-[#000000] placeholder-[#69686e]/40 focus:outline-none focus:border-[#ff6321]/50 transition-colors"
                                             />
                                         </div>
                                     ))}
@@ -168,7 +168,7 @@ const ContactPage: React.FC = () => {
                                                 required={f.required}
                                                 value={form[f.id as keyof typeof form]}
                                                 onChange={handleChange}
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f5f4f3] text-[14px] font-medium text-[#060612] placeholder-[#69686e]/40 focus:outline-none focus:border-[#ff6321]/50 transition-colors"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f5f4f3] text-[14px] font-medium text-[#000000] placeholder-[#69686e]/40 focus:outline-none focus:border-[#ff6321]/50 transition-colors"
                                             />
                                         </div>
                                     ))}
@@ -180,7 +180,7 @@ const ContactPage: React.FC = () => {
                                         required
                                         value={form.enquiry}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f5f4f3] text-[14px] font-medium text-[#060612] focus:outline-none focus:border-[#ff6321]/50 transition-colors"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f5f4f3] text-[14px] font-medium text-[#000000] focus:outline-none focus:border-[#ff6321]/50 transition-colors"
                                     >
                                         <option value="">Select an option</option>
                                         {enquiryTypes.map(t => <option key={t} value={t}>{t}</option>)}
@@ -194,7 +194,7 @@ const ContactPage: React.FC = () => {
                                         value={form.brief}
                                         onChange={handleChange}
                                         placeholder="Briefly describe your project or enquiry..."
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f5f4f3] text-[14px] font-medium text-[#060612] placeholder-[#69686e]/40 focus:outline-none focus:border-[#ff6321]/50 transition-colors resize-none"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f5f4f3] text-[14px] font-medium text-[#000000] placeholder-[#69686e]/40 focus:outline-none focus:border-[#ff6321]/50 transition-colors resize-none"
                                     />
                                 </div>
                                 <button

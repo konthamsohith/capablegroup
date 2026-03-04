@@ -92,7 +92,7 @@ const constancies = [
 
 const AiFirstBlogPage: React.FC = () => {
     return (
-        <div className="bg-[#f5f4f3] min-h-screen font-geist text-[#060612]">
+        <div className="bg-[#f5f4f3] min-h-screen font-geist text-[#000000]">
             <SEO
                 title="What &quot;AI-First&quot; Means for a Technology Consultancy in 2026 | Capable Groups"
                 description="The phrase 'AI-first' is used widely. This article explains precisely what the term means for Capable Groups: how AI is integrated into our delivery methodology and what it changes for clients."
@@ -109,7 +109,7 @@ const AiFirstBlogPage: React.FC = () => {
                         <div className="flex items-center gap-2 mb-8 text-[12px] font-medium text-[#69686e]">
                             <Link to="/blogs" className="hover:text-[#ff6321] transition-colors">Perspectives</Link>
                             <span>/</span>
-                            <span className="text-[#060612]">Company Perspective</span>
+                            <span className="text-[#000000]">Company Perspective</span>
                         </div>
 
                         <div className="flex items-center gap-4 mb-6">
@@ -151,7 +151,7 @@ const AiFirstBlogPage: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
                     className="border-l-4 border-[#ff6321] pl-8 py-2"
                 >
-                    <p className="text-[#060612] text-[22px] md:text-[26px] font-medium leading-snug tracking-tight italic">
+                    <p className="text-[#000000] text-[22px] md:text-[26px] font-medium leading-snug tracking-tight italic">
                         "For us, AI-first means the intelligence layer is embedded in every stage of the engagement — not presented as an optional upgrade at the end."
                     </p>
                     <footer className="mt-4 text-[13px] font-bold text-[#69686e] not-italic tracking-wide uppercase">
@@ -185,7 +185,7 @@ const AiFirstBlogPage: React.FC = () => {
                                 )}
                                 <div>
                                     <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#ff6321] mb-3 block">{sec.label}</span>
-                                    <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-[#060612] mb-6 leading-tight">{sec.title}</h2>
+                                    <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-[#000000] mb-6 leading-tight">{sec.title}</h2>
                                     {sec.body.map((para, j) => (
                                         <p key={j} className="text-[#69686e] text-[15px] leading-relaxed mb-4">{para}</p>
                                     ))}
@@ -211,7 +211,7 @@ const AiFirstBlogPage: React.FC = () => {
                                         </div>
                                         <div className="flex-1">
                                             <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#ff6321] mb-3 block">{sec.label}</span>
-                                            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-[#060612] mb-6">{sec.title}</h2>
+                                            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-[#000000] mb-6">{sec.title}</h2>
                                             {sec.body.map((para, j) => (
                                                 <p key={j} className="text-[#69686e] text-[15px] leading-relaxed mb-4">{para}</p>
                                             ))}
@@ -225,7 +225,7 @@ const AiFirstBlogPage: React.FC = () => {
             </section>
 
             {/* What Does Not Change */}
-            <section className="py-24 bg-[#060612] text-white">
+            <section className="py-24 bg-[#000000] text-white">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
@@ -263,7 +263,7 @@ const AiFirstBlogPage: React.FC = () => {
                             alt="Capable Groups commitment to long-term client relationships"
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#060612]/80 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/80 via-transparent to-transparent" />
                         <div className="absolute bottom-8 left-8 right-8">
                             <p className="text-white text-[18px] font-bold leading-snug max-w-lg">
                                 "AI changes the tools. It does not change the obligation."
@@ -279,7 +279,7 @@ const AiFirstBlogPage: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-[#060612] mb-6">
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-[#000000] mb-6">
                         What this means for clients
                     </h2>
                     <p className="text-[#69686e] text-[15px] leading-relaxed mb-5">
@@ -301,7 +301,7 @@ const AiFirstBlogPage: React.FC = () => {
                         </Link>
                         <Link
                             to="/blogs"
-                            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-[#060612] text-[14px] font-bold rounded-xl border border-gray-200 hover:border-[#ff6321]/40 transition-colors"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-[#000000] text-[14px] font-bold rounded-xl border border-gray-200 hover:border-[#ff6321]/40 transition-colors"
                         >
                             ← Back to Perspectives
                         </Link>

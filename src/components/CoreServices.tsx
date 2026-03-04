@@ -20,7 +20,7 @@ const pillars: Pillar[] = [
         bullets: [
             { color: '#ff6321', text: 'AI-assisted delivery workflows' },
             { color: '#ff8c56', text: 'Headless & API-first architecture' },
-            { color: '#060612', text: 'LLM-integrated product features' },
+            { color: '#000000', text: 'LLM-integrated product features' },
         ],
         cta: 'Explore Service',
         ctaHint: 'Web & AI',
@@ -42,7 +42,7 @@ const pillars: Pillar[] = [
         bullets: [
             { color: '#ff6321', text: 'Infrastructure assessment & audit' },
             { color: '#ff8c56', text: 'Technology roadmap definition' },
-            { color: '#060612', text: 'End-to-end programme oversight' },
+            { color: '#000000', text: 'End-to-end programme oversight' },
         ],
         cta: 'Explore Service',
         ctaHint: 'Strategy',
@@ -61,7 +61,7 @@ const pillars: Pillar[] = [
         bullets: [
             { color: '#ff6321', text: 'Vetted senior tech professionals' },
             { color: '#ff8c56', text: 'India & US staffing practice' },
-            { color: '#060612', text: 'Contract, project & full-time models' },
+            { color: '#000000', text: 'Contract, project & full-time models' },
         ],
         cta: 'Explore Service',
         ctaHint: 'Talent',
@@ -170,7 +170,7 @@ const PillarCard: React.FC<{ pillar: Pillar; index: number }> = ({ pillar, index
                     style={{
                         background: hovered ? '#ff6321' : 'rgba(6,6,18,0.05)',
                         border: hovered ? '1px solid #ff6321' : '1px solid rgba(6,6,18,0.08)',
-                        color: hovered ? '#ffffff' : '#060612',
+                        color: hovered ? '#ffffff' : '#000000',
                         transition: 'background 0.3s ease, color 0.3s ease, border 0.3s ease',
                     }}
                 >
@@ -191,7 +191,7 @@ const PillarCard: React.FC<{ pillar: Pillar; index: number }> = ({ pillar, index
             </div>
 
             {/* Title */}
-            <h3 className="text-[#060612] text-[19px] font-bold leading-snug tracking-tight mb-3" style={{ fontFamily: 'Geist, sans-serif' }}>
+            <h3 className="text-[#000000] text-[19px] font-bold leading-snug tracking-tight mb-3" style={{ fontFamily: 'Geist, sans-serif' }}>
                 {pillar.title}
             </h3>
 
@@ -208,7 +208,7 @@ const PillarCard: React.FC<{ pillar: Pillar; index: number }> = ({ pillar, index
                             className="w-2 h-2 rounded-full flex-shrink-0"
                             style={{ backgroundColor: b.color, boxShadow: `0 0 5px ${b.color}60` }}
                         />
-                        <span className="text-[#060612] text-[13px] font-medium" style={{ fontFamily: 'Geist, sans-serif' }}>{b.text}</span>
+                        <span className="text-[#000000] text-[13px] font-medium" style={{ fontFamily: 'Geist, sans-serif' }}>{b.text}</span>
                     </li>
                 ))}
             </ul>
@@ -220,7 +220,7 @@ const PillarCard: React.FC<{ pillar: Pillar; index: number }> = ({ pillar, index
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.97 }}
                     className="text-[13px] font-bold px-5 py-2.5 rounded-xl tracking-tight transition-all duration-200"
-                    style={{ background: 'rgba(6,6,18,0.05)', border: '1px solid rgba(6,6,18,0.10)', color: '#060612' }}
+                    style={{ background: 'rgba(6,6,18,0.05)', border: '1px solid rgba(6,6,18,0.10)', color: '#000000' }}
                     onMouseEnter={e => {
                         const btn = e.currentTarget as HTMLButtonElement;
                         btn.style.background = '#ff6321';
@@ -230,7 +230,7 @@ const PillarCard: React.FC<{ pillar: Pillar; index: number }> = ({ pillar, index
                     onMouseLeave={e => {
                         const btn = e.currentTarget as HTMLButtonElement;
                         btn.style.background = 'rgba(6,6,18,0.05)';
-                        btn.style.color = '#060612';
+                        btn.style.color = '#000000';
                         btn.style.border = '1px solid rgba(6,6,18,0.10)';
                     }}
                 >
@@ -258,7 +258,7 @@ const CoreServices: React.FC = () => {
                     <span className="section-tag mb-4 inline-block">CORE SERVICES</span>
                     <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                         <h2
-                            className="text-4xl md:text-5xl font-bold text-[#060612] tracking-tighter leading-tight max-w-xl"
+                            className="text-[32px] sm:text-[40px] md:text-5xl font-bold text-[#000000] tracking-tighter leading-tight max-w-xl"
                             style={{ fontFamily: 'Geist, sans-serif' }}
                         >
                             Three pillars of{' '}
@@ -290,7 +290,7 @@ const CoreServices: React.FC = () => {
                     </p>
                     <button
                         onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="text-[13px] font-bold text-[#060612] flex items-center gap-2 hover:text-[#ff6321] transition-colors"
+                        className="text-[13px] font-bold text-[#000000] flex items-center gap-2 hover:text-[#ff6321] transition-colors"
                     >
                         View full service portfolio
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">

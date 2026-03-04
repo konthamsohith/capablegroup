@@ -26,7 +26,7 @@ const CTA: React.FC = () => {
                             <span className="text-[10px] font-bold tracking-[0.25em] text-orange-900/60 uppercase mb-6 block font-sans">
                                 LET'S BUILD SOMETHING GREAT
                             </span>
-                            <h2 className="text-5xl md:text-[80px] font-geist font-medium text-[#0A0A0A] tracking-tighter mb-12 leading-[1] max-w-xl">
+                            <h2 className="text-[40px] sm:text-[56px] md:text-[72px] lg:text-[80px] font-geist font-medium text-[#0A0A0A] tracking-tighter mb-12 leading-[1] max-w-xl">
                                 Ready to start <br className="hidden md:block" />
                                 your next project?
                             </h2>

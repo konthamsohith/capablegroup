@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <header className="fixed top-8 left-0 right-0 z-[100] flex justify-center px-4">
+        <header className="fixed top-4 sm:top-8 left-0 right-0 z-[100] flex justify-center px-4">
             <div className="relative w-full max-w-7xl flex justify-center">
                 <div className="relative">
                     <nav className="capable-nav rounded-2xl transition-all duration-500 flex items-center h-[64px] overflow-hidden relative z-[101]">
@@ -59,14 +59,14 @@ const Navbar: React.FC = () => {
                                     lenis?.scrollTo(0);
                                 }
                             }}
-                            className="flex items-center gap-3 px-6 h-full cursor-pointer hover:bg-gray-50/50 transition-colors"
+                            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-6 h-full cursor-pointer hover:bg-gray-50/50 transition-colors"
                         >
                             <img
                                 src="/capablelogo.png"
                                 alt="Logo"
-                                className="w-8 h-8 object-contain"
+                                className="w-5 h-5 sm:w-8 sm:h-8 object-contain"
                             />
-                            <span className="font-bold text-xl tracking-tight text-[#060612]">Capable Groups</span>
+                            <span className="font-bold text-base sm:text-xl tracking-tight text-[#000000] whitespace-nowrap">Capable Groups</span>
                         </div>
 
                         <div className="nav-divider"></div>
@@ -90,14 +90,14 @@ const Navbar: React.FC = () => {
                             </div>
 
                             {/* Mobile/Tablet Menu Button */}
-                            <div className="flex lg:hidden items-center justify-center px-6 h-full border-l border-gray-100/50 lg:border-none">
+                            <div className="flex lg:hidden items-center justify-center px-3 sm:px-6 h-full border-l border-gray-100/50 lg:border-none">
                                 <button
                                     onClick={() => setIsOpen(!isOpen)}
-                                    className="group flex flex-col gap-1.5 items-center justify-center w-10 h-10 hover:bg-gray-50 rounded-xl transition-all"
+                                    className="group flex flex-col gap-1 items-center justify-center w-8 h-8 sm:w-10 sm:h-10 hover:bg-gray-50 rounded-xl transition-all"
                                 >
-                                    <div className={`w-6 h-0.5 bg-secondary rounded-full transition-all ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-                                    <div className={`w-6 h-0.5 bg-secondary rounded-full transition-all ${isOpen ? 'opacity-0' : ''}`}></div>
-                                    <div className={`w-6 h-0.5 bg-secondary rounded-full transition-all ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+                                    <div className={`w-5 h-0.5 bg-secondary rounded-full transition-all ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
+                                    <div className={`w-5 h-0.5 bg-secondary rounded-full transition-all ${isOpen ? 'opacity-0' : ''}`}></div>
+                                    <div className={`w-5 h-0.5 bg-secondary rounded-full transition-all ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
                                 </button>
                             </div>
                         </div>
@@ -105,10 +105,10 @@ const Navbar: React.FC = () => {
                         <div className="nav-divider"></div>
 
                         {/* CTA Section */}
-                        <div className="flex items-center px-8 h-full hover:bg-gray-50/50 transition-colors">
+                        <div className="flex items-center px-3 sm:px-8 h-full hover:bg-gray-50/50 transition-colors">
                             <button
                                 onClick={() => navigate('/contact')}
-                                className="bg-[#ff6321] text-white px-6 py-2.5 rounded-xl hover:bg-primary/90 transition-all font-bold text-sm tracking-tight shadow-lg shadow-primary/10"
+                                className="bg-[#ff6321] text-white px-3 sm:px-6 py-2 rounded-xl hover:bg-primary/90 transition-all font-bold text-[10px] sm:text-sm tracking-tight shadow-lg shadow-primary/10"
                             >
                                 Get started
                             </button>
