@@ -7,7 +7,7 @@ import BlogPage from './pages/BlogPage';
 import TechnologyPage from './pages/TechnologyPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
-import AiFirstBlogPage from './pages/AiFirstBlogPage';
+import BlogPostDetail from './pages/BlogPostDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import SmoothScrolling from './components/SmoothScrolling';
@@ -39,7 +39,7 @@ function App() {
           <Route path="/technology" element={<TechnologyPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/blogs" element={<BlogPage />} />
-          <Route path="/blogs/ai-first-consultancy-2026" element={<AiFirstBlogPage />} />
+          <Route path="/blogs/:slug" element={<BlogPostDetail />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />

@@ -32,6 +32,7 @@ import { posts, CATEGORIES } from '../data/blogData';
 import type { Post } from '../data/blogData';
 
 import PostCard from '../components/PostCard';
+import { useNavigate } from 'react-router-dom';
 
 const featuredCardVariant = {
     hidden: { opacity: 0, y: 32 },
@@ -42,54 +43,58 @@ const featuredCardVariant = {
     }),
 };
 
-const FeaturedCard: React.FC<{ post: Post }> = ({ post }) => (
-    <motion.div
-        variants={featuredCardVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="group relative rounded-[28px] overflow-hidden bg-[#000000] cursor-pointer"
-        style={{ minHeight: 440 }}
-    >
-        {/* Background image */}
-        <div className="absolute inset-0">
-            <img
-                src={post.heroImage}
-                alt={post.title}
-                className="w-full h-full object-cover opacity-40 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/60 to-transparent" />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 flex flex-col justify-end h-full p-10 md:p-14" style={{ minHeight: 440 }}>
-            <div className="flex items-center gap-3 mb-5">
-                <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#ff6321] bg-[#ff6321]/10 border border-[#ff6321]/30 px-3 py-1.5 rounded-full">
-                    {post.tag}
-                </span>
-                <span className="w-1 h-1 rounded-full bg-white/30" />
-                <span className="text-[11px] font-medium text-white/50">{post.date}</span>
-                <span className="w-1 h-1 rounded-full bg-white/30" />
-                <span className="text-[11px] font-medium text-white/50">{post.readTime}</span>
+const FeaturedCard: React.FC<{ post: Post }> = ({ post }) => {
+    const navigate = useNavigate();
+    return (
+        <motion.div
+            variants={featuredCardVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="group relative rounded-[28px] overflow-hidden bg-[#000000] cursor-pointer"
+            style={{ minHeight: 440 }}
+            onClick={() => navigate(`/blogs/${post.slug}`)}
+        >
+            {/* Background image */}
+            <div className="absolute inset-0">
+                <img
+                    src={post.heroImage}
+                    alt={post.title}
+                    className="w-full h-full object-cover opacity-40 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/60 to-transparent" />
             </div>
 
-            <h2 className="text-[28px] sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.1] mb-5 max-w-3xl">
-                {post.title}
-            </h2>
+            {/* Content */}
+            <div className="relative z-10 flex flex-col justify-end h-full p-10 md:p-14" style={{ minHeight: 440 }}>
+                <div className="flex items-center gap-3 mb-5">
+                    <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#ff6321] bg-[#ff6321]/10 border border-[#ff6321]/30 px-3 py-1.5 rounded-full">
+                        {post.tag}
+                    </span>
+                    <span className="w-1 h-1 rounded-full bg-white/30" />
+                    <span className="text-[11px] font-medium text-white/50">{post.date}</span>
+                    <span className="w-1 h-1 rounded-full bg-white/30" />
+                    <span className="text-[11px] font-medium text-white/50">{post.readTime}</span>
+                </div>
 
-            <p className="text-white/60 text-[15px] leading-relaxed max-w-2xl mb-8">
-                {post.excerpt}
-            </p>
+                <h2 className="text-[28px] sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.1] mb-5 max-w-3xl">
+                    {post.title}
+                </h2>
 
-            <span className="inline-flex items-center gap-2.5 text-[13px] font-bold text-[#ff6321] group-hover:gap-4 transition-all duration-300">
-                Read Article
-                <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-            </span>
-        </div>
-    </motion.div>
-);
+                <p className="text-white/60 text-[15px] leading-relaxed max-w-2xl mb-8">
+                    {post.excerpt}
+                </p>
+
+                <span className="inline-flex items-center gap-2.5 text-[13px] font-bold text-[#ff6321] group-hover:gap-4 transition-all duration-300">
+                    Read Article
+                    <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                </span>
+            </div>
+        </motion.div>
+    );
+};
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
@@ -122,7 +127,7 @@ const BlogPage: React.FC = () => {
                         initial="hidden"
                         animate="visible"
                         custom={1}
-                        className="text-[40px] sm:text-[56px] md:text-[72px] font-bold tracking-tighter leading-[1.0] max-w-2xl text-[#000000]"
+                        className="text-[44px] sm:text-[64px] md:text-[84px] font-serif tracking-tighter leading-[0.95] max-w-2xl text-[#000000]"
                     >
                         From the{' '}
                         <span className="italic text-[#ff6321]">field</span>

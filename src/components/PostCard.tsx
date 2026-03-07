@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 interface PostCardProps {
     post: {
         id: number;
+        slug: string;
         category: string;
         tag: string;
         title: string;
@@ -34,7 +35,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
             variants={cardVariant}
             key={post.id}
             className="group relative flex flex-col bg-white border border-gray-100 rounded-[20px] overflow-hidden cursor-pointer transition-all duration-300 h-full hover:border-[#ff6321]/30"
-            onClick={() => navigate('/blogs')}
+            onClick={() => navigate(`/blogs/${post.slug}`)}
         >
             {/* Orange top-edge accent line on hover */}
             <div
@@ -64,7 +65,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
                     <span>{post.readTime}</span>
                 </div>
 
-                <h3 className="text-[17px] font-bold tracking-tight text-[#000000] leading-snug mb-3 flex-grow">
+                <h3 className="text-[20px] md:text-[24px] font-bold tracking-tight text-[#000000] leading-[1.2] mb-4 group-hover:text-[#ff6321] transition-colors duration-300">
                     {post.title}
                 </h3>
 
