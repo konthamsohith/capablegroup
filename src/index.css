@@ -89,14 +89,38 @@ body {
 }
 
 .capable-nav {
-  @apply bg-white/80 backdrop-blur-xl border border-black/5;
+  @apply bg-white/70 backdrop-blur-2xl border border-white/20;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.nav-divider {
-  @apply w-px h-8 bg-black/5 mx-0;
+.capable-nav::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+      transparent 45%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 55%);
+  animation: shimmer 6s infinite;
+  pointer-events: none;
+  will-change: transform;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translate(-30%, -30%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(30%, 30%) rotate(0deg);
+  }
 }
 
 .icon-square {
