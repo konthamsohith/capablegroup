@@ -443,7 +443,7 @@ const TechStackBuilder: React.FC = () => {
                                 <div className="mb-5">
                                     <span className="text-[11px] font-semibold tracking-widest uppercase text-[#69686e] mb-2 block">Selected stack</span>
                                     <div className="flex flex-wrap gap-2 p-3 rounded-xl bg-[#f5f4f3]/80 border border-black/[0.06]">
-                                        {selectedTech.map((t, i) => (
+                                        {selectedTech.map((t) => (
                                             <span key={t.id} className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-white rounded-lg text-[12px] font-medium text-black border border-black/[0.06] shadow-sm">
                                                 <span className="flex-shrink-0 w-5 h-5 flex items-center justify-center [&>svg]:w-4 [&>svg]:h-4">{t.icon}</span>
                                                 {t.name}
