@@ -1,9 +1,42 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Linkedin, Twitter, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useLenis } from 'lenis/react';
 
 const Footer: React.FC = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const lenis = useLenis();
+
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
+        if (href.startsWith('#') || href.startsWith('/#')) {
+            e.preventDefault();
+            const targetId = href.split('#')[1];
+            if (location.pathname !== '/') {
+                navigate('/');
+                setTimeout(() => {
+                    const element = document.getElementById(targetId);
+                    if (element && lenis) {
+                        lenis.scrollTo(element, { offset: -100, duration: 1.5 });
+                    }
+                }, 100);
+            } else {
+                const element = document.getElementById(targetId);
+                if (element && lenis) {
+                    lenis.scrollTo(element, { offset: -100, duration: 1.5 });
+                }
+            }
+        } else if (location.pathname === href) {
+            e.preventDefault();
+            if (lenis) {
+                lenis.scrollTo(0, { duration: 1.5 });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    };
+
     return (
         <footer id="footer" className="relative pt-16 pb-8 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,6 +68,7 @@ const Footer: React.FC = () => {
                                     whileHover={{ y: -5, scale: 1.1 }}
                                     key={i}
                                     href="#"
+                                    onClick={(e) => e.preventDefault()}
                                     className="w-10 h-10 bg-background text-secondary border border-gray-100 rounded-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
                                     aria-label={social.label}
                                 >
@@ -48,28 +82,55 @@ const Footer: React.FC = () => {
                     <div className="lg:col-span-2">
                         <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4">Navigation</h4>
                         <ul className="flex flex-col gap-2 font-medium text-muted">
-                            {["Home", "About Us", "Clients", "Technologies", "Contact"].map((link) => (
-                                <li key={link}>
-                                    <a href="#" className="hover:text-primary transition-colors flex items-center gap-2 group">
+                            {[
+                                { name: "About Us", href: "/about-us" },
+                                { name: "Technologies", href: "/technology" },
+                                { name: "Contact", href: "/contact" }
+                            ].map((link) => (
+                                <li key={link.name}>
+                                    <Link 
+                                        to={link.href} 
+                                        onClick={(e) => handleLinkClick(e, link.href)}
+                                        className="hover:text-primary transition-colors flex items-center gap-2 group"
+                                    >
                                         <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                                        {link}
-                                    </a>
+                                        {link.name}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
                     <div className="lg:col-span-2">
-                        <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4">Services</h4>
+                        <h4 
+                            className="text-sm font-bold text-secondary uppercase tracking-[0.2em] mb-4 cursor-pointer hover:text-primary transition-colors"
+                            onClick={(e) => handleLinkClick(e as any, '/#core-services')}
+                        >
+                            Services
+                        </h4>
                         <ul className="flex flex-col gap-2 font-medium text-muted">
-                            {["Mobile Apps", "E-Commerce", "Marketing", "Designing", "US Staffing"].map((link) => (
+                            {["Mobile Apps", "E-Commerce", "Marketing", "Designing"].map((link) => (
                                 <li key={link}>
-                                    <a href="#" className="hover:text-primary transition-colors flex items-center gap-2 group">
+                                    <Link 
+                                        to="/#services" 
+                                        onClick={(e) => handleLinkClick(e, '/#services')}
+                                        className="hover:text-primary transition-colors flex items-center gap-2 group"
+                                    >
                                         <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                         {link}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
+                            <li>
+                                <Link 
+                                    to="/#core-services" 
+                                    onClick={(e) => handleLinkClick(e, '/#core-services')}
+                                    className="hover:text-primary transition-colors flex items-center gap-2 group"
+                                >
+                                    <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                                    US Staffing
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 

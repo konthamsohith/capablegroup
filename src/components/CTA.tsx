@@ -30,9 +30,9 @@ const CTA: React.FC = () => {
                                 Ready to start <br className="hidden md:block" />
                                 your next project?
                             </h2>
-                            <button className="bg-[#080808] text-white px-10 py-4 rounded-xl font-bold text-sm tracking-tight hover:scale-105 transition-transform">
+                            <a href="/contact" className="bg-[#080808] text-white px-10 py-4 rounded-xl font-bold text-sm tracking-tight hover:scale-105 transition-transform inline-block cursor-pointer">
                                 Get started
-                            </button>
+                            </a>
                         </div>
 
                         {/* Right Content - The Floating Card */}
@@ -75,9 +75,9 @@ const CTA: React.FC = () => {
                                     Pick a time that works for you.
                                 </p>
 
-                                <button className="w-full bg-[#FF6321] text-white py-4 rounded-xl font-bold tracking-tight hover:scale-[1.02] transition-transform shadow-lg shadow-orange-500/10">
+                                <a href="/contact" className="w-full bg-[#FF6321] text-white py-4 rounded-xl font-bold tracking-tight hover:scale-[1.02] transition-transform shadow-lg shadow-orange-500/10 inline-block text-center cursor-pointer">
                                     Book a free call
-                                </button>
+                                </a>
 
                                 {/* Fixed Label (Amanda) */}
                                 <motion.div

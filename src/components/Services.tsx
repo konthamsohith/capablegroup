@@ -79,7 +79,7 @@ const Services: React.FC = () => {
     ];
 
     return (
-        <section id="services" className="py-32 bg-[#f5f4f3]">
+        <section id="services" className="pt-32 pb-12 bg-[#f5f4f3]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-20">
                     {/* Left Column Content - Sticky Header */}
@@ -90,15 +90,15 @@ const Services: React.FC = () => {
                                     WHAT WE DO
                                 </span>
 
-                                <h2 className="text-5xl md:text-[72px] font-geist font-medium text-secondary tracking-tighter mb-12 leading-[1.05] max-w-lg">
+                                <h2 className="text-[48px] font-geist font-bold text-[#000000] leading-[60px] tracking-tighter mb-12 max-w-lg">
                                     Services built <br />
                                     to drive <span className="text-primary italic">impact</span>
                                 </h2>
 
                                 <div className="relative inline-block">
-                                    <button className="bg-primary text-white px-9 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/20">
+                                    <a href="/contact" className="bg-primary text-white px-9 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/20 inline-block">
                                         Discuss your ideas
-                                    </button>
+                                    </a>
 
                                     {/* Handwritten Note & Arrow */}
                                     <div className="absolute left-full ml-10 top-1/2 -translate-y-1/2 hidden xl:block">

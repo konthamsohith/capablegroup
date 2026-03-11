@@ -79,19 +79,29 @@ const AboutUs: React.FC = () => {
                                 </p>
                             </div>
 
-                            <div className="bg-white rounded-[40px] p-8 border border-gray-100 shadow-sm flex items-center justify-between group cursor-default">
+                            <a
+                                href="#timeline"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const el = document.getElementById('timeline');
+                                    if (el) {
+                                        el.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }}
+                                className="bg-white rounded-[40px] p-8 border border-gray-100 shadow-sm flex items-center justify-between group hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                            >
                                 <span className="text-[11px] font-bold tracking-widest text-[#69686e] uppercase opacity-40 group-hover:opacity-100 transition-opacity">Founded 2010</span>
                                 <div className="w-10 h-10 rounded-full bg-[#f5f4f3] flex items-center justify-center group-hover:bg-[#ff6321] group-hover:text-white transition-all">
                                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </motion.div>
             </section>
 
             {/* ── The Founding: Heritage Board ── */}
-            <section className="py-32 bg-white overflow-hidden">
+            <section className="pt-16 pb-32 bg-white overflow-hidden">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-20">
                         <span className="section-tag mb-6 inline-block">THE FOUNDING</span>
@@ -163,7 +173,7 @@ const AboutUs: React.FC = () => {
                                 variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                                 className="bg-white rounded-[40px] p-10 md:p-12 border border-black shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] relative group overflow-hidden"
                             >
-                                <div className="absolute top-0 right-0 w-24 h-24 bg-[#ff6321] transition-transform translate-x-12 -translate-y-12 rotate-45 group-hover:translate-x-10 group-hover:-translate-y-10" />
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-[#ff6321] translate-x-12 -translate-y-12 rotate-45" />
                                 <span className="text-[11px] font-bold tracking-[0.2em] text-[#ff6321] uppercase mb-6 block">AI PIVOT</span>
                                 <p className="text-[#69686e] text-[14.5px] leading-relaxed mb-6">
                                     In 2022, we made a deliberate decision to invest in AI-assisted development. This was not a reactive response but a considered strategic move — redefining what was possible in delivery timelines, system architecture, and outcomes.
@@ -181,7 +191,7 @@ const AboutUs: React.FC = () => {
                             variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                             className="lg:col-span-12 bg-white rounded-[40px] p-10 md:p-16 border border-gray-100 flex flex-col md:flex-row items-start md:items-center gap-12"
                         >
-                            <div className="w-20 h-20 rounded-3xl bg-[#000000] text-[#ff6321] flex items-center justify-center flex-shrink-0 animate-pulse">
+                            <div className="w-20 h-20 rounded-3xl bg-[#000000] text-[#ff6321] flex items-center justify-center flex-shrink-0">
                                 <span className="text-3xl font-black">26</span>
                             </div>
                             <div>

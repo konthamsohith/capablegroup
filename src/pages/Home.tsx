@@ -333,6 +333,7 @@ const Home: React.FC = () => {
 
                     {/* ── Logo Strip ── */}
                     <motion.div
+                        id="clients"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1.5, delay: 1 }}
@@ -407,7 +408,7 @@ const Home: React.FC = () => {
 
             {/* Services and following sections without the main background animations */}
             <div className="relative z-10 flex flex-col gap-0">
-                <div className="bg-gradient-to-b from-orange-50/20 via-white to-orange-50/30 pt-32 pb-0">
+                <div className="bg-gradient-to-b from-orange-50/20 via-white to-orange-50/30 pt-12 pb-0">
                     <Services />
                 </div>
                 <div className="bg-gradient-to-b from-orange-50/30 to-[#f5f4f3] pt-0 pb-12">

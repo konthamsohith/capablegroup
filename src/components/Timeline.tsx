@@ -282,9 +282,9 @@ const Timeline: React.FC = () => {
                                 <div className="p-10 bg-[#3e2712] text-white rounded-[3rem] shadow-2xl space-y-4 scale-90">
                                     <h3 className="text-4xl font-bold tracking-tight">The Next Chapter</h3>
                                     <p className="opacity-60 text-sm">Our maps are constantly being redrawn. <br />Join us for the next discovery.</p>
-                                    <button className="mt-8 px-8 py-4 bg-[#ff6321] rounded-2xl font-bold hover:scale-105 transition-transform">
+                                    <a href="/contact" className="mt-8 inline-block px-8 py-4 bg-[#ff6321] rounded-2xl font-bold hover:scale-105 transition-transform">
                                         Partner with us
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

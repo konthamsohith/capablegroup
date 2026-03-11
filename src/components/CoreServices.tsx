@@ -233,6 +233,7 @@ const PillarCard: React.FC<{ pillar: Pillar; index: number }> = ({ pillar, index
                         btn.style.color = '#000000';
                         btn.style.border = '1px solid rgba(6,6,18,0.10)';
                     }}
+                    onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                     {pillar.cta}
                 </motion.button>
@@ -244,7 +245,7 @@ const PillarCard: React.FC<{ pillar: Pillar; index: number }> = ({ pillar, index
 /* ── Section ────────────────────────────────────────────── */
 const CoreServices: React.FC = () => {
     return (
-        <section id="core-services" className="py-24">
+        <section id="core-services" className="pt-24 pb-0">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header */}
@@ -283,20 +284,11 @@ const CoreServices: React.FC = () => {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.3 }}
-                    className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 px-1"
+                    className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 px-1"
                 >
                     <p className="text-[#69686e] text-[13px]">
                         16+ years of enterprise technology delivery across four continents.
                     </p>
-                    <button
-                        onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="text-[13px] font-bold text-[#000000] flex items-center gap-2 hover:text-[#ff6321] transition-colors"
-                    >
-                        View full service portfolio
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
-                            <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </button>
                 </motion.div>
             </div>
         </section>

@@ -21,7 +21,14 @@ function useCountUp(target: number, inView: boolean, duration = 2000) {
 const AreaSpark: React.FC<{ inView: boolean; delay?: number }> = ({ inView, delay = 0 }) => {
     const d = [12, 28, 45, 70, 110, 160, 210, 250];
     const W = 100, H = 36, max = 250;
-    const pts = d.map((v, i) => `${(i / (d.length - 1)) * W},${H - (v / max) * H}`).join(' ');
+    const padding = 2;
+    const chartHeight = H - (padding * 2);
+    
+    // Final points with padding
+    const pts = d.map((v, i) => `${(i / (d.length - 1)) * W},${(H - padding) - (v / max) * chartHeight}`).join(' ');
+    // Baseline points (flat) with padding
+    const basePts = d.map((_, i) => `${(i / (d.length - 1)) * W},${H - padding}`).join(' ');
+
     return (
         <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-9" preserveAspectRatio="none">
             <defs>
@@ -29,49 +36,28 @@ const AreaSpark: React.FC<{ inView: boolean; delay?: number }> = ({ inView, dela
                     <stop offset="0%" stopColor="#ff6321" stopOpacity="0.25" />
                     <stop offset="100%" stopColor="#ff6321" stopOpacity="0" />
                 </linearGradient>
-                <clipPath id="sc1">
-                    <motion.rect x="0" y="0" height={H}
-                        width={inView ? W : 0}
-                        transition={{ duration: 1.8, ease: 'easeOut', delay }} />
-                </clipPath>
             </defs>
-            <polygon points={`${pts} ${W},${H} 0,${H}`} fill="url(#sg1)" clipPath="url(#sc1)" />
-            <polyline points={pts} fill="none" stroke="#ff6321" strokeWidth="2"
-                strokeLinejoin="round" strokeLinecap="round" clipPath="url(#sc1)" />
+            <motion.polygon 
+                initial={{ points: `${basePts} ${W},${H} 0,${H}` }}
+                animate={{ points: inView ? `${pts} ${W},${H} 0,${H}` : `${basePts} ${W},${H} 0,${H}` }}
+                fill="url(#sg1)"
+                transition={{ duration: 1.5, ease: 'easeOut', delay }} 
+            />
+            <motion.polyline 
+                initial={{ points: basePts }}
+                animate={{ points: inView ? pts : basePts }}
+                fill="none" 
+                stroke="#ff6321" 
+                strokeWidth="2"
+                strokeLinejoin="round" 
+                strokeLinecap="round"
+                transition={{ duration: 1.5, ease: 'easeOut', delay }} 
+            />
         </svg>
     );
 };
 
-/* Technical Bar Chart */
-const BarSpark: React.FC<{ inView: boolean; delay?: number }> = ({ inView, delay = 0 }) => {
-    const bars = [40, 65, 50, 80, 55, 95, 60, 85, 45, 75];
-    const W = 100, H = 36, gap = 3;
-    const bw = (W - gap * (bars.length - 1)) / bars.length;
-    return (
-        <div className="mt-2 h-9 w-full relative">
-            <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-full" preserveAspectRatio="none">
-                {bars.map((h, i) => {
-                    const barH = (h / 100) * H;
-                    const x = i * (bw + gap);
-                    return (
-                        <motion.rect
-                            key={i}
-                            x={x} width={bw} rx="1"
-                            fill={i % 2 === 0 ? "#ff6321" : "#f0ede9"}
-                            initial={{ y: H, height: 0 }}
-                            animate={inView ? { y: H - barH, height: barH } : { y: H, height: 0 }}
-                            transition={{ duration: 0.6, delay: delay + i * 0.05, ease: [0.33, 1, 0.68, 1] }}
-                        />
-                    );
-                })}
-                {/* Horizontal guide lines */}
-                <line x1="0" y1={H * 0.25} x2={W} y2={H * 0.25} stroke="#000" strokeOpacity="0.03" strokeWidth="0.5" />
-                <line x1="0" y1={H * 0.5} x2={W} y2={H * 0.5} stroke="#000" strokeOpacity="0.03" strokeWidth="0.5" />
-                <line x1="0" y1={H * 0.75} x2={W} y2={H * 0.75} stroke="#000" strokeOpacity="0.03" strokeWidth="0.5" />
-            </svg>
-        </div>
-    );
-};
+
 
 /* Retention fill bar */
 const DonutSpark: React.FC<{ inView: boolean; pct: number; delay?: number }> = ({ inView, pct, delay = 0 }) => {
@@ -94,6 +80,25 @@ const DonutSpark: React.FC<{ inView: boolean; pct: number; delay?: number }> = (
                     </div>
                 ))}
             </div>
+        </div>
+    );
+};
+
+const VerticalsWords: React.FC<{ inView: boolean; delay?: number }> = ({ inView, delay = 0 }) => {
+    const industries = ["FINTECH", "HEALTHCARE", "E-COMMERCE", "MANUFACTURING"];
+    return (
+        <div className="flex flex-wrap gap-1.5 mt-2 justify-center sm:justify-start">
+            {industries.map((word, i) => (
+                <motion.span
+                    key={word}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.4, delay: delay + i * 0.1 }}
+                    className="text-[9px] font-bold px-2 py-0.5 rounded-md bg-[#f0ede9] text-[#ff6321] border border-[#ff6321]/10"
+                >
+                    {word}
+                </motion.span>
+            ))}
         </div>
     );
 };
@@ -127,7 +132,7 @@ const DotsSpark: React.FC<{ inView: boolean; delay?: number }> = ({ inView, dela
 
 const statItems = [
     { value: 250, suffix: '+', label: 'Projects Delivered', chart: 'area' },
-    { value: 10, suffix: '+', label: 'Industry Verticals', chart: 'bars' },
+    { value: 10, suffix: '+', label: 'Industry Verticals', chart: 'verticals' },
     { value: 4, suffix: '', label: 'Continents Served', chart: 'dots' },
     { value: 80, suffix: '%', label: 'Client Retention', chart: 'donut' },
 ];
@@ -173,7 +178,7 @@ const Stats: React.FC = () => {
                                         {/* Compact chart */}
                                         <div className="mt-1">
                                             {stat.chart === 'area' && <AreaSpark inView={inView} delay={i * 0.12} />}
-                                            {stat.chart === 'bars' && <BarSpark inView={inView} delay={i * 0.12} />}
+                                            {stat.chart === 'verticals' && <VerticalsWords inView={inView} delay={i * 0.12} />}
                                             {stat.chart === 'dots' && <DotsSpark inView={inView} delay={i * 0.12} />}
                                             {stat.chart === 'donut' && <DonutSpark inView={inView} pct={0.8} delay={i * 0.12} />}
                                         </div>

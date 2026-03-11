@@ -75,18 +75,18 @@ const BlogPostDetail: React.FC = () => {
                     </motion.div>
                 </div>
 
-                {/* Hero Image Container - Wider than text but constrained */}
+                {/* Hero Image - Same content width as title for alignment */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12"
+                    className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-12"
                 >
-                    <div className="w-full aspect-[16/9] md:aspect-[21/9] rounded-[32px] overflow-hidden shadow-2xl shadow-black/5">
+                    <div className="w-full aspect-[16/9] md:aspect-[21/9] rounded-[32px] overflow-hidden shadow-2xl shadow-black/5 bg-black/5">
                         <img
                             src={post.heroImage}
                             alt={post.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-center block"
                         />
                     </div>
                 </motion.div>

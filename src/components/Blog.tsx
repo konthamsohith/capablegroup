@@ -12,7 +12,7 @@ const ArrowRight = () => (
 );
 
 const Blog: React.FC = () => (
-    <section id="blog" className="relative pt-24 pb-24 bg-[#f5f4f3] overflow-hidden">
+    <section id="blog" className="relative pt-4 pb-24 bg-[#f5f4f3] overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
             {/* ── Header: Combined Mockup Layout ── */}
@@ -24,7 +24,7 @@ const Blog: React.FC = () => (
                     transition={{ duration: 0.6 }}
                 >
                     <span className="section-tag mb-8 inline-block">LATEST INSIGHTS</span>
-                    <h2 className="text-[36px] sm:text-[48px] md:text-[64px] lg:text-[72px] font-medium tracking-tighter leading-[1.1] text-[#000000] mb-8">
+                    <h2 className="text-[48px] font-geist font-bold text-[#000000] leading-[60px] tracking-tighter mb-8">
                         Insights from our <span className="italic text-[#ff6321]">experts</span>
                     </h2>
                     <p className="text-[#69686e] text-[16px] md:text-[18px] leading-relaxed max-w-2xl mx-auto font-medium">

@@ -53,8 +53,9 @@ const Navbar: React.FC = () => {
 
     const navLinks = [
         { name: 'Home', href: '/', isPage: true },
-        { name: 'About', href: '/about-us', isPage: true },
-        { name: 'Technology', href: '/technology', isPage: true },
+        { name: 'Services', href: '#core-services', isPage: false },
+        { name: 'About Us', href: '/about-us', isPage: true },
+        { name: 'Technologies', href: '/technology', isPage: true },
         { name: 'Projects', href: '/projects', isPage: true },
         { name: 'Blogs', href: '/blogs', isPage: true },
     ];
@@ -62,18 +63,27 @@ const Navbar: React.FC = () => {
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: { name: string, href: string, isPage?: boolean }) => {
         e.preventDefault();
         if (link.isPage) {
-            navigate(link.href);
+            if (location.pathname === link.href) {
+                if (lenis) {
+                    lenis.scrollTo(0, { duration: 1.5 });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            } else {
+                navigate(link.href);
+            }
         } else {
+            const targetId = link.href.replace('#', '');
             if (location.pathname !== '/') {
                 navigate('/');
                 setTimeout(() => {
-                    const element = document.getElementById(link.href.replace('#', ''));
+                    const element = document.getElementById(targetId);
                     if (element && lenis) {
                         lenis.scrollTo(element, { offset: -100, duration: 1.5 });
                     }
                 }, 100);
             } else {
-                const element = document.getElementById(link.href.replace('#', ''));
+                const element = document.getElementById(targetId);
                 if (element && lenis) {
                     lenis.scrollTo(element, { offset: -100, duration: 1.5 });
                 }
@@ -129,7 +139,14 @@ const Navbar: React.FC = () => {
                     {/* Segment 1: Brand (Left) */}
                     <div className="flex-1 flex justify-start">
                         <motion.div
-                            onClick={() => navigate('/')}
+                            onClick={() => {
+                                if (location.pathname === '/') {
+                                    if (lenis) lenis.scrollTo(0, { duration: 1.5 });
+                                    else window.scrollTo({ top: 0, behavior: 'smooth' });
+                                } else {
+                                    navigate('/');
+                                }
+                            }}
                             className="flex items-center gap-3 cursor-pointer group px-4 py-2"
                         >
                             <div className="relative">
@@ -184,7 +201,14 @@ const Navbar: React.FC = () => {
                     {/* Segment 3: Actions (Right) */}
                     <div className="flex-1 flex justify-end items-center gap-3">
                         <motion.button
-                            onClick={() => navigate('/contact')}
+                            onClick={() => {
+                                if (location.pathname === '/contact') {
+                                    if (lenis) lenis.scrollTo(0, { duration: 1.5 });
+                                    else window.scrollTo({ top: 0, behavior: 'smooth' });
+                                } else {
+                                    navigate('/contact');
+                                }
+                            }}
                             className="bg-secondary text-white px-6 py-3 rounded-2xl font-bold text-xs tracking-wider uppercase hover:bg-primary transition-all shadow-[0_10px_20px_rgba(0,0,0,0.1)] hover:shadow-primary/40"
                         >
                             Contact Us

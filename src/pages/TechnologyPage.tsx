@@ -4,6 +4,7 @@ import type { Variants } from 'framer-motion';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
+import TechStackBuilder from '../components/TechStackBuilder';
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
 
@@ -100,20 +101,225 @@ const practices = [
     },
 ];
 
-const techStack = [
-    { category: 'Frontend', items: ['React', 'Next.js', 'Vue.js', 'TypeScript', 'Tailwind'] },
-    { category: 'Backend', items: ['Node.js', 'Python', 'Django', 'FastAPI'] },
-    { category: 'AI & ML', items: ['OpenAI', 'Claude', 'LangChain', 'Pinecone', 'Weaviate'] },
-    { category: 'Cloud & DB', items: ['AWS', 'GCP', 'Vercel', 'PostgreSQL', 'Supabase'] },
-];
-
 const aiFramework = [
-    { number: '1', title: 'Structured Content Architecture', body: 'Enabling AI agents and LLM crawlers to accurately parse and act on content.' },
-    { number: '2', title: 'API-First Design', body: 'Core information is accessible via documented APIs, not locked inside presentation layers.' },
-    { number: '3', title: 'Schema.org Compliance', body: 'Structured data implemented as standard, providing explicit context for machine systems.' },
-    { number: '4', title: 'Multi-Channel Delivery', body: 'Supporting delivery to web, mobile, voice, and conversational AI without rebuild.' },
-    { number: '5', title: 'Observable & Measurable', body: 'Full analytics and performance tracking implemented into every build.' },
-    { number: '6', title: 'Scalable & Modular', body: 'Systems capable of absorbing new requirements without architectural compromise.' },
+    { 
+        number: '1', 
+        title: 'Structured Content Architecture', 
+        body: 'Enabling AI agents and LLM crawlers to accurately parse and act on content.',
+        icon: (
+            <div className="relative w-full h-full overflow-hidden">
+                <motion.svg viewBox="0 0 100 60" className="w-full h-full opacity-20">
+                    {[0, 1, 2].map((i) => (
+                        <motion.path
+                            key={i}
+                            d={`M 10,${20 + i * 15} L 90,${20 + i * 15}`}
+                            stroke="#ff6321"
+                            strokeWidth="2"
+                            strokeDasharray="4 4"
+                            initial={{ strokeDashoffset: 0 }}
+                            animate={{ strokeDashoffset: -20 }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: i * 0.5 }}
+                        />
+                    ))}
+                    {[20, 50, 80].map((x, i) => (
+                        <motion.circle
+                            key={i}
+                            cx={x}
+                            cy={35}
+                            r="3"
+                            fill="#ff6321"
+                            animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.7, 0.3] }}
+                            transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
+                        />
+                    ))}
+                </motion.svg>
+            </div>
+        )
+    },
+    { 
+        number: '2', 
+        title: 'API-First Design', 
+        body: 'Core information is accessible via documented APIs, not locked inside presentation layers.',
+        icon: (
+            <div className="relative w-full h-full flex items-center justify-center">
+                <motion.svg viewBox="0 0 100 80" className="w-full h-full opacity-60">
+                    {/* API Layer Boundary */}
+                    <line x1="50" y1="10" x2="50" y2="70" stroke="#ff6321" strokeWidth="1" strokeDasharray="2 2" strokeOpacity="0.5" />
+                    <motion.rect
+                        x="48" y="15" width="4" height="50"
+                        fill="#ff6321"
+                        fillOpacity="0.1"
+                        stroke="#ff6321"
+                        strokeWidth="0.5"
+                        animate={{ opacity: [0.1, 0.3, 0.1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                    />
+                    
+                    {/* Backend Data -> API -> Frontend Packets */}
+                    {[0, 1, 2].map((i) => (
+                        <motion.g key={i}>
+                            {/* Raw Data Dot */}
+                            <motion.circle
+                                r="1.5"
+                                fill="#ff6321"
+                                initial={{ cx: 10, cy: 25 + i * 15, opacity: 0 }}
+                                animate={{ 
+                                    cx: [10, 50],
+                                    opacity: [0, 1, 0.5]
+                                }}
+                                transition={{ 
+                                    duration: 2, 
+                                    repeat: Infinity, 
+                                    delay: i * 0.6,
+                                    ease: "easeIn"
+                                }}
+                            />
+                            {/* Transformed Packet */}
+                            <motion.rect
+                                width="6" height="6"
+                                rx="1"
+                                fill="#ff6321"
+                                initial={{ x: 50, y: 22 + i * 15, opacity: 0 }}
+                                animate={{ 
+                                    x: [50, 90],
+                                    opacity: [0.5, 1, 0],
+                                    scale: [0.8, 1, 0.8]
+                                }}
+                                transition={{ 
+                                    duration: 2, 
+                                    repeat: Infinity, 
+                                    delay: i * 0.6 + 1, // Offset to start after reaching line
+                                    ease: "easeOut"
+                                }}
+                            />
+                        </motion.g>
+                    ))}
+                </motion.svg>
+            </div>
+        )
+    },
+    { 
+        number: '3', 
+        title: 'Schema.org Compliance', 
+        body: 'Structured data implemented as standard, providing explicit context for machine systems.',
+        icon: (
+            <div className="relative w-full h-full overflow-hidden p-2">
+                <div className="grid grid-cols-3 gap-1 opacity-20">
+                    {Array.from({ length: 9 }).map((_, i) => (
+                        <motion.div
+                            key={i}
+                            className="bg-[#ff6321] rounded-sm aspect-square"
+                            animate={{ 
+                                opacity: [0.2, 0.6, 0.2],
+                                scale: [0.9, 1.1, 0.9]
+                            }}
+                            transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
+                        />
+                    ))}
+                </div>
+            </div>
+        )
+    },
+    { 
+        number: '4', 
+        title: 'Multi-Channel Delivery', 
+        body: 'Supporting delivery to web, mobile, voice, and conversational AI without rebuild.',
+        icon: (
+            <div className="relative w-full h-full flex items-center justify-center opacity-20">
+                <motion.svg viewBox="0 0 100 100" className="w-24 h-24">
+                    <rect x="20" y="20" width="60" height="40" rx="2" stroke="#ff6321" fill="none" strokeWidth="2" />
+                    <rect x="40" y="65" width="20" height="30" rx="2" stroke="#ff6321" fill="none" strokeWidth="2" />
+                    <motion.path 
+                        d="M 50,45 L 50,75" 
+                        stroke="#ff6321" 
+                        strokeWidth="2" 
+                        strokeDasharray="4 4"
+                        animate={{ strokeDashoffset: [0, -8] }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    />
+                </motion.svg>
+            </div>
+        )
+    },
+    { 
+        number: '5', 
+        title: 'Observable & Measurable', 
+        body: 'Full analytics and performance tracking implemented into every build.',
+        icon: (
+            <div className="relative w-full h-full flex items-center justify-center">
+                <motion.svg viewBox="0 0 100 60" className="w-full h-full opacity-40">
+                    {/* Precision Waveform */}
+                    <motion.path
+                        d="M 10,30 L 30,30 L 35,10 L 45,50 L 50,30 L 90,30"
+                        fill="none"
+                        stroke="#ff6321"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{ pathLength: 1, opacity: 1 }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                    />
+                    {/* Scanning Line */}
+                    <motion.line
+                        x1="10" y1="5" x2="10" y2="55"
+                        stroke="#ff6321"
+                        strokeWidth="0.5"
+                        strokeOpacity="0.5"
+                        animate={{ x: [10, 90, 10] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    />
+                </motion.svg>
+            </div>
+        )
+    },
+    { 
+        number: '6', 
+        title: 'Scalable & Modular', 
+        body: 'Systems capable of absorbing new requirements without architectural compromise.',
+        icon: (
+            <div className="relative w-full h-full flex items-center justify-center">
+                <motion.svg viewBox="0 0 100 100" className="w-full h-full opacity-60">
+                    {/* Isometric Cube Assembly */}
+                    {[
+                        { x: 50, y: 30, delay: 0 },
+                        { x: 35, y: 40, delay: 0.2 },
+                        { x: 65, y: 40, delay: 0.4 },
+                        { x: 50, y: 50, delay: 0.6 }
+                    ].map((p, i) => (
+                        <motion.g
+                            key={i}
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ 
+                                duration: 1, 
+                                repeat: Infinity, 
+                                repeatDelay: 2,
+                                delay: p.delay 
+                            }}
+                        >
+                            {/* Simple Isometric Diamond Facets */}
+                            <path
+                                d={`M ${p.x},${p.y} L ${p.x + 10},${p.y + 5} L ${p.x},${p.y + 10} L ${p.x - 10},${p.y + 5} Z`}
+                                fill="#ff6321"
+                                fillOpacity="0.8"
+                            />
+                            <path
+                                d={`M ${p.x - 10},${p.y + 5} L ${p.x},${p.y + 10} L ${p.x},${p.y + 20} L ${p.x - 10},${p.y + 15} Z`}
+                                fill="#ff6321"
+                                fillOpacity="0.4"
+                            />
+                            <path
+                                d={`M ${p.x},${p.y + 10} L ${p.x + 10},${p.y + 5} L ${p.x + 10},${p.y + 15} L ${p.x},${p.y + 20} Z`}
+                                fill="#ff6321"
+                                fillOpacity="0.6"
+                            />
+                        </motion.g>
+                    ))}
+                </motion.svg>
+            </div>
+        )
+    },
 ];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -202,61 +408,7 @@ const TechnologyPage: React.FC = () => {
             </section>
 
             {/* ── Tech Stack: Modular Board ── */}
-            <section className="py-32 bg-white">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        variants={fadeUp}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="mb-20"
-                    >
-                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-                            <div>
-                                <span className="section-tag mb-6 inline-block">TECHNOLOGY STACK</span>
-                                <h2 className="text-5xl md:text-6xl font-bold tracking-tighter">Tools we <span className="text-[#ff6321] italic">deploy</span></h2>
-                            </div>
-                            <p className="text-[#69686e] text-lg max-w-sm md:text-right leading-relaxed">
-                                Our technical practice lead reviews AI tooling on a rolling basis to ensure your stack remains at the frontier.
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        {techStack.map((cat, i) => (
-                            <motion.div
-                                key={i}
-                                variants={fadeUp}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                custom={i}
-                                className="group bg-[#f5f4f3] rounded-[24px] p-8 border border-transparent hover:border-gray-200 hover:bg-white hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] transition-[box-shadow,border-color,background-color] duration-500"
-                            >
-                                <div className="flex flex-col h-full">
-                                    <h4 className="text-[11px] font-bold tracking-[0.25em] uppercase text-[#ff6321] mb-8 flex items-center gap-2">
-                                        <span className="w-1 h-3 bg-[#ff6321] rounded-full" />
-                                        {cat.category}
-                                    </h4>
-
-                                    <ul className="space-y-4 mb-8">
-                                        {cat.items.map(item => (
-                                            <li key={item} className="flex items-center justify-between group/item">
-                                                <span className="text-[18px] font-bold text-[#000000] tracking-tight group-hover/item:text-[#ff6321] transition-colors">{item}</span>
-                                                <div className="w-1.5 h-1.5 rounded-full bg-black/10 group-hover/item:bg-[#ff6321] transition-colors" />
-                                            </li>
-                                        ))}
-                                    </ul>
-
-                                    <div className="mt-auto pt-6 border-t border-black/5 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <span className="text-[10px] font-bold tracking-widest text-black/30 uppercase">Enterprise Standard</span>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <TechStackBuilder />
 
             {/* ── AI Readiness: Strategic Board ── */}
             <section className="py-32 bg-[#f5f4f3]">
@@ -278,43 +430,90 @@ const TechnologyPage: React.FC = () => {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <motion.div 
+                        variants={{
+                            hidden: { opacity: 0 },
+                            visible: {
+                                opacity: 1,
+                                transition: {
+                                    staggerChildren: 0.1
+                                }
+                            }
+                        }}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    >
                         {aiFramework.map((item, i) => (
                             <motion.div
                                 key={i}
-                                variants={fadeUp}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                custom={i}
-                                className="group relative bg-white rounded-[32px] p-10 flex flex-col justify-between overflow-hidden hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-[box-shadow,border-color,transform] duration-700"
+                                variants={{
+                                    hidden: { opacity: 0, y: 40 },
+                                    visible: { 
+                                        opacity: 1, 
+                                        y: 0,
+                                        transition: { duration: 1, ease: [0.215, 0.61, 0.355, 1] }
+                                    }
+                                }}
+                                whileHover={{ 
+                                    y: -8,
+                                    scale: 1.02,
+                                    transition: { duration: 0.4, ease: "easeOut" }
+                                }}
+                                className="group relative bg-white border border-gray-50 rounded-[32px] p-10 flex flex-col justify-between overflow-hidden hover:shadow-[0_48px_120px_-24px_rgba(255,100,33,0.1)] hover:border-[#ff6321]/20 transition-[box-shadow,border-color] duration-500"
                             >
                                 {/* Decorative background number */}
-                                <span className="absolute -right-4 -bottom-10 text-[180px] font-black text-black/[0.03] leading-none select-none pointer-events-none group-hover:text-[#ff6321]/[0.05] transition-colors duration-700">
+                                <motion.span 
+                                    initial={{ opacity: 0.03, scale: 1 }}
+                                    whileHover={{ 
+                                        scale: 1.1,
+                                        x: -10,
+                                        y: -5,
+                                        opacity: 0.06,
+                                        color: '#ff6321'
+                                    }}
+                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                    className="absolute right-4 bottom-[-10px] text-[180px] font-black text-black/[0.03] leading-none select-none pointer-events-none"
+                                >
                                     0{item.number}
-                                </span>
+                                </motion.span>
 
-                                <div className="relative z-10">
-                                    <div className="w-12 h-12 rounded-2xl bg-[#000000] text-white flex items-center justify-center font-bold text-xl mb-10 group-hover:bg-[#ff6321] transition-colors duration-500">
-                                        0{item.number}
+                                <div className="relative z-10 flex flex-col h-full">
+                                    <div className="flex justify-between items-start mb-10">
+                                        <motion.div 
+                                            whileHover={{ rotate: 5, scale: 1.1 }}
+                                            className="w-12 h-12 rounded-2xl bg-[#000000] text-white flex items-center justify-center font-bold text-xl group-hover:bg-[#ff6321] transition-colors duration-500"
+                                        >
+                                            0{item.number}
+                                        </motion.div>
+                                        
+                                        <div className="w-24 h-16 pointer-events-none">
+                                            {item.icon}
+                                        </div>
                                     </div>
 
                                     <h3 className="text-2xl font-bold tracking-tight text-[#000000] leading-tight mb-4 group-hover:text-[#ff6321] transition-colors duration-500">
                                         {item.title}
                                     </h3>
 
-                                    <p className="text-[#69686e] text-[15px] leading-relaxed group-hover:text-[#000000] transition-colors duration-500">
+                                    <p className="text-[#69686e] text-[15px] leading-relaxed group-hover:text-[#000000] transition-colors duration-500 max-w-[280px]">
                                         {item.body}
                                     </p>
                                 </div>
 
-                                <div className="relative z-10 mt-12 pt-6 border-t border-black/5 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 flex items-center gap-2">
+                                <motion.div 
+                                    initial={{ opacity: 0, x: -10 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    className="relative z-10 mt-12 pt-6 border-t border-black/5 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 flex items-center gap-2"
+                                >
                                     <span className="text-[10px] font-bold tracking-widest text-[#ff6321] uppercase">Strategic Pillar</span>
                                     <div className="flex-grow h-px bg-[#ff6321]/20" />
-                                </div>
+                                </motion.div>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
