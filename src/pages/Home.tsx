@@ -181,7 +181,7 @@ const Home: React.FC = () => {
                             {/* Headline */}
                             <motion.h1
                                 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut', delay: 0.15 } } }}
-                                className="text-[32px] sm:text-[40px] lg:text-[50px] xl:text-[58px] font-bold leading-[1.05] tracking-tighter text-[rgb(6,6,18)]"
+                                className="text-[34px] sm:text-[44px] md:text-[50px] lg:text-[50px] xl:text-[58px] font-bold leading-[1.05] tracking-tighter text-[rgb(6,6,18)]"
                                 style={{ fontFamily: '"Geist Sans", system-ui, sans-serif' }}
                             >
                                 Digital infrastructure<br />
@@ -192,7 +192,7 @@ const Home: React.FC = () => {
                             {/* Subtext */}
                             <motion.p
                                 variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut', delay: 0.3 } } }}
-                                className="text-[16px] leading-[1.7] text-[rgb(105,104,110)] max-w-lg"
+                                className="text-[15px] sm:text-[16px] leading-[1.7] text-[rgb(105,104,110)] max-w-lg"
                                 style={{ fontFamily: '"Geist Sans", system-ui, sans-serif' }}
                             >
                                 The pace of technology has shifted. What previously took a team of engineers six months to build can now be delivered in six weeks — if you are working with a partner who understands AI-assisted development.
@@ -218,18 +218,18 @@ const Home: React.FC = () => {
                             {/* CTA Buttons */}
                             <motion.div
                                 variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut', delay: 0.6 } } }}
-                                className="flex flex-col sm:flex-row items-start gap-3"
+                                className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 w-full sm:w-auto"
                             >
                                 <button
                                     onClick={() => window.location.href = '/projects'}
-                                    className="group flex items-center gap-2 bg-[rgb(6,6,18)] text-white px-8 py-4 rounded-2xl font-bold text-[14px] tracking-tight hover:bg-[#1a1a2e] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_24px_rgba(0,0,0,0.12)]"
+                                    className="group flex items-center justify-center gap-2 bg-[rgb(6,6,18)] text-white px-8 py-4 rounded-2xl font-bold text-[14px] tracking-tight hover:bg-[#1a1a2e] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_24px_rgba(0,0,0,0.12)]"
                                 >
                                     See our work
                                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                                 </button>
                                 <button
                                     onClick={() => window.location.href = '/contact'}
-                                    className="group flex items-center gap-2 bg-[#ff6321] text-white px-8 py-4 rounded-2xl font-bold text-[14px] tracking-tight hover:bg-[#e45217] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_40px_rgba(255,99,33,0.25)]"
+                                    className="group flex items-center justify-center gap-2 bg-[#ff6321] text-white px-8 py-4 rounded-2xl font-bold text-[14px] tracking-tight hover:bg-[#e45217] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_40px_rgba(255,99,33,0.25)]"
                                 >
                                     Discuss an engagement
                                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -246,14 +246,14 @@ const Home: React.FC = () => {
                             className="flex-1 flex items-center justify-center relative w-full min-h-[380px] lg:min-h-[500px]"
                         >
                             {/* Outer ring */}
-                            <div className="absolute w-[420px] h-[420px] rounded-full border border-black/5" />
-                            <div className="absolute w-[320px] h-[320px] rounded-full border border-black/5 animate-[spin_30s_linear_infinite]" />
+                            <div className="absolute w-[280px] sm:w-[360px] lg:w-[420px] aspect-square rounded-full border border-black/5" />
+                            <div className="absolute w-[220px] sm:w-[280px] lg:w-[320px] aspect-square rounded-full border border-black/5 animate-[spin_30s_linear_infinite]" />
 
                             {/* Core orb with cycling tech icon */}
                             <motion.div
                                 animate={{ y: [0, -18, 0], scale: [1, 1.04, 1] }}
                                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                                className="relative w-56 h-56 rounded-full flex items-center justify-center"
+                                className="relative w-40 h-40 sm:w-56 h-56 rounded-full flex items-center justify-center"
                                 style={{ background: 'radial-gradient(circle at 35% 35%, #ff6321, #c0310a 50%, #0a0a0f)' }}
                             >
                                 <div className="absolute inset-4 rounded-full"
@@ -350,35 +350,35 @@ const Home: React.FC = () => {
                                     transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 30, ease: 'linear' } }}
                                     className="flex items-center gap-12 w-max brightness-0 opacity-30 hover:opacity-60 transition-opacity duration-500"
                                 >
-                                    <img src={autoomLogo} alt="Autoom" className="h-16 w-auto object-contain shrink-0" />
-                                    <img src={marzLogo} alt="Marz" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={stratoLogo} alt="Strato" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={paybitLogo} alt="Paybit" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={atyuttamaLogo} alt="Atyuttama" className="h-8 w-auto object-contain shrink-0" />
-                                    <img src={socialflyLogo} alt="SocialFly" className="h-5 w-auto object-contain shrink-0" />
-                                    <img src={socialscaleLogo} alt="SocialScale" className="h-9 w-auto object-contain shrink-0" />
-                                    <img src={cocoLogo} alt="Coco" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={bitcoinLogo} alt="Bitcoin" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={cryptoLogo} alt="Crypto" className="h-16 w-auto object-contain shrink-0" />
-                                    <img src={nexovaLogo} alt="Nexova" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={grovaLogo} alt="Grova" className="h-16 w-auto object-contain shrink-0" />
-                                    <img src={klyveLogo} alt="Klyve" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={orbixLogo} alt="Orbix" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={autoomLogo} alt="Autoom" width="64" height="64" loading="lazy" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={marzLogo} alt="Marz" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={stratoLogo} alt="Strato" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={paybitLogo} alt="Paybit" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={atyuttamaLogo} alt="Atyuttama" width="32" height="32" loading="lazy" className="h-8 w-auto object-contain shrink-0" />
+                                    <img src={socialflyLogo} alt="SocialFly" width="20" height="20" loading="lazy" className="h-5 w-auto object-contain shrink-0" />
+                                    <img src={socialscaleLogo} alt="SocialScale" width="36" height="36" loading="lazy" className="h-9 w-auto object-contain shrink-0" />
+                                    <img src={cocoLogo} alt="Coco" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={bitcoinLogo} alt="Bitcoin" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={cryptoLogo} alt="Crypto" width="64" height="64" loading="lazy" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={nexovaLogo} alt="Nexova" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={grovaLogo} alt="Grova" width="64" height="64" loading="lazy" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={klyveLogo} alt="Klyve" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={orbixLogo} alt="Orbix" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
                                     {/* Duplicate for loop */}
-                                    <img src={autoomLogo} alt="Autoom" className="h-16 w-auto object-contain shrink-0" />
-                                    <img src={marzLogo} alt="Marz" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={stratoLogo} alt="Strato" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={paybitLogo} alt="Paybit" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={atyuttamaLogo} alt="Atyuttama" className="h-8 w-auto object-contain shrink-0" />
-                                    <img src={socialflyLogo} alt="SocialFly" className="h-5 w-auto object-contain shrink-0" />
-                                    <img src={socialscaleLogo} alt="SocialScale" className="h-9 w-auto object-contain shrink-0" />
-                                    <img src={cocoLogo} alt="Coco" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={bitcoinLogo} alt="Bitcoin" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={cryptoLogo} alt="Crypto" className="h-16 w-auto object-contain shrink-0" />
-                                    <img src={nexovaLogo} alt="Nexova" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={grovaLogo} alt="Grova" className="h-16 w-auto object-contain shrink-0" />
-                                    <img src={klyveLogo} alt="Klyve" className="h-14 w-auto object-contain shrink-0" />
-                                    <img src={orbixLogo} alt="Orbix" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={autoomLogo} alt="Autoom" width="64" height="64" loading="lazy" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={marzLogo} alt="Marz" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={stratoLogo} alt="Strato" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={paybitLogo} alt="Paybit" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={atyuttamaLogo} alt="Atyuttama" width="32" height="32" loading="lazy" className="h-8 w-auto object-contain shrink-0" />
+                                    <img src={socialflyLogo} alt="SocialFly" width="20" height="20" loading="lazy" className="h-5 w-auto object-contain shrink-0" />
+                                    <img src={socialscaleLogo} alt="SocialScale" width="36" height="36" loading="lazy" className="h-9 w-auto object-contain shrink-0" />
+                                    <img src={cocoLogo} alt="Coco" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={bitcoinLogo} alt="Bitcoin" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={cryptoLogo} alt="Crypto" width="64" height="64" loading="lazy" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={nexovaLogo} alt="Nexova" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={grovaLogo} alt="Grova" width="64" height="64" loading="lazy" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={klyveLogo} alt="Klyve" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={orbixLogo} alt="Orbix" width="56" height="56" loading="lazy" className="h-14 w-auto object-contain shrink-0" />
                                 </motion.div>
                             </div>
                         </div>

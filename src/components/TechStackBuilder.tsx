@@ -213,7 +213,7 @@ const TechStackBuilder: React.FC = () => {
                     </motion.p>
                 </div>
 
-                <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative min-h-[600px] w-full items-start">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative min-h-[400px] lg:min-h-[600px] w-full items-start">
                     {/* Available Tech Library */}
                     <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 lg:pr-4 relative z-20">
                         {categories.map(cat => (

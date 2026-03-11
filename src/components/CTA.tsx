@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const CTA: React.FC = () => {
     return (
@@ -30,9 +31,9 @@ const CTA: React.FC = () => {
                                 Ready to start <br className="hidden md:block" />
                                 your next project?
                             </h2>
-                            <a href="/contact" className="bg-[#080808] text-white px-10 py-4 rounded-xl font-bold text-sm tracking-tight hover:scale-105 transition-transform inline-block cursor-pointer">
+                            <Link to="/contact" className="bg-[#080808] text-white px-10 py-4 rounded-xl font-bold text-sm tracking-tight hover:scale-105 transition-transform inline-block cursor-pointer">
                                 Get started
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Right Content - The Floating Card */}
@@ -57,7 +58,10 @@ const CTA: React.FC = () => {
                                         <div className="w-12 h-12 rounded-full border-[2px] border-white shadow-md overflow-hidden bg-gray-200">
                                             <img
                                                 src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?q=80&w=150&auto=format&fit=crop"
-                                                alt="Lead Expert"
+                                                alt="Lead Technical Consultant"
+                                                width="48"
+                                                height="48"
+                                                loading="lazy"
                                                 className="w-full h-full object-cover"
                                             />
                                         </div>
@@ -75,9 +79,9 @@ const CTA: React.FC = () => {
                                     Pick a time that works for you.
                                 </p>
 
-                                <a href="/contact" className="w-full bg-[#FF6321] text-white py-4 rounded-xl font-bold tracking-tight hover:scale-[1.02] transition-transform shadow-lg shadow-orange-500/10 inline-block text-center cursor-pointer">
+                                <Link to="/contact" className="w-full bg-[#FF6321] text-white py-4 rounded-xl font-bold tracking-tight hover:scale-[1.02] transition-transform shadow-lg shadow-orange-500/10 inline-block text-center cursor-pointer">
                                     Book a free call
-                                </a>
+                                </Link>
 
                                 {/* Fixed Label (Amanda) */}
                                 <motion.div

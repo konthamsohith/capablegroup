@@ -38,7 +38,7 @@ const AboutUs: React.FC = () => {
             <section className="pt-44 pb-32 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div variants={fadeUp} initial="hidden" animate="visible" className="max-w-5xl">
                     <span className="section-tag mb-10 inline-block">OUR IDENTITY</span>
-                    <h1 className="text-[52px] sm:text-[72px] md:text-[96px] lg:text-[110px] font-bold tracking-tighter leading-[0.85] mb-20 text-[#000000]">
+                    <h1 className="text-[42px] sm:text-[64px] md:text-[86px] lg:text-[110px] font-bold tracking-tighter leading-[0.85] mb-20 text-[#000000]">
                         Who we <span className="italic text-[#ff6321]">are</span>
                     </h1>
 

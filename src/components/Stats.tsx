@@ -145,6 +145,7 @@ const Stats: React.FC = () => {
         <section ref={ref} className="relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center text-center mb-16">
+                    <h2 className="sr-only">Company Statistics</h2>
                     <span className="section-tag mb-4">CAPABLE NUMBERS</span>
                 </div>
 

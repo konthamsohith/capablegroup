@@ -152,14 +152,16 @@ const Navbar: React.FC = () => {
                             <div className="relative">
                                 <img
                                     src="/capablelogo.png"
-                                    alt="Logo"
+                                    alt="Capable Groups Logo"
+                                    width="40"
+                                    height="40"
                                     className="w-10 h-10 object-contain transition-transform duration-500 group-hover:scale-110"
                                 />
                                 <div className="absolute -inset-2 bg-primary/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                             </div>
-                            <div className="hidden sm:flex items-center gap-1.5 mt-0.5">
-                                <span className="font-bold text-[20px] tracking-tight text-secondary">Capable</span>
-                                <span className="font-bold text-[20px] tracking-tight text-secondary">Groups</span>
+                            <div className="flex items-center gap-1.5 mt-0.5">
+                                <span className="font-bold text-[18px] sm:text-[20px] tracking-tight text-secondary">Capable</span>
+                                <span className="font-bold text-[18px] sm:text-[20px] tracking-tight text-secondary">Groups</span>
                             </div>
                         </motion.div>
                     </div>
@@ -217,6 +219,7 @@ const Navbar: React.FC = () => {
                         <button
                             onClick={() => setIsOpen(true)}
                             className="p-2 hover:bg-gray-100/50 rounded-xl lg:hidden transition-colors"
+                            aria-label="Open mobile menu"
                         >
                             <Menu className="w-6 h-6 text-gray-900" />
                         </button>
@@ -232,7 +235,7 @@ const Navbar: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="fixed inset-x-4 top-24 bg-white/90 backdrop-blur-2xl rounded-[32px] p-6 shadow-2xl border border-white/20 sm:hidden pointer-events-auto"
+                        className="fixed inset-x-4 top-24 bg-white/95 backdrop-blur-3xl rounded-[32px] p-8 shadow-2xl border border-white/20 lg:hidden pointer-events-auto z-[101]"
                     >
                         <div className="flex flex-col gap-4">
                             {navLinks.map((link, i) => (
@@ -251,12 +254,13 @@ const Navbar: React.FC = () => {
                             <div className="h-px bg-black/5 w-full my-2" />
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-4">
-                                    {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => (
+                                    {[{ Icon: Facebook, label: "Facebook" }, { Icon: Instagram, label: "Instagram" }, { Icon: Linkedin, label: "LinkedIn" }, { Icon: Twitter, label: "Twitter" }].map(({ Icon, label }, i) => (
                                         <motion.a
                                             key={i}
                                             whileHover={{ y: -2 }}
                                             href="#"
                                             className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center text-secondary"
+                                            aria-label={`Follow us on ${label}`}
                                         >
                                             <Icon size={18} />
                                         </motion.a>
