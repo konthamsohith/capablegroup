@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
+
+export type QuoteContactState = {
+    fromQuote?: boolean;
+    stackNames?: string[];
+    stackIds?: string[];
+};
 
 const fadeUp: Variants = {
     hidden: { opacity: 0, y: 24 },
@@ -21,10 +28,20 @@ const enquiryTypes = [
 ];
 
 const ContactPage: React.FC = () => {
+    const location = useLocation();
     const [form, setForm] = useState({
         fullName: '', organisation: '', email: '', telephone: '', enquiry: '', brief: '',
     });
     const [submitted, setSubmitted] = useState(false);
+
+    useEffect(() => {
+        const state = location.state as QuoteContactState | null;
+        if (state?.fromQuote && state?.stackNames?.length) {
+            const stackList = state.stackNames.map(name => `• ${name}`).join('\n');
+            const briefText = `I would like a project quote for the following infrastructure stack (from Infrastructure Configurator):\n\n${stackList}`;
+            setForm(f => ({ ...f, brief: briefText, enquiry: f.enquiry || 'Technology Strategy Consulting' }));
+        }
+    }, [location.state]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         setForm(f => ({ ...f, [e.target.name]: e.target.value }));
@@ -175,19 +192,26 @@ const ContactPage: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
-                                <div>
+                                <div className="relative group">
                                     <label htmlFor="enquiry" className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#69686e] mb-2 block">Nature of Enquiry *</label>
-                                    <select
-                                        id="enquiry"
-                                        name="enquiry"
-                                        required
-                                        value={form.enquiry}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f5f4f3] text-[14px] font-medium text-[#000000] focus:outline-none focus:border-[#ff6321]/50 transition-colors"
-                                    >
-                                        <option value="">Select an option</option>
-                                        {enquiryTypes.map(t => <option key={t} value={t}>{t}</option>)}
-                                    </select>
+                                    <div className="relative">
+                                        <select
+                                            id="enquiry"
+                                            name="enquiry"
+                                            required
+                                            value={form.enquiry}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 pr-10 rounded-xl border border-gray-200 bg-[#f5f4f3] text-[14px] font-medium text-[#000000] focus:outline-none focus:border-[#ff6321]/50 transition-colors appearance-none"
+                                        >
+                                            <option value="">Select an option</option>
+                                            {enquiryTypes.map(t => <option key={t} value={t}>{t}</option>)}
+                                        </select>
+                                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#69686e]/60 group-focus-within:text-[#ff6321] transition-colors">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                                                <path d="M6 9l6 6 6-6" />
+                                            </svg>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <label htmlFor="brief" className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#69686e] mb-2 block">Project Brief (optional)</label>

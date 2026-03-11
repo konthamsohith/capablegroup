@@ -69,6 +69,18 @@
   }
 }
 
+/* Closed hand (grabbing) cursor for the whole drag: from library sections to Infrastructure Stack and everywhere in between */
+html.dnd-dragging,
+html.dnd-dragging *,
+body.dnd-dragging,
+body.dnd-dragging *,
+body.dnd-dragging #tech-configurator,
+body.dnd-dragging #tech-configurator *,
+body.dnd-dragging [data-infrastructure-stack-drop],
+body.dnd-dragging [data-infrastructure-stack-drop] * {
+  cursor: grabbing !important;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
   display: none !important;
