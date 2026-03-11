@@ -38,8 +38,8 @@ const Navbar: React.FC = () => {
                 setIsDissolved(entry.isIntersecting);
             },
             {
-                threshold: 0.1,
-                rootMargin: "-10% 0px -10% 0px"
+                threshold: [0, 0.01, 0.1],
+                rootMargin: "0px"
             }
         );
 
@@ -87,9 +87,14 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, y: -24 }}
             animate={{
                 opacity: isDissolved ? 0 : 1,
-                y: isDissolved ? -24 : 0,
+                y: isDissolved ? -32 : 0,
+                filter: isDissolved ? "blur(12px)" : "blur(0px)",
+                scale: isDissolved ? 0.96 : 1,
             }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1] // Quintic ease for premium feel
+            }}
             className="fixed top-0 left-0 right-0 z-[100] pointer-events-none"
         >
             <motion.div

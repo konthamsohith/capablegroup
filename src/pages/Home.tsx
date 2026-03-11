@@ -22,6 +22,10 @@ import stratoLogo from '../assets/logos/strato.png';
 import atyuttamaLogo from '../assets/logos/atyuttama.png';
 import socialflyLogo from '../assets/logos/socialfly.png';
 import socialscaleLogo from '../assets/logos/socialscale.png';
+import nexovaLogo from '../assets/logos/nexova.png';
+import grovaLogo from '../assets/logos/grova.png';
+import klyveLogo from '../assets/logos/klyve.png';
+import orbixLogo from '../assets/logos/orbix.png';
 
 const techStack = [
     {
@@ -339,34 +343,41 @@ const Home: React.FC = () => {
                                 Trusted by <span className="text-black/40">100+</span> global leaders
                             </p>
                             <div className="w-full overflow-hidden relative">
-                                <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#f5f4f3] to-transparent z-10 pointer-events-none" />
-                                <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#f5f4f3] to-transparent z-10 pointer-events-none" />
+
                                 <motion.div
                                     animate={{ x: ['0%', '-50%'] }}
                                     transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 30, ease: 'linear' } }}
                                     className="flex items-center gap-12 w-max brightness-0 opacity-30 hover:opacity-60 transition-opacity duration-500"
                                 >
-                                    <img src={autoomLogo} alt="Autoom" className="h-12 w-auto object-contain shrink-0" />
-                                    <img src={marzLogo} alt="Marz" className="h-12 w-auto object-contain shrink-0" />
-                                    <img src={stratoLogo} alt="Strato" className="h-12 w-auto object-contain shrink-0" />
-                                    <img src={paybitLogo} alt="Paybit" className="h-12 w-auto object-contain shrink-0" />
+                                    <img src={autoomLogo} alt="Autoom" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={marzLogo} alt="Marz" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={stratoLogo} alt="Strato" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={paybitLogo} alt="Paybit" className="h-14 w-auto object-contain shrink-0" />
                                     <img src={atyuttamaLogo} alt="Atyuttama" className="h-8 w-auto object-contain shrink-0" />
                                     <img src={socialflyLogo} alt="SocialFly" className="h-5 w-auto object-contain shrink-0" />
                                     <img src={socialscaleLogo} alt="SocialScale" className="h-9 w-auto object-contain shrink-0" />
-                                    <img src={cocoLogo} alt="Coco" className="h-12 w-auto object-contain shrink-0" />
-                                    <img src={bitcoinLogo} alt="Bitcoin" className="h-12 w-auto object-contain shrink-0" />
-                                    <img src={cryptoLogo} alt="Crypto" className="h-12 w-auto object-contain shrink-0" />
+                                    <img src={cocoLogo} alt="Coco" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={bitcoinLogo} alt="Bitcoin" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={cryptoLogo} alt="Crypto" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={nexovaLogo} alt="Nexova" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={grovaLogo} alt="Grova" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={klyveLogo} alt="Klyve" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={orbixLogo} alt="Orbix" className="h-14 w-auto object-contain shrink-0" />
                                     {/* Duplicate for loop */}
-                                    <img src={autoomLogo} alt="Autoom" className="h-12 w-auto object-contain shrink-0" />
-                                    <img src={marzLogo} alt="Marz" className="h-12 w-auto object-contain shrink-0" />
-                                    <img src={stratoLogo} alt="Strato" className="h-12 w-auto object-contain shrink-0" />
-                                    <img src={paybitLogo} alt="Paybit" className="h-12 w-auto object-contain shrink-0" />
+                                    <img src={autoomLogo} alt="Autoom" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={marzLogo} alt="Marz" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={stratoLogo} alt="Strato" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={paybitLogo} alt="Paybit" className="h-14 w-auto object-contain shrink-0" />
                                     <img src={atyuttamaLogo} alt="Atyuttama" className="h-8 w-auto object-contain shrink-0" />
                                     <img src={socialflyLogo} alt="SocialFly" className="h-5 w-auto object-contain shrink-0" />
                                     <img src={socialscaleLogo} alt="SocialScale" className="h-9 w-auto object-contain shrink-0" />
-                                    <img src={cocoLogo} alt="Coco" className="h-12 w-auto object-contain shrink-0" />
-                                    <img src={bitcoinLogo} alt="Bitcoin" className="h-12 w-auto object-contain shrink-0" />
-                                    <img src={cryptoLogo} alt="Crypto" className="h-12 w-auto object-contain shrink-0" />
+                                    <img src={cocoLogo} alt="Coco" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={bitcoinLogo} alt="Bitcoin" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={cryptoLogo} alt="Crypto" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={nexovaLogo} alt="Nexova" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={grovaLogo} alt="Grova" className="h-16 w-auto object-contain shrink-0" />
+                                    <img src={klyveLogo} alt="Klyve" className="h-14 w-auto object-contain shrink-0" />
+                                    <img src={orbixLogo} alt="Orbix" className="h-14 w-auto object-contain shrink-0" />
                                 </motion.div>
                             </div>
                         </div>

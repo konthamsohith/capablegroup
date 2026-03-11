@@ -78,11 +78,37 @@ const InkSplatter: React.FC<{ style?: React.CSSProperties }> = ({ style }) => (
     </div>
 );
 
-const TimelineCard: React.FC<{ milestone: Milestone }> = ({ milestone }) => {
+const TimelineCard: React.FC<{ milestone: Milestone; index: number; pathProgress: any }> = ({ milestone, index, pathProgress }) => {
+    const peakX = index * 368;
+    const scrollX = useTransform(pathProgress, (p: number) => p * 2500);
+
+    // Calculate distance from scanner to milestone
+    // Subtle pop (1.05) over a tighter range (150px)
+    const scale = useTransform(scrollX,
+        [peakX - 150, peakX, peakX + 150],
+        [1, 1.05, 1]
+    );
+
+    const shadowOpacity = useTransform(scrollX,
+        [peakX - 150, peakX, peakX + 150],
+        [0, 1, 0]
+    );
+
+    const borderColor = useTransform(scrollX,
+        [peakX - 150, peakX, peakX + 150],
+        ["rgba(93, 58, 26, 0.2)", "rgba(255, 99, 33, 0.6)", "rgba(93, 58, 26, 0.2)"]
+    );
+
     return (
-        <div className="relative flex-shrink-0 w-[320px] px-4 py-4 flex flex-col items-center justify-center">
+        <motion.div
+            style={{ scale }}
+            className="relative flex-shrink-0 w-[320px] px-4 py-4 flex flex-col items-center justify-center z-30"
+        >
             {/* Hand-drawn Card Style */}
-            <div className="relative p-6 bg-white/10 backdrop-blur-sm rounded-[2rem] border-2 border-[#5d3a1a]/20 shadow-xl overflow-hidden group hover:border-[#ff6321]/40 transition-colors duration-500">
+            <motion.div
+                style={{ borderColor, boxShadow: useTransform(shadowOpacity, o => `0 20px 40px -10px rgba(255, 99, 33, ${o * 0.15})`) }}
+                className="relative p-6 bg-white/10 backdrop-blur-sm rounded-[2rem] border-2 shadow-xl overflow-hidden group transition-colors duration-500"
+            >
                 {/* Vintage Corner Brackets */}
                 <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-[#5d3a1a]/30" />
                 <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-[#5d3a1a]/30" />
@@ -119,29 +145,11 @@ const TimelineCard: React.FC<{ milestone: Milestone }> = ({ milestone }) => {
                         </div>
                     )}
                 </div>
-            </div>
+            </motion.div>
 
-            {/* X marks the spot marker */}
-            <div className="mt-12 relative">
-                <div className="absolute -inset-8 bg-[#ff6321]/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="relative w-12 h-12 flex items-center justify-center">
-                    <svg viewBox="0 0 100 100" className="w-10 h-10 text-[#ff6321] drop-shadow-[0_4px_8px_rgba(255,99,33,0.3)]">
-                        <motion.path
-                            d="M 20 20 L 80 80 M 80 20 L 20 80"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="10"
-                            strokeLinecap="round"
-                            initial={{ pathLength: 0 }}
-                            whileInView={{ pathLength: 1 }}
-                            transition={{ duration: 0.8 }}
-                        />
-                    </svg>
-                    {/* Pulsing Ring */}
-                    <div className="absolute -inset-2 border-2 border-dashed border-[#ff6321]/30 rounded-full animate-[spin_12s_linear_infinite]" />
-                </div>
-            </div>
-        </div>
+            {/* Placeholder for the X marker in the card flow */}
+            <div className="mt-12 h-12" />
+        </motion.div>
     );
 };
 
@@ -189,30 +197,80 @@ const Timeline: React.FC = () => {
                         style={{ x }}
                         className="flex pl-[10%] items-center gap-12 relative z-20"
                     >
-                        {/* Connecting Sea Path - Now moves with the container */}
-                        <div className="absolute left-[150px] top-[71%] w-[2500px] h-4 overflow-visible pointer-events-none z-10">
-                            <svg width="100%" height="200" viewBox="0 0 2500 200" fill="none" preserveAspectRatio="none">
-                                <motion.path
-                                    d="M 0 100 
-                                       Q 80 140, 160 100 
-                                       Q 344 60, 528 100 
-                                       Q 712 140, 896 100 
-                                       Q 1080 60, 1264 100 
-                                       Q 1448 140, 1632 100 
-                                       L 2500 100"
-                                    stroke="#ff6321"
-                                    strokeWidth="4"
-                                    strokeDasharray="12 16"
-                                    strokeLinecap="round"
-                                    style={{ pathLength: pathProgress }}
-                                    animate={{ strokeDashoffset: [0, -28] }}
-                                    transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
-                                />
+                        {/* Technical Measurement Path */}
+                        <div className="absolute left-[160px] top-[71%] w-[2500px] h-10 overflow-visible pointer-events-none z-10">
+                            <svg width="100%" height="200" viewBox="0 0 2500 200" fill="none" preserveAspectRatio="none" className="overflow-visible">
+                                <defs>
+                                    <pattern id="technicalGrid" width="100" height="40" patternUnits="userSpaceOnUse">
+                                        <line x1="0" y1="20" x2="100" y2="20" stroke="#ff6321" strokeWidth="0.5" strokeOpacity="0.05" />
+                                        <line x1="50" y1="0" x2="50" y2="40" stroke="#ff6321" strokeWidth="0.5" strokeOpacity="0.05" />
+                                    </pattern>
+                                    <filter id="preciseGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="2" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+                                {/* Technical Grid background */}
+                                <rect width="2500" height="200" fill="url(#technicalGrid)" />
+
+                                {(() => {
+                                    // Spacing: card width (320) + gap (48) = 368
+                                    const peaks = [0, 368, 736, 1104, 1472];
+                                    const pHeight = [100, 140, 60, 120, 80];
+                                    const pathD = peaks.map((x, i) => {
+                                        if (i === 0) return `M ${x} ${pHeight[i]}`;
+                                        const prevX = peaks[i - 1];
+                                        const midX = (prevX + x) / 2;
+                                        return `C ${midX} ${pHeight[i - 1]}, ${midX} ${pHeight[i]}, ${x} ${pHeight[i]}`;
+                                    }).join(" ") + " L 2500 100";
+
+                                    return (
+                                        <>
+                                            <path d={pathD} stroke="#ff6321" strokeWidth="1" strokeOpacity="0.1" />
+                                            <motion.path
+                                                d={pathD}
+                                                stroke="#ff6321"
+                                                strokeWidth="2.5"
+                                                strokeLinecap="round"
+                                                style={{ pathLength: pathProgress }}
+                                                filter="url(#preciseGlow)"
+                                            />
+
+                                            {/* Milestone markers on path */}
+                                            {peaks.map((x, i) => (
+                                                <g key={i} transform={`translate(${x}, ${pHeight[i]})`}>
+                                                    <circle r="20" fill="url(#preciseGlow)" fillOpacity="0.05" />
+                                                    <circle r="24" fill="none" stroke="#ff6321" strokeWidth="1" strokeOpacity="0.2" strokeDasharray="4 4" />
+                                                    <path d="M -8 -8 L 8 8 M 8 -8 L -8 8" stroke="#ff6321" strokeWidth="4" strokeLinecap="round" />
+                                                </g>
+                                            ))}
+
+                                            {/* Scanner Head / Crosshair Indicator */}
+                                            <motion.g
+                                                style={{
+                                                    offsetPath: `path("${pathD}")`,
+                                                    offsetDistance: useTransform(pathProgress, p => `${p * 100}%`)
+                                                }}
+                                            >
+                                                <circle r="4" fill="#ff6321" filter="url(#preciseGlow)" />
+                                                <motion.path
+                                                    d="M -15 0 L 15 0 M 0 -15 L 0 15"
+                                                    stroke="#ff6321"
+                                                    strokeWidth="0.5"
+                                                    initial={{ rotate: 0 }}
+                                                    animate={{ rotate: 360 }}
+                                                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                                                />
+                                                <circle r="12" fill="none" stroke="#ff6321" strokeWidth="0.5" strokeDasharray="2 4" />
+                                            </motion.g>
+                                        </>
+                                    );
+                                })()}
                             </svg>
                         </div>
 
                         {milestones.map((milestone, index) => (
-                            <TimelineCard key={index} milestone={milestone} />
+                            <TimelineCard key={index} milestone={milestone} index={index} pathProgress={pathProgress} />
                         ))}
 
                         {/* Ending Treasure Chest / Destination */}
