@@ -14,8 +14,8 @@ const ServiceCard = ({ title, description, tags, icon: Icon }: { title: string, 
             <h3 className="text-[22px] font-bold text-secondary tracking-tight leading-tight">
                 {title}
             </h3>
-            <div className="w-10 h-10 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 border border-gray-100">
-                <Icon size={20} strokeWidth={1.5} />
+            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary" aria-hidden="true">
+                <Icon size={24} />
             </div>
         </div>
 

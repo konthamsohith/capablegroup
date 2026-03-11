@@ -51,15 +51,22 @@ const FeaturedCard: React.FC<{ post: Post }> = ({ post }) => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="group relative rounded-[28px] overflow-hidden bg-[#000000] cursor-pointer"
+            className="group relative rounded-[28px] overflow-hidden bg-[#000000] cursor-pointer focus-within:ring-2 focus-within:ring-primary outline-none"
             style={{ minHeight: 440 }}
             onClick={() => navigate(`/blogs/${post.slug}`)}
+            role="link"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && navigate(`/blogs/${post.slug}`)}
+            aria-label={`Read featured article: ${post.title}`}
         >
             {/* Background image */}
             <div className="absolute inset-0">
                 <img
                     src={post.heroImage}
                     alt={post.title}
+                    width="1200"
+                    height="600"
+                    loading="lazy"
                     className="w-full h-full object-cover opacity-40 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/60 to-transparent" />

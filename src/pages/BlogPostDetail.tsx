@@ -86,6 +86,8 @@ const BlogPostDetail: React.FC = () => {
                         <img
                             src={post.heroImage}
                             alt={post.title}
+                            width="1200"
+                            height="600"
                             className="w-full h-full object-cover object-center block"
                         />
                     </div>
@@ -154,7 +156,14 @@ const BlogPostDetail: React.FC = () => {
                         {sec.image && (
                             <div className="py-4">
                                 <div className="rounded-[24px] overflow-hidden aspect-[16/10] shadow-xl border border-black/5">
-                                    <img src={sec.image} alt={sec.imageAlt ?? ''} className="w-full h-full object-cover" />
+                                    <img 
+                                        src={sec.image} 
+                                        alt={sec.imageAlt ?? ''} 
+                                        width="800"
+                                        height="500"
+                                        loading="lazy"
+                                        className="w-full h-full object-cover" 
+                                    />
                                 </div>
                                 {sec.imageCaption && (
                                     <p className="text-[12px] text-[#69686e] font-medium mt-4 italic opacity-70">

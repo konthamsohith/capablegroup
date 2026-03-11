@@ -5,8 +5,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
 
 @theme {
-  --color-primary: #ff6321;
-  /* New brand orange */
+  --color-primary: #e85415;
+  /* Updated for accessibility contrast (WCAG AA) */
   --color-secondary: #000000;
   /* New deep dark text */
   --color-background: #f5f4f3;
@@ -55,6 +55,17 @@
   [type="reset"],
   [role="button"] {
     cursor: pointer;
+  }
+
+  /* Skip to content link */
+  .skip-to-content {
+    @apply absolute left-4 -top-16 bg-primary text-white px-4 py-2 rounded-lg z-[200] transition-all focus:top-4;
+  }
+
+  /* Screen reader only class */
+  .sr-only {
+    @apply absolute w-1 h-1 p-0 -m-1 overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
   }
 }
 

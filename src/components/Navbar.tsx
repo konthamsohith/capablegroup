@@ -261,6 +261,7 @@ const Navbar: React.FC = () => {
                                             href="#"
                                             className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center text-secondary"
                                             aria-label={`Follow us on ${label}`}
+                                            title={`Follow us on ${label}`}
                                         >
                                             <Icon size={18} />
                                         </motion.a>

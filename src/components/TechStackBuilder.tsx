@@ -251,7 +251,7 @@ const TechStackBuilder: React.FC = () => {
                                                     : 'bg-white text-black border border-gray-200 hover:border-[#ff6321] hover:shadow-md cursor-grab'
                                             }`}
                                         >
-                                            <div className={`w-9 h-9 rounded-xl flex-shrink-0 flex items-center justify-center transition-colors ${isSelected ? 'bg-gray-200 opacity-80' : 'bg-gray-50 group-hover:bg-[#ff6321]/5'}`}>
+                                            <div className={`w-9 h-9 rounded-xl flex-shrink-0 flex items-center justify-center transition-colors ${isSelected ? 'bg-gray-200 opacity-80' : 'bg-gray-50 group-hover:bg-[#ff6321]/5'}`} aria-hidden="true">
                                                 {tech.icon}
                                             </div>
                                             <span className="leading-tight flex-1 tracking-tight truncate">

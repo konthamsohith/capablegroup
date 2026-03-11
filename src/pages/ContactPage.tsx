@@ -139,10 +139,11 @@ const ContactPage: React.FC = () => {
                                         { id: 'organisation', label: 'Organisation Name', required: true, type: 'text' },
                                     ].map(f => (
                                         <div key={f.id}>
-                                            <label className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#69686e] mb-2 block">
+                                            <label htmlFor={f.id} className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#69686e] mb-2 block">
                                                 {f.label}{f.required && ' *'}
                                             </label>
                                             <input
+                                                id={f.id}
                                                 type={f.type}
                                                 name={f.id}
                                                 required={f.required}
@@ -159,10 +160,11 @@ const ContactPage: React.FC = () => {
                                         { id: 'telephone', label: 'Telephone', required: false, type: 'tel' },
                                     ].map(f => (
                                         <div key={f.id}>
-                                            <label className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#69686e] mb-2 block">
+                                            <label htmlFor={f.id} className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#69686e] mb-2 block">
                                                 {f.label}{f.required && ' *'}
                                             </label>
                                             <input
+                                                id={f.id}
                                                 type={f.type}
                                                 name={f.id}
                                                 required={f.required}
@@ -174,8 +176,9 @@ const ContactPage: React.FC = () => {
                                     ))}
                                 </div>
                                 <div>
-                                    <label className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#69686e] mb-2 block">Nature of Enquiry *</label>
+                                    <label htmlFor="enquiry" className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#69686e] mb-2 block">Nature of Enquiry *</label>
                                     <select
+                                        id="enquiry"
                                         name="enquiry"
                                         required
                                         value={form.enquiry}
@@ -187,8 +190,9 @@ const ContactPage: React.FC = () => {
                                     </select>
                                 </div>
                                 <div>
-                                    <label className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#69686e] mb-2 block">Project Brief (optional)</label>
+                                    <label htmlFor="brief" className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#69686e] mb-2 block">Project Brief (optional)</label>
                                     <textarea
+                                        id="brief"
                                         name="brief"
                                         rows={4}
                                         value={form.brief}

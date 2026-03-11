@@ -49,6 +49,9 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
                 <img
                     src={post.heroImage}
                     alt={post.title}
+                    width="600"
+                    height="400"
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 {/* Category pill overlay */}

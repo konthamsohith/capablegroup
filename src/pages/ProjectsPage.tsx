@@ -104,21 +104,24 @@ const ProjectsPage: React.FC = () => {
                     </motion.div>
 
                     {/* Stats Modular Board */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
-                        {stats.map((s, i) => (
-                            <motion.div
-                                key={i}
-                                variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.08}
-                                className="bg-white rounded-[32px] p-10 border border-gray-100 shadow-sm group hover:border-[#ff6321]/30 transition-all duration-500"
-                            >
-                                <div className="text-5xl font-black text-[#000000] tracking-tighter mb-2 group-hover:text-[#ff6321] transition-colors">
-                                    {s.value}
-                                </div>
-                                <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#69686e]">
-                                    {s.label}
-                                </div>
-                            </motion.div>
-                        ))}
+                    <div className="mb-24">
+                        <h2 className="sr-only">Our Project Statistics</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {stats.map((s, i) => (
+                                <motion.div
+                                    key={i}
+                                    variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.08}
+                                    className="bg-white rounded-[32px] p-10 border border-gray-100 shadow-sm group hover:border-[#ff6321]/30 transition-all duration-500"
+                                >
+                                    <div className="text-5xl font-black text-[#000000] tracking-tighter mb-2 group-hover:text-[#ff6321] transition-colors">
+                                        {s.value}
+                                    </div>
+                                    <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#69686e]">
+                                        {s.label}
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Filter Navigation */}
@@ -175,6 +178,7 @@ const ProjectsPage: React.FC = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="inline-flex items-center gap-3 px-8 py-5 bg-[#000000] text-white text-sm font-bold rounded-2xl hover:bg-[#ff6321] transition-all transform hover:-translate-y-1 shadow-xl"
+                                            aria-label={`Visit ${cs.client} website`}
                                         >
                                             Visit Site
                                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">

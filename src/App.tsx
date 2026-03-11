@@ -31,8 +31,12 @@ function App() {
   return (
     <Router>
       <SmoothScrolling>
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
         <ScrollToTop />
         <Navbar />
+        <main id="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
@@ -44,6 +48,7 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
         </Routes>
+        </main>
       </SmoothScrolling>
     </Router>
   );
