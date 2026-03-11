@@ -295,9 +295,9 @@ const TechStackBuilder: React.FC = () => {
                                                 key={tech.id}
                                                 layout
                                                 draggable={!isSelected}
-                                                onDragStart={(e: React.DragEvent) => {
+                                                onDragStart={((e: React.DragEvent) => {
                                                     if (!isSelected) handleHtml5DragStart(e, tech.id);
-                                                }}
+                                                }) as any}
                                                 whileHover={!isSelected ? { scale: 1.02, y: -2 } : {}}
                                                 whileTap={!isSelected ? { scale: 0.95 } : {}}
                                                 onClick={() => {
