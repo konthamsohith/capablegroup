@@ -12,7 +12,7 @@ interface Milestone {
 
 const milestones: Milestone[] = [
     {
-        year: '2010',
+        year: '2011',
         era: 'FOUNDATION',
         headline: 'Born in Hyderabad',
         body: ['5-person core team.', 'Website design & digital marketing.', 'First clients in Hyderabad.'],

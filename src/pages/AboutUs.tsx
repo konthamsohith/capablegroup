@@ -30,7 +30,7 @@ const AboutUs: React.FC = () => {
         <div className="bg-[#f5f4f3] min-h-screen font-geist text-[#000000]">
             <SEO
                 title="About Us | Capable Groups"
-                description="Capable Groups is an enterprise technology consultancy founded in Hyderabad in 2010. 80+ professionals, 250+ projects delivered across India, USA, Middle East, and the UK."
+                description="Capable Groups is an enterprise technology consultancy founded in Hyderabad in 2011. 80+ professionals, 250+ projects delivered across India, USA, Middle East, and the UK."
                 canonicalUrl="https://capablegroups.com/about-us"
             />
 
@@ -47,10 +47,10 @@ const AboutUs: React.FC = () => {
                         <div className="lg:col-span-8 bg-white rounded-[40px] p-10 md:p-14 border border-gray-100 shadow-[0_32px_80px_-20px_rgba(0,0,0,0.08)] relative overflow-hidden group transition-[box-shadow,border-color] duration-500">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-[#ff6321]/5 rounded-bl-full transition-all group-hover:w-40 group-hover:h-40" />
                             <p className="text-[24px] md:text-[32px] font-bold tracking-tight leading-[1.1] text-[#000000] mb-10 relative z-10">
-                                <span className="text-[#ff6321]">Capable Groups</span> is an enterprise technology consultancy founded in Hyderabad in 2010.
+                                <span className="text-[#ff6321]">Capable Groups</span> is an enterprise technology consultancy founded in Hyderabad in 2011.
                             </p>
                             <p className="text-[#69686e] text-lg md:text-xl leading-relaxed max-w-2xl relative z-10">
-                                Over 16 years, we have grown from a five-person team to a global organisation of 80+ professionals, delivering 250+ projects for clients in India, the United States, the Middle East, and the United Kingdom.
+                                Over 15 years, we have grown from a five-person team to a global organisation of 80+ professionals, delivering 250+ projects for clients in India, the United States, the Middle East, and the United Kingdom.
                             </p>
 
                             <div className="mt-16 flex items-center gap-12 border-t border-gray-100 pt-10 relative z-10">
@@ -90,7 +90,7 @@ const AboutUs: React.FC = () => {
                                 }}
                                 className="bg-white rounded-[40px] p-8 border border-gray-100 shadow-sm flex items-center justify-between group hover:shadow-lg transition-shadow duration-300 cursor-pointer"
                             >
-                                <span className="text-[11px] font-bold tracking-widest text-[#69686e] uppercase opacity-40 group-hover:opacity-100 transition-opacity">Founded 2010</span>
+                                <span className="text-[11px] font-bold tracking-widest text-[#69686e] uppercase opacity-40 group-hover:opacity-100 transition-opacity">Founded 2011</span>
                                 <div className="w-10 h-10 rounded-full bg-[#f5f4f3] flex items-center justify-center group-hover:bg-[#ff6321] group-hover:text-white transition-all">
                                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                                 </div>
@@ -112,18 +112,18 @@ const AboutUs: React.FC = () => {
                     </motion.div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                        {/* 2010: The Conviction */}
+                        {/* 2011: The Conviction */}
                         <motion.div
                             variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                             className="lg:col-span-12 bg-[#f5f4f3] rounded-[40px] p-10 md:p-16 border border-gray-100 flex flex-col md:flex-row gap-12 items-center"
                         >
                             <div className="flex-shrink-0">
-                                <span className="text-[64px] sm:text-[100px] md:text-[140px] font-black text-[#ff6321]/15 leading-none select-none">2010</span>
+                                <span className="text-[64px] sm:text-[100px] md:text-[140px] font-black text-[#ff6321]/15 leading-none select-none">2011</span>
                             </div>
                             <div className="flex-grow">
                                 <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-[#000000] mb-6">The Founding Conviction</h3>
                                 <p className="text-[#69686e] text-lg md:text-xl leading-relaxed max-w-3xl">
-                                    In 2010, our founder established Capable Groups in Hyderabad with a conviction that has remained central to the organisation ever since: that every business, regardless of size or sector, deserves access to technology that genuinely performs.
+                                    In 2011, our founder established Capable Groups in Hyderabad with a conviction that has remained central to the organisation ever since: that every business, regardless of size or sector, deserves access to technology that genuinely performs.
                                 </p>
                             </div>
                         </motion.div>
@@ -197,7 +197,7 @@ const AboutUs: React.FC = () => {
                             <div>
                                 <h4 className="text-xl font-bold text-[#000000] mb-4">The AI-First Consultancy (2026)</h4>
                                 <p className="text-[#69686e] text-lg leading-relaxed max-w-4xl">
-                                    In 2026, Capable Groups undertakes the most significant transformation in its history — rebuilding its digital presence as an AI-first consultancy and formalising an approach to technology partnership that has been 16 years in the making.
+                                    In 2026, Capable Groups undertakes the most significant transformation in its history — rebuilding its digital presence as an AI-first consultancy and formalising an approach to technology partnership that has been 15 years in the making.
                                 </p>
                             </div>
                         </motion.div>

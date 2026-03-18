@@ -85,7 +85,7 @@ const ProjectsPage: React.FC = () => {
         <div className="bg-[#f5f4f3] min-h-screen font-geist text-[#000000] overflow-x-hidden">
             <SEO
                 title="Projects & Case Studies | Capable Groups"
-                description="Over 16 years, Capable Groups has delivered 250+ projects across web, mobile, AI product development, and technology consulting worldwide."
+                description="Over 15 years, Capable Groups has delivered 250+ projects across web, mobile, AI product development, and technology consulting worldwide."
                 canonicalUrl="https://capablegroups.com/projects"
             />
 
@@ -96,10 +96,10 @@ const ProjectsPage: React.FC = () => {
                         <span className="section-tag mb-8 inline-block">PROJECT PORTFOLIO</span>
                         <h1 className="text-[42px] sm:text-[56px] md:text-[72px] lg:text-[90px] font-bold tracking-tighter leading-[0.9] mb-12 text-[#000000]">
                             250+ projects.<br />
-                            <span className="italic text-[#ff6321]">16 years of delivery.</span>
+                            <span className="italic text-[#ff6321]">15 years of delivery.</span>
                         </h1>
                         <p className="text-[#69686e] text-xl md:text-2xl leading-relaxed max-w-3xl mb-16">
-                            Over 16 years, Capable Groups has delivered more than 250 projects across web, mobile, e-commerce, AI product development, and technology consulting. The following represents a selection of recent and significant engagements.
+                            Over 15 years, Capable Groups has delivered more than 250 projects across web, mobile, e-commerce, AI product development, and technology consulting. The following represents a selection of recent and significant engagements.
                         </p>
                     </motion.div>
 

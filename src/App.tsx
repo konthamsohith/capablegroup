@@ -14,15 +14,29 @@ import SmoothScrolling from './components/SmoothScrolling';
 import { useLenis } from 'lenis/react';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const lenis = useLenis();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    if (lenis) {
-      lenis.scrollTo(0, { immediate: true });
+    if (hash) {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          if (lenis) {
+            lenis.scrollTo(element, { offset: -100, duration: 1.5 });
+          } else {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: true });
+      }
     }
-  }, [pathname, lenis]);
+  }, [pathname, hash, lenis]);
 
   return null;
 }

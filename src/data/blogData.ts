@@ -142,18 +142,18 @@ export const posts: Post[] = [
         slug: '16-years-enterprise-technology',
         category: 'Strategy',
         tag: 'STRATEGY & INSIGHT',
-        title: '16 Years of Enterprise Technology Delivery: What We Have Learned',
+        title: '15 Years of Enterprise Technology Delivery: What We Have Learned',
         excerpt:
-            'When Capable Groups was founded in 2010, the technology industry looked significantly different. Over 16 years and 250+ projects, these are our most durable conclusions.',
+            'When Capable Groups was founded in 2011, the technology industry looked significantly different. Over 15 years and 250+ projects, these are our most durable conclusions.',
         date: 'February 2026',
         readTime: '8 min read',
         featured: false,
         heroImage: BLOG_IMAGES.yearsEnterprise.hero,
         image: BLOG_IMAGES.yearsEnterprise.hero,
-        description: 'When Capable Groups was founded in 2010, the technology industry looked significantly different. Over 16 years, these are our durable conclusions.',
+        description: 'When Capable Groups was founded in 2011, the technology industry looked significantly different. Over 15 years, these are our durable conclusions.',
         introParagraphs: [
-            'When Capable Groups was founded in 2010, the technology industry looked significantly different. Cloud computing was nascent. Mobile was ascending. AI was, for most practical purposes, academic.',
-            'Over the 16 years since, we have delivered more than 250 projects for clients across four continents. The following represents our most durable conclusions from that experience.'
+            'When Capable Groups was founded in 2011, the technology industry looked significantly different. Cloud computing was nascent. Mobile was ascending. AI was, for most practical purposes, academic.',
+            'Over the 15 years since, we have delivered more than 250 projects for clients across four continents. The following represents our most durable conclusions from that experience.'
         ],
         sections: [
             {
@@ -193,7 +193,7 @@ export const posts: Post[] = [
         ],
         constancies: {
             label: 'DURABLE CONCLUSIONS',
-            title: 'Lessons from 16 years of delivery',
+            title: 'Lessons from 15 years of delivery',
             items: [
                 {
                     title: 'Documentation is infrastructure',
@@ -212,14 +212,14 @@ export const posts: Post[] = [
                 }
             ],
             image: BLOG_IMAGES.yearsEnterprise.hero,
-            imageAlt: '16 years of excellence',
+            imageAlt: '15 years of excellence',
             quote: 'Capability is a necessary condition. Reliability is the differentiating one.',
             quoteAuthor: 'Capable Groups, 2026'
         },
         closingTitle: 'Continuity in transition',
         closingParagraphs: [
             'The patterns have repeated across every technology transition we have observed. The shift to AI is the most significant yet, but the fundamentals of delivery remain unchanged.',
-            'As we look to the next sixteen years, we remain committed to the same standards of rigour and accountability that have defined us since 2010.'
+            'As we look to the next fifteen years, we remain committed to the same standards of rigour and accountability that have defined us since 2011.'
         ]
     },
     {
@@ -326,7 +326,7 @@ export const posts: Post[] = [
         closingParagraphs: [
             'Working with Capable Groups in 2026 means working with a team that has integrated AI into its practice at the methodology level — not as a marketing positioning, but as a set of tools and processes that consistently produce better outcomes.',
             'Practically, this means faster delivery timelines, more considered architecture, and systems designed from day one to integrate with AI tools and agents as they continue to develop.',
-            'And it means the same professional standards, the same commitment to accountability, and the same long-term orientation that has made Capable Groups a trusted partner for 16 years.'
+            'And it means the same professional standards, the same commitment to accountability, and the same long-term orientation that has made Capable Groups a trusted partner for 15 years.'
         ]
     },
     {
